@@ -180,7 +180,7 @@ button{ font:inherit; }
 }
 
 .nav-menu a{
-  font-family: 'Orbitron';
+  font-family: var(--font-pixel-kor), var(--font-body), sans-serif;
   text-decoration:none;
   color:var(--lighter-gray);
   font-size:.8rem;
