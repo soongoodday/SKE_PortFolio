@@ -2139,7 +2139,7 @@ section{
 }
 
 .nav-panel-body{
-  font-family: 'Mulmaru';
+  font-family: var(--font-pixel-kor);
   padding:14px;
   display:flex;
   flex-direction:column;
