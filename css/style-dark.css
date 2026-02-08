@@ -697,6 +697,7 @@ section{
   border-top:1px solid rgba(255,255,255,.08);
   background:rgba(0,0,0,.18);
   pointer-events:auto !important;
+  box-sizing: border-box;
 }
 
 /* HUD: sticky input (logs scroll, input stays) */
@@ -3951,8 +3952,7 @@ header, .header, #header, .nav-container{
 .hero-hud .hud-lines{
   flex: 1 1 auto;
   min-height: 0;
-  overflow-y: auto;
-  padding-bottom: 70px; /* 입력창 높이만큼 여유(이미 쓰던 값 유지 가능) */
+  overflow-y: auto;/* 입력창 높이만큼 여유(이미 쓰던 값 유지 가능) */
 }
 
 /* ✅ 입력창은 항상 맨 아래 */
