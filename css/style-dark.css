@@ -70,6 +70,13 @@ body{
 a{ color:inherit; }
 button{ font:inherit; }
 
+@font-face {
+    font-family: 'NeoDonggeunmo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
 /* ==========================
    FX
 ========================== */
@@ -295,7 +302,7 @@ section{
   background:linear-gradient(90deg, var(--neon-purple), transparent);
   margin-top:var(--space-md);
 }
-.section-subtitle{ color:var(--light-gray); font-size:1.05rem; margin-top:var(--space-md); }
+.section-subtitle{ font-family: 'NeoDonggeunmo'; color:var(--light-gray); font-size:1.05rem; margin-top:var(--space-md); }
 
 /* ==========================
    HERO (FINAL)
@@ -484,7 +491,7 @@ section{
 }
 
 .hero-description{
-  font-family:var(--font-pixel-kor);
+  font-family: 'NeoDonggeunmo';
   font-size:1.05rem;
   line-height:1.9;
   max-width:640px;
@@ -701,7 +708,7 @@ section{
 }
 
 /* iOS: prevent input zoom */
-#hudInput{ font-size:16px; }
+#hudInput{ font-family: 'NeoDonggeunmo'; font-size:16px; }
 
 /* HUD: hide legacy progress UI (if any) */
 .hero-hud .hud-progress{ display:none !important; }
@@ -787,7 +794,7 @@ section{
   overflow:hidden;
 }
 .card-title{ font-family:var(--font-display); font-size:2rem; margin-bottom:12px; }
-.card-desc{ color:var(--lighter-gray); line-height:1.9; margin-bottom:22px; }
+.card-desc{ font-family: 'NeoDonggeunmo'; color:var(--lighter-gray); line-height:1.9; margin-bottom:22px; }
 
 .stat-grid{
   display:grid;
@@ -817,6 +824,7 @@ section{
   color:rgba(255,255,255,.62);
 }
 .stat-v{
+  font-family: 'NeoDonggeunmo';
   display:block;
   margin-top:6px;
   font-weight:700;
@@ -831,7 +839,7 @@ section{
   opacity:.35;
 }
 
-.side-panels{ display:flex; flex-direction:column; gap:var(--space-lg); }
+.side-panels{ font-family: 'NeoDonggeunmo'; display:flex; flex-direction:column; gap:var(--space-lg); }
 .panel{
   position:relative;
   padding:var(--space-lg);
@@ -839,7 +847,7 @@ section{
   border:1px solid rgba(42,42,53,.9);
   background:linear-gradient(180deg, rgba(22,22,34,.92), rgba(17,17,26,.72));
 }
-.panel h3{ font-family:var(--font-display); font-size:1.5rem; margin-bottom:14px; }
+.panel h3{ font-family: 'NeoDonggeunmo'; font-size:1.5rem; margin-bottom:14px; }
 .panel.accent{
   border-color:rgba(157,0,255,.55);
   background:linear-gradient(135deg, rgba(22,22,34,.92), rgba(26,15,46,.80));
@@ -917,7 +925,7 @@ section{
   letter-spacing:.14em;
   color:rgba(255,255,255,.85);
 }
-.tree-sub{ color:rgba(255,255,255,.55); font-size:.9rem; }
+.tree-sub{ font-family: 'NeoDonggeunmo'; color:rgba(255,255,255,.55); font-size:.9rem; }
 
 .tree-grid{
   padding:18px;
@@ -983,7 +991,7 @@ section{
   color:var(--neon-purple);
   margin-bottom:6px;
 }
-.powerup-desc{ color:var(--lighter-gray); }
+.powerup-desc{ font-family: 'NeoDonggeunmo'; color:var(--lighter-gray); }
 .power-grid{ display:grid; grid-template-columns:1fr; gap:14px; }
 .power-card{
   border-radius:16px;
@@ -1026,7 +1034,7 @@ section{
   color:rgba(255,255,255,.70);
   margin-bottom:12px;
 }
-.quest-title{ font-family:var(--font-display); font-size:2rem; margin-bottom:10px; }
+.quest-title{ font-family: 'NeoDonggeunmo'; font-size:2rem; margin-bottom:10px; }
 .quest-desc{ color:var(--lighter-gray); line-height:1.9; }
 
 .quest-tags{ display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
@@ -1093,7 +1101,7 @@ section{
   background:linear-gradient(180deg, rgba(22,22,34,.92), rgba(17,17,26,.72));
 }
 .ending-text h3{ font-family:var(--font-display); font-size:2rem; margin-bottom:12px; }
-.ending-text p{ color:var(--lighter-gray); line-height:1.9; }
+.ending-text p{ font-family: 'NeoDonggeunmo'; color:var(--lighter-gray); line-height:1.9; }
 
 .ending-ach{ margin-top:18px; padding-top:18px; border-top:1px solid rgba(255,255,255,.08); }
 .ach{
@@ -1103,7 +1111,7 @@ section{
   letter-spacing:.12em;
   color:rgba(0,240,255,.85);
 }
-.ach-sub{ display:block; margin-top:8px; color:rgba(255,255,255,.70); }
+.ach-sub{ font-family: 'NeoDonggeunmo'; display:block; margin-top:8px; color:rgba(255,255,255,.70); }
 
 .ending-cards{ display:grid; grid-template-columns:1fr; gap:16px; }
 .contact-card{
@@ -1123,7 +1131,7 @@ section{
   box-shadow:0 20px 60px rgba(0,240,255,.18);
 }
 .card-icon{ font-size:2rem; }
-.card-label{ font-size:.75rem; letter-spacing:.15em; color:var(--light-gray); }
+.card-label{ font-family: 'NeoDonggeunmo'; font-size:.75rem; letter-spacing:.15em; color:var(--light-gray); }
 .card-value{ font-family:var(--font-display); font-size:1.2rem; font-weight:800; }
 
 /* ==========================
@@ -1146,7 +1154,7 @@ section{
 .back-to-top{
   position:fixed;
   bottom:calc(var(--space-lg) + env(safe-area-inset-bottom));
-  right:calc(var(--space-lg) + env(safe-area-inset-right));
+  right:calc(var(--space-md) + env(safe-area-inset-right));
   width:50px; height:50px;
   background:rgba(22,22,34,.92);
   border:2px solid rgba(0,240,255,.85);
@@ -1210,7 +1218,7 @@ section{
 .close-line:last-child{ transform:translate(-50%,-50%) rotate(-45deg); }
 
 .modal-body{ padding:28px; }
-.modal-title{ font-family:var(--font-display); font-size:2.2rem; margin-bottom:12px; }
+.modal-title{ font-family: 'NeoDonggeunmo'; font-size:2.2rem; margin-bottom:12px; }
 .modal-meta{ color:var(--lighter-gray); margin-bottom:18px; }
 .modal-description{ font-size:1.05rem; line-height:1.9; color:var(--lighter-gray); margin-bottom:18px; }
 .modal-details{ padding-top:18px; border-top:1px solid rgba(42,42,53,.85); }
@@ -1254,7 +1262,7 @@ section{
 .ow-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
 .ow-tag{ font-size:12px; letter-spacing:.14em; opacity:.85; }
 .ow-status{ font-size:12px; opacity:.75; white-space:nowrap; }
-.ow-title{ margin:0; letter-spacing:.03em; }
+.ow-title{ font-family: 'NeoDonggeunmo'; margin:0; letter-spacing:.03em; }
 .ow-desc{
   margin:0;
   opacity:.78;
