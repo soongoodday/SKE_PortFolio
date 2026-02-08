@@ -170,6 +170,7 @@ button{ font:inherit; }
   background:linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  display: none;
 }
 .nav-menu{ 
   display:flex; 
@@ -179,7 +180,7 @@ button{ font:inherit; }
 }
 
 .nav-menu a{
-  font-family: 'Mulmaru';
+  font-family: 'Orbitron';
   text-decoration:none;
   color:var(--lighter-gray);
   font-size:.8rem;
@@ -2812,7 +2813,7 @@ section{
   text-decoration:none;
   white-space:nowrap;
 
-  font-family:var(--font-pixel);
+  font-family: var(--font-pixel-kor), var(--font-body), sans-serif;
   font-size:11px;
   letter-spacing:.14em;
 
