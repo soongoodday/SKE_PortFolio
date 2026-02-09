@@ -243,7 +243,9 @@ const projectData = {
     tools: ['Figma', 'ChatGPT', 'HTML5', 'CSS3', 'Claude'],
     tags: ['Responsive', 'AI CCTV', 'Team Project'],
     image: 'images/nextlab_mac_pixel.png',
-    imageAlt: '넥스트랩 웹페이지 미리보기'
+    imageAlt: '넥스트랩 웹페이지 미리보기',
+    figma: 'https://www.figma.com/design/i1trYEsjw6KASluXJO5Th2/%EB%84%A5%EC%8A%A4%ED%8A%B8%EB%9E%A9?node-id=793-4576&t=Fg8tdzJf0OV0n8RE-1',
+    site: 'https://swbyun0614.github.io/nextLab/'
   },
   badaju: {
     title: '바다주 웹페이지',
@@ -256,6 +258,9 @@ const projectData = {
     tags: ['Publishing', 'Portfolio'],
     image: 'images/badaju_mac_pixel.png',
     imageAlt: '바다주 웹페이지 미리보기',
+    figma: 'https://www.figma.com/design/3yMd1m4K0Cd24DPP3pg8RV/%EC%B6%9C%ED%8C%90%EC%82%AC-%EB%B0%94%EB%8B%A4%EC%A3%BC_%EC%84%B1%EA%B2%BD%EC%9D%80?node-id=396-14&t=wuLjPRJJbLsuwGw7-1',
+    site: 'https://soongoodday.github.io/badaju/'
+    
   },
   ukymelar: {
     title: '유키멜라 웹페이지',
@@ -268,6 +273,8 @@ const projectData = {
     tags: ['Photographer', 'UX/UI'],
     image: 'images/ukymelar_mac_pixel.png',
     imageAlt: '유키멜라 웹페이지 미리보기',
+    figma: 'https://www.figma.com/design/xOiNMquZhso1HXhskpfabI/%EC%84%B1%EA%B2%BD%EC%9D%80_%EC%9C%A0%ED%82%A4%EB%A9%9C%EB%9D%BC?node-id=198-2&t=cOG2wfOoxRHlKNQo-1',
+    site: 'https://soongoodday.github.io/ukymelar/'
   },
   cheil: {
     title: '분당제일여성병원 웹페이지',
@@ -280,6 +287,8 @@ const projectData = {
     tags: ['Bundang Cheil hospital', 'Redesign'],
     image: 'images/cheil_mac_pixel.png',
     imageAlt: '분당제일여성병원 웹페이지 미리보기',
+    figma: 'https://www.figma.com/design/S0XNoRVIU8UADx7Qh67SUa/%EC%84%B1%EA%B2%BD%EC%9D%80_%EB%B6%84%EB%8B%B9%EC%A0%9C%EC%9D%BC%EC%97%AC%EC%84%B1%EB%B3%91%EC%9B%90?node-id=116-14&t=PVg3aZdm0LsRg6u2-1',
+    site: 'https://soongoodday.github.io/Bundang_Cheil/'
   },
   nouvedilie: {
     title: '누베딜리 웹페이지',
@@ -292,6 +301,7 @@ const projectData = {
     tags: ['Nouvedilie', 'Affordable Luxury'],
     image: 'images/nouvedilie_mac_pixel.png',
     imageAlt: '누베딜리 웹페이지 미리보기',
+    figma: 'https://www.figma.com/design/782Iu0q50cB7mjHo7Px1H4/%EB%88%84%EB%B2%A0%EB%94%9C%EB%A6%AC?node-id=194-2&t=6JrsP6T8ok8zaHih-1'
   },
   art: {
     title: '미대입시닷컴 웹페이지',
@@ -304,6 +314,7 @@ const projectData = {
     tags: ['Art academy', 'Redesign'],
     image: 'images/art_mac_pixel.png',
     imageAlt: '미대입시닷컴 웹페이지 미리보기',
+    figma: 'https://www.figma.com/design/NsA1uGG1njB0qcf5WiEbIG/%EB%AF%B8%EB%8C%80%EC%9E%85%EC%8B%9C%EB%8B%B7%EC%BB%B4_%EC%84%B1%EA%B2%BD%EC%9D%80?node-id=31-153&t=Gg85AwsMLXIRDqhh-1'
   },
   wethink: {
     title: '위띵크 디자인 스트리밍 & 커뮤니티 앱',
@@ -316,6 +327,7 @@ const projectData = {
     tags: ['Collaboration Tool', 'Community'],
     image: 'images/wethink_mac_pixel.png',
     imageAlt: '미대입시닷컴 웹페이지 미리보기',
+    figma: 'https://www.figma.com/design/gaEyN3IWC2B6y6SPfUzVUk/%EC%84%B1%EA%B2%BD%EC%9D%80_%EC%9C%84%EB%9D%B5%ED%81%AC?node-id=84-6512&t=HjPFrHIKxnsQ6zN3-1'
   },
 };
 
@@ -355,6 +367,29 @@ function openModal(projectId) {
     <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1rem; color: var(--neon-purple);">REWARDS</h3>
     <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">${tagsHTML}</div>
   `;
+
+  // ✅ 모달 버튼 2개 찾기
+  const figmaBtn = document.getElementById('modalFigma');
+  const siteBtn = document.getElementById('modalSite');
+
+  // ✅ 프로젝트에 링크 있으면 버튼에 꽂기 / 없으면 숨기기
+  if (figmaBtn) {
+    if (project.figma) {
+      figmaBtn.href = project.figma;
+      figmaBtn.style.display = '';
+    } else {
+      figmaBtn.style.display = 'none';
+    }
+  }
+
+  if (siteBtn) {
+    if (project.site) {
+      siteBtn.href = project.site;
+      siteBtn.style.display = '';
+    } else {
+      siteBtn.style.display = 'none';
+    }
+  }
 
   modal.classList.add('active');
   modal.setAttribute('aria-hidden', 'false');
@@ -1660,7 +1695,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 (() => {
   const desktopBtn = document.getElementById('themeSwitch');
-  const mobileBtn  = document.getElementById('themeSwitchMobile');
+  const mobileBtn = document.getElementById('themeSwitchMobile');
   if (!desktopBtn || !mobileBtn) return;
 
   // 현재 상태 읽기/쓰기 헬퍼
@@ -1707,7 +1742,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-(function(){
+(function () {
   const bg = document.querySelector('.bg-parallax');
   if (!bg) return;
 
@@ -1718,7 +1753,7 @@ window.addEventListener('DOMContentLoaded', () => {
   let targetX = 0, targetY = 0;  // -1 ~ 1
   let curX = 0, curY = 0;
 
-  function onMove(e){
+  function onMove(e) {
     const x = (e.clientX / window.innerWidth) * 2 - 1;
     const y = (e.clientY / window.innerHeight) * 2 - 1;
     targetX = x;
@@ -1726,7 +1761,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (!raf) raf = requestAnimationFrame(tick);
   }
 
-  function tick(){
+  function tick() {
     // 부드럽게 따라가게 (lerp)
     curX += (targetX - curX) * 0.10;
     curY += (targetY - curY) * 0.10;
@@ -1743,7 +1778,7 @@ window.addEventListener('DOMContentLoaded', () => {
     bg.style.setProperty('--ry', ry);
 
     // 계속 추적 (마우스 멈춰도 잔여 보간)
-    if (Math.abs(targetX - curX) > 0.001 || Math.abs(targetY - curY) > 0.001){
+    if (Math.abs(targetX - curX) > 0.001 || Math.abs(targetY - curY) > 0.001) {
       raf = requestAnimationFrame(tick);
     } else {
       raf = null;

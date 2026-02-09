@@ -1764,6 +1764,10 @@ section{
   box-shadow:0 0 22px rgba(0,240,255,.12);
 }
 
+#owFigma {
+  display: none;
+}
+
 /* nav */
 .ow-nav{
   margin-top:12px;
@@ -4101,3 +4105,152 @@ html.to-light .clean-hud__text{
   html.to-light .clean-wipe{ animation:none; transform: translateX(0%); opacity:1; }
   html.to-light .clean-hud__text{ animation:none; opacity:1; transform:none; }
 }
+
+
+
+
+/* ==========================
+   MODAL LINK BUTTONS (Figma / Site)
+   - Retro neon / game UI feel
+   - Works for: owModal(.ow-actions .ow-link) + projectModal(.modal-links .modal-link)
+========================== */
+
+/* ---------- 1) 공통 버튼 베이스 ---------- */
+.ow-actions,
+.modal-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+  align-items:center;
+}
+
+.ow-actions .ow-link,
+.modal-links .modal-link{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:12px 14px;
+  min-height:42px;
+
+  font-family: var(--font-display, 'Orbitron', sans-serif);
+  font-size:13px;
+  letter-spacing:.06em;
+  text-decoration:none;
+  text-transform:uppercase;
+
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  color:#fff;
+
+  background: linear-gradient(180deg, rgba(22,22,34,.92), rgba(12,12,18,.92));
+  box-shadow:
+    0 10px 26px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.08);
+
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, filter .2s ease;
+  cursor:pointer;
+  user-select:none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 픽셀 느낌 미세한 라인 */
+.ow-actions .ow-link::before,
+.modal-links .modal-link::before{
+  content:"";
+  position:absolute;
+  inset:2px;
+  border-radius:10px;
+  border:1px dashed rgba(255,255,255,.10);
+  pointer-events:none;
+  opacity:.65;
+}
+
+/* 오른쪽 화살표 강조 */
+.ow-actions .ow-link::after,
+.modal-links .modal-link::after{
+  content:"";
+  width:6px;
+  height:6px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform: rotate(-45deg);
+  margin-left:2px;
+  opacity:.9;
+}
+
+/* ---------- 2) Hover / Focus ---------- */
+.ow-actions .ow-link:hover,
+.modal-links .modal-link:hover{
+  transform: translateY(-1px);
+  border-color: rgba(0,240,255,.45);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.55),
+    0 0 18px rgba(0,240,255,.20),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  filter: saturate(1.08);
+}
+
+.ow-actions .ow-link:active,
+.modal-links .modal-link:active{
+  transform: translateY(0px) scale(.99);
+}
+
+/* 키보드 포커스 */
+.ow-actions .ow-link:focus-visible,
+.modal-links .modal-link:focus-visible{
+  outline:none;
+  border-color: rgba(157,0,255,.65);
+  box-shadow:
+    0 0 0 3px rgba(157,0,255,.25),
+    0 0 18px rgba(157,0,255,.18),
+    0 12px 26px rgba(0,0,0,.55);
+}
+
+/* ---------- 3) 색상 버전(피그마/사이트) ----------
+   - id 기반으로 자동 컬러링
+*/
+#owFigma, #modalFigma{
+  border-color: rgba(157,0,255,.40);
+}
+#owFigma:hover, #modalFigma:hover{
+  border-color: rgba(157,0,255,.70);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.55),
+    0 0 18px rgba(157,0,255,.24),
+    inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+#owSite, #modalSite{
+  border-color: rgba(0,240,255,.40);
+}
+#owSite:hover, #modalSite:hover{
+  border-color: rgba(0,240,255,.75);
+}
+
+/* ---------- 4) 모달 내부 배치 디테일 ---------- */
+/* owModal 정보영역 안에서 버튼들이 너무 아래로 밀리지 않게 */
+.ow-info .ow-actions{
+  margin-top:16px;
+}
+
+/* projectModal에서 이미지/설명 아래에 넣었을 때 간격 */
+#projectModal .modal-links{
+  margin-top:14px;
+}
+
+/* ---------- 5) 반응형: 모바일에서 버튼 꽉 차게 ---------- */
+@media (max-width: 520px){
+  .ow-actions .ow-link,
+  .modal-links .modal-link{
+    width:100%;
+    justify-content:space-between;
+  }
+}
+
+
+
+
