@@ -1592,19 +1592,50 @@
 
 
     <script>
-        // ✅ 어떤 토글을 눌러도 동작하게 (중복 id 문제 회피)
-        document.addEventListener('click', (e) => {
-            const btn = e.target.closest('.theme-switch');
-            if (!btn) return;
+        (function () {
+            // 1) wipe + hud 1회 생성
+            const wipe = document.createElement('div');
+            wipe.className = 'scene-wipe';
+            document.body.appendChild(wipe);
 
-            // (theme-toggle.js가 막는 경우 대비) 캡처 단계에서 먼저 잡고 바로 이동
-            const isDarkPage =
-                location.pathname.includes('index-dark.html') ||
-                location.pathname.includes('dark');
+            const hud = document.createElement('div');
+            hud.className = 'scene-hud';
+            hud.innerHTML = `
+      <div class="scene-hud__panel" role="status" aria-live="polite">
+        <div class="scene-hud__title">STAGE LOADING...</div>
+        <div class="scene-hud__sub">테마 전환 중</div>
+        <div class="scene-hud__bar"><div class="scene-hud__fill"></div></div>
+      </div>
+    `;
+            document.body.appendChild(hud);
 
-            location.href = isDarkPage ? 'index.html' : 'index-dark.html';
-        }, true); // ✅ true = capture (가로채기보다 먼저 실행)
+            // 2) 테마 스위치 클릭(중복 id 상관없이)
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest('.theme-switch');
+                if (!btn) return;
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                const path = location.pathname.toLowerCase();
+                const isDark = path.includes('index-dark.html') || path.includes('dark');
+                const target = isDark ? 'index.html' : 'index-dark.html';
+
+                if (document.documentElement.classList.contains('theme-leave')) return;
+
+                // HUD 문구도 살짝 바꿀 수 있음
+                hud.querySelector('.scene-hud__sub').textContent = isDark ? 'LIGHT MODE로 전환' : 'DARK MODE로 전환';
+
+                document.documentElement.classList.add('theme-leave');
+
+                // CSS 애니메이션(420ms) 끝난 뒤 이동
+                setTimeout(() => {
+                    location.href = target;
+                }, 420);
+            }, true);
+        })();
     </script>
+
 
 </body>
 

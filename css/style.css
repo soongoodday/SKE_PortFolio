@@ -3935,3 +3935,110 @@ button:focus{
     padding: 12px 24px;            /* 170px은 너무 커서 줄이는 게 자연스러움 */
   }
 }
+
+
+
+
+/* =========================
+   Game Scene Transition HUD
+========================= */
+.scene-hud{
+  position: fixed; inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(0,0,0,.72);
+  display: grid;
+  place-items: center;
+}
+
+.scene-hud__panel{
+  width: min(520px, 86vw);
+  border: 1px solid rgba(0,240,255,.35);
+  box-shadow: 0 0 24px rgba(0,240,255,.15);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  background: rgba(10,10,18,.78);
+  backdrop-filter: blur(6px);
+  transform: translateY(10px) scale(.98);
+  opacity: 0;
+}
+
+.scene-hud__title{
+  font-family: var(--font-pixel, 'Press Start 2P', monospace);
+  font-size: 12px;
+  letter-spacing: .6px;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 12px;
+}
+
+.scene-hud__sub{
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 13px;
+  color: rgba(255,255,255,.72);
+  margin-bottom: 14px;
+}
+
+.scene-hud__bar{
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.scene-hud__fill{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,
+    rgba(0,240,255,.85),
+    rgba(157,0,255,.70),
+    rgba(255,0,110,.65)
+  );
+  box-shadow: 0 0 18px rgba(0,240,255,.22);
+}
+
+/* 픽셀 와이프 레이어(위로 지나가며 덮기) */
+.scene-wipe{
+  position: fixed; inset: 0;
+  z-index: 999998;
+  pointer-events: none;
+  transform: translateX(-110%);
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.92), rgba(0,0,0,0.92)),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px) 0 0 / 14px 14px,
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px) 0 0 / 14px 14px;
+  box-shadow: 0 0 0 2px rgba(0,240,255,0.18), 0 0 40px rgba(0,240,255,0.12);
+}
+
+/* 전환 시작 애니메이션 */
+html.theme-leave .scene-wipe{
+  animation: sceneWipeIn 420ms steps(12, end) forwards;
+}
+@keyframes sceneWipeIn{
+  0%   { transform: translateX(-110%); }
+  100% { transform: translateX(0%); }
+}
+
+html.theme-leave .scene-hud{
+  opacity: 1;
+}
+html.theme-leave .scene-hud__panel{
+  animation: hudIn 220ms ease-out forwards;
+}
+@keyframes hudIn{
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+html.theme-leave .scene-hud__fill{
+  animation: loadFill 420ms linear forwards;
+}
+@keyframes loadFill{
+  to { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html.theme-leave .scene-wipe{ animation:none; transform: translateX(0%); }
+  html.theme-leave .scene-hud__fill{ animation:none; width:100%; }
+  html.theme-leave .scene-hud__panel{ animation:none; opacity:1; transform:none; }
+}

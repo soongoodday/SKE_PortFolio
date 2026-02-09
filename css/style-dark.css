@@ -4035,3 +4035,69 @@ header, .header, #header, .nav-container{
   opacity: 1;
   text-shadow: 0 0 10px rgba(157,0,255,.55);
 }
+
+
+
+
+/* =========================
+   Dark -> Light Clean Wipe
+========================= */
+.clean-wipe{
+  position: fixed; inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+  transform: translateX(-110%);
+  opacity: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+    radial-gradient(circle at 30% 30%, rgba(0,0,0,0.04), transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.03), transparent 60%);
+  box-shadow: 0 0 60px rgba(255,255,255,.25);
+}
+
+.clean-hud{
+  position: fixed; inset: 0;
+  z-index: 1000000;
+  pointer-events: none;
+  opacity: 0;
+  display: grid;
+  place-items: center;
+}
+
+.clean-hud__text{
+  font-family: var(--font-body, 'Inter', sans-serif);
+  letter-spacing: .2px;
+  font-size: 13px;
+  color: rgba(255,255,255,.78);
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 10px 14px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  transform: translateY(6px);
+  opacity: 0;
+}
+
+/* 트리거 */
+html.to-light .clean-wipe{
+  opacity: 1;
+  animation: cleanWipeIn 420ms cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes cleanWipeIn{
+  to { transform: translateX(0%); }
+}
+
+html.to-light .clean-hud{
+  opacity: 1;
+}
+html.to-light .clean-hud__text{
+  animation: cleanTextIn 200ms ease-out forwards;
+}
+@keyframes cleanTextIn{
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html.to-light .clean-wipe{ animation:none; transform: translateX(0%); opacity:1; }
+  html.to-light .clean-hud__text{ animation:none; opacity:1; transform:none; }
+}

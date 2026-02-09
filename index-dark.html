@@ -447,7 +447,8 @@
         <div class="powerup">
           <div class="powerup-head">
             <h3 class="powerup-title">AI POWER-UP</h3>
-            <p class="powerup-desc">ChatGPT & Midjourney를 활용해 이미지 생성과 영문 프롬포트 작성 및 ChatGPT & Ideogram & Claude를 활용해 디자인 시안 발전 및 프로젝트, 웹 포트폴리오 코딩을 진행했습니다.</p>
+            <p class="powerup-desc">ChatGPT & Midjourney를 활용해 이미지 생성과 영문 프롬포트 작성 및 ChatGPT & Ideogram & Claude를 활용해 디자인
+              시안 발전 및 프로젝트, 웹 포트폴리오 코딩을 진행했습니다.</p>
           </div>
 
           <div class="power-grid">
@@ -754,32 +755,49 @@
 
   <script>
     (() => {
-      // ✅ 페이지 판별: 다크 페이지면 true
       const isDarkPage =
         location.pathname.includes('index-dark.html') ||
         location.pathname.includes('dark');
 
-      // ✅ 페이지 전역 클래스(원하면 다른 요소도 여기로 분기 가능)
       document.documentElement.classList.toggle('is-dark-page', isDarkPage);
 
-      // ✅ 토글 버튼들(PC + Mobile 둘 다)
-      const switches = document.querySelectorAll('.theme-switch');
+      // ✅ 오버레이 생성(1회)
+      const wipe = document.createElement('div');
+      wipe.className = 'clean-wipe';
+      document.body.appendChild(wipe);
 
-      // ✅ 로드 시 토글 UI 상태 맞추기
-      switches.forEach(btn => {
+      const hud = document.createElement('div');
+      hud.className = 'clean-hud';
+      hud.innerHTML = `<div class="clean-hud__text">Switching to LIGHT MODE…</div>`;
+      document.body.appendChild(hud);
+
+      // ✅ 토글 UI 맞추기
+      document.querySelectorAll('.theme-switch').forEach(btn => {
         btn.setAttribute('aria-checked', isDarkPage ? 'true' : 'false');
       });
 
-      // ✅ 클릭 시 페이지 이동 (토글 어디를 눌러도 동작)
-      // 캡처 단계에서 먼저 잡아서 다른 스크립트가 막아도 이동되게
+      // ✅ 클릭 전환 (다크 -> 라이트일 때만 "클린" 효과)
       document.addEventListener('click', (e) => {
         const btn = e.target.closest('.theme-switch');
         if (!btn) return;
 
-        location.href = isDarkPage ? 'index.html' : 'index-dark.html';
+        e.preventDefault();
+        e.stopPropagation();
+
+        const target = isDarkPage ? 'index.html' : 'index-dark.html';
+
+        // 다크 -> 라이트면 클린 와이프
+        if (isDarkPage) {
+          if (document.documentElement.classList.contains('to-light')) return;
+          document.documentElement.classList.add('to-light');
+          setTimeout(() => location.href = target, 420);
+        } else {
+          location.href = target;
+        }
       }, true);
     })();
   </script>
+
 
 
 </body>
