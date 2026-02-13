@@ -245,7 +245,7 @@ const projectData = {
     image: 'images/nextlab_mac_pixel.png',
     imageAlt: '넥스트랩 웹페이지 미리보기',
     figma: 'https://www.figma.com/design/i1trYEsjw6KASluXJO5Th2/%EB%84%A5%EC%8A%A4%ED%8A%B8%EB%9E%A9?node-id=793-4576&t=Fg8tdzJf0OV0n8RE-1',
-    site: 'https://swbyun0614.github.io/nextLab/'
+    site: 'https://nextlab.ai.kr'
   },
   badaju: {
     title: '바다주 웹페이지',
