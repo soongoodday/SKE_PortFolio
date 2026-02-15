@@ -154,7 +154,7 @@ let savedScrollY = 0;
     },
     {
       thumb: { src: "images/nanum_poster_thumb.png", alt: "대한민국 공익광고제 포스터 썸네일" },
-      left: { src: "images/nanum_poster.png", alt: "대한민국 공익광고제 포스터" },
+      left: { src: "images/nanum_poster_mockup.png", alt: "대한민국 공익광고제 포스터" },
       rights: [],
       title: "대한민국 공익광고제 포스터",
       desc: "",
@@ -166,7 +166,7 @@ let savedScrollY = 0;
     },
     {
       thumb: { src: "images/medal_poster_thumb.png", alt: "경기도 금연공감문화제 포스터 썸네일" },
-      left: { src: "images/medal_poster.png", alt: "경기도 금연공감문화제 포스터" },
+      left: { src: "images/medal_poster_mockup.png", alt: "경기도 금연공감문화제 포스터" },
       rights: [],
       title: "경기도 금연공감문화제 포스터",
       desc: "",
@@ -216,10 +216,10 @@ let savedScrollY = 0;
       thumbFit: "contain"
     },
     {
-      thumb: { src: "images/smart_thumb.png", alt: "스마트팩토리 툴킷 소개 홍보물 썸네일" },
-      left: { src: "images/smart1.png", alt: "스마트팩토리 툴킷 소개 홍보물" },
-      rights: [ { src: "images/smart2.png", alt: "스마트팩토리 툴킷 소개 홍보물" }],
-      title: "스마트팩토리 툴킷 소개 홍보물",
+      thumb: { src: "images/ivh_thumb.png", alt: "iVH 기업 명함 썸네일" },
+      left: { src: "images/ivh.png", alt: "iVH 기업 명함" },
+      rights: [],
+      title: "iVH 기업 명함",
       desc: "",
       topic: "",
       age: "",
@@ -239,6 +239,42 @@ let savedScrollY = 0;
       link: "#",
       thumbFit: "contain"
     },
+    {
+      thumb: { src: "images/2023_guidance_thumb.png", alt: "2023 한국가이던스 팜플렛 썸네일" },
+      left: { src: "images/2023_guidance.png", alt: "2023 한국가이던스 팜플렛" },
+      rights: [ { src: "images/2023_guidance2.png", alt: "2023 한국가이던스 팜플렛" } ],
+      title: "2023 한국가이던스 팜플렛",
+      desc: "",
+      topic: "",
+      age: "",
+      caption: "",
+      link: "#",
+      thumbFit: "contain"
+    },
+    {
+      thumb: { src: "images/guidance_ssgi_thumb.png", alt: "SSGI 결과표 & 통계표 썸네일" },
+      left: { src: "images/guidance_ssgi1.png", alt: "SSGI 결과표 & 통계표" },
+      rights: [ { src: "images/guidance_ssgi2.png", alt: "SSGI 결과표 & 통계표" } ],
+      title: "SSGI 결과표 & 통계표",
+      desc: "",
+      topic: "",
+      age: "",
+      caption: "",
+      link: "#",
+      thumbFit: "contain"
+    },
+    {
+      thumb: { src: "images/guidance_ssda_thumb.png", alt: "SSDA 결과표 & 통계표 썸네일" },
+      left: { src: "images/guidance_ssda1.png", alt: "SSDA 결과표 & 통계표" },
+      rights: [ { src: "images/guidance_ssda2.png", alt: "SSDA 결과표 & 통계표" } ],
+      title: "SSDA 결과표 & 통계표",
+      desc: "",
+      topic: "",
+      age: "",
+      caption: "",
+      link: "#",
+      thumbFit: "contain"
+    }
   ];
 
   const grid = document.getElementById("otherWorksGrid3");

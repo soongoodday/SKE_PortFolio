@@ -649,13 +649,13 @@ document.addEventListener('keydown', (e) => {
     {
       tag: "ARCHIVE",
       status: "100%",
-      title: "스마트팩토리 툴킷 소개 홍보물",
+      title: "iVH 기업 명함",
       meta: "Design • 2025",
-      desc: "스마트팩토리 툴킷 소개 홍보물",
-      topic: "스마트팩토리 툴킷/홍보물",
-      age: "스마트팩토리 툴킷에 관심있는 기업",
+      desc: "iVH 기업 명함",
+      topic: "기업/명함",
+      age: "iVH 관계자 및 고객",
       figma: "https://www.figma.com/",
-      images: ["images/smart1.png", "images/smart2.png"]
+      images: ["images/ivh.png"]
     },
     {
       tag: "ARCHIVE",
@@ -667,6 +667,39 @@ document.addEventListener('keydown', (e) => {
       age: "보령머드축제 관계자 및 관심있는 국민",
       figma: "https://www.figma.com/",
       images: ["images/mud_poster.png"]
+    },
+    {
+      tag: "ARCHIVE",
+      status: "100%",
+      title: "2023 한국가이던스 팜플렛",
+      meta: "Design • 2023",
+      desc: "2023 한국가이던스 팜플렛",
+      topic: "기업/팜플렛",
+      age: "한국가이던스 관계자 및 학교 상담 선생님",
+      figma: "https://www.figma.com/",
+      images: ["images/2023_guidance.png", "images/2023_guidance2.png"]
+    },
+    {
+      tag: "ARCHIVE",
+      status: "100%",
+      title: "SSGI 결과표 & 통계표",
+      meta: "Design • 2023",
+      desc: "SSGI 결과표 & 통계표",
+      topic: "기업/결과표/통계표",
+      age: "한국가이던스 관계자 및 학교 상담 선생님",
+      figma: "https://www.figma.com/",
+      images: ["images/guidance_ssgi1.png", "images/guidance_ssgi2.png"]
+    },
+    {
+      tag: "ARCHIVE",
+      status: "100%",
+      title: "SSDA 결과표 & 통계표",
+      meta: "Design • 2023",
+      desc: "SSDA 결과표 & 통계표",
+      topic: "기업/결과표/통계표",
+      age: "한국가이던스 관계자 및 학교 상담 선생님",
+      figma: "https://www.figma.com/",
+      images: ["images/guidance_ssda1.png", "images/guidance_ssda2.png"]
     }
   ];
 
