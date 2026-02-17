@@ -501,7 +501,7 @@ document.addEventListener('keydown', (e) => {
       topic: "중앙대학교/리플렛",
       age: "중앙대학교 관계자 및 학생",
       figma: "https://www.figma.com/",
-      images: ["images/university_brochure1.jpg", "images/university_brochure2.jpg"]
+      images: ["images/university_brochure1.png", "images/university_brochure2.png"]
     },
     {
       tag: "ARCHIVE",
@@ -616,20 +616,20 @@ document.addEventListener('keydown', (e) => {
     {
       tag: "ARCHIVE",
       status: "100%",
-      title: "웨딩스튜디오 인스타그램 디자인2",
-      meta: "Design • 2025",
-      desc: "웨딩스튜디오 인스타그램 디자인2",
-      topic: "웨딩스튜디오/인스타그램",
-      age: "웨딩스튜디오 관계자 및 고객",
+      title: "중대재해 예방 포스터",
+      meta: "Design • 2023",
+      desc: "중대재해 예방 포스터",
+      topic: "중대재해 예방/포스터",
+      age: "중대재해 예방 관련 관계자 및 일반 대중",
       figma: "https://www.figma.com/",
-      images: ["images/insta1.png", "images/insta2.png", "images/insta3.png", "images/insta4.png"]
+      images: ["images/mcs_poster.png"]
     },
     {
       tag: "ARCHIVE",
       status: "100%",
-      title: "웨딩스튜디오 인스타그램 디자인1",
+      title: "웨딩스튜디오 인스타그램 디자인",
       meta: "Design • 2025",
-      desc: "웨딩스튜디오 인스타그램 디자인1",
+      desc: "웨딩스튜디오 인스타그램 디자인",
       topic: "웨딩스튜디오/인스타그램",
       age: "웨딩스튜디오 관계자 및 고객",
       figma: "https://www.figma.com/",

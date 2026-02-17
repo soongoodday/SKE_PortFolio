@@ -38,8 +38,9 @@ let savedScrollY = 0;
       thumbFit: "contain"
     },
     {
-      left: { src: "images/university_brochure1.jpg", alt: "중앙대학교 리플렛" },
-      rights: [{src: "images/university_brochure2.jpg", alt: "중앙대학교 리플렛" }],
+      thumb: { src: "images/university_brochure_thumb.png", alt: "중앙대학교 리플렛 썸네일" },
+      left: { src: "images/university_brochure1.png", alt: "중앙대학교 리플렛" },
+      rights: [{src: "images/university_brochure2.png", alt: "중앙대학교 리플렛" }],
       title: "중앙대학교 리플렛",
       desc: "중앙대학교 리플렛",
       topic: "",
@@ -177,13 +178,10 @@ let savedScrollY = 0;
       thumbFit: "contain"
     },
     {
-      thumb: { src: "images/insta1_thumb.png", alt: "웨딩스튜디오 인스타그램 디자인2 썸네일" },
-      left: { src: "images/insta1.png", alt: "웨딩스튜디오 인스타그램 디자인2" },
-      rights: [ { src: "images/insta2.png", alt: "웨딩스튜디오 인스타그램 디자인2" },
-                { src: "images/insta3.png", alt: "웨딩스튜디오 인스타그램 디자인2" },
-                { src: "images/insta4.png", alt: "웨딩스튜디오 인스타그램 디자인2" },
-       ],
-      title: "웨딩스튜디오 인스타그램 디자인2",
+      thumb: { src: "images/mcs_poster_thumb.png", alt: "중대재해 예방 포스터 썸네일" },
+      left: { src: "images/mcs_poster.png", alt: "중대재해 예방 포스터" },
+      rights: [],
+      title: "중대재해 예방 포스터",
       desc: "",
       topic: "",
       age: "",
