@@ -260,6 +260,31 @@
 
 
 
+/* 포트폴리오 8 - 컷틴 커트 주기 관리 웹앱 */
+@font-face {
+    font-family: 'CookieRun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CookieRun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CookieRun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Black00.woff') format('woff');
+    font-weight: 900;
+    font-display: swap;
+}
+
+
+
+
 /* 푸터 필기체 - 잉크립퀴드체 */
 @font-face {
     font-family: 'InkLiquid';
@@ -1074,7 +1099,8 @@ body{
 .portfolio-tagline4,
 .portfolio-tagline5,
 .portfolio-tagline6,
-.portfolio-tagline7 {
+.portfolio-tagline7,
+.portfolio-tagline8 {
   font-size: var(--font-2xl);
   margin-bottom: var(--spacing-xl);
   line-height: 1.8;
@@ -1106,6 +1132,10 @@ body{
 
 .portfolio-tagline7 {
   font-family: 'SchoolSafetyPoster';
+}
+
+.portfolio-tagline8 {
+  font-family: 'CookieRun';
 }
 
 .info-section{
@@ -4607,3 +4637,7 @@ html.theme-leave .scene-hud__fill{
     font-size: 0.9rem;
   }
 }
+
+
+
+

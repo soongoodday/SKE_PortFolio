@@ -329,6 +329,20 @@ const projectData = {
     imageAlt: '미대입시닷컴 웹페이지 미리보기',
     figma: 'https://www.figma.com/design/gaEyN3IWC2B6y6SPfUzVUk/%EC%84%B1%EA%B2%BD%EC%9D%80_%EC%9C%84%EB%9D%B5%ED%81%AC?node-id=84-6512&t=HjPFrHIKxnsQ6zN3-1'
   },
+  cutine: {
+    title: '컷틴 커트 주기 관리 웹앱',
+    category: 'SIDE QUEST • WEBAPP REDESIGN',
+    date: '2026.02',
+    status: '60% Complete',
+    description: '컷틴은 커트 주기 관리를 위한 웹앱입니다. 사용자가 자신의 커트 주기를 설정하고 관리할 수 있도록 도와주는 웹앱으로, 깔끔한 디자인과 직관적인 인터페이스를 통해 사용자 경험을 극대화하는 것을 목표로 했습니다. 주요 기능으로는 커트 주기 설정, 알림 기능, 그리고 헤어 관련 팁 제공 등이 있습니다. 사용자는 자신의 커트 주기를 설정하고, 알림을 통해 커트 시기를 놓치지 않도록 도와줍니다.',
+    role: '기획 & 디자인 & 코딩',
+    tools: ['Figma', 'Photoshop', 'Illustrator', 'ChatGPT', 'Claude Code'],
+    tags: ['Hair', 'Cutting', 'Web App'],
+    image: 'images/cutine_mobile_pixel.png',
+    imageAlt: '컷틴 웹앱 미리보기',
+    figma: 'https://www.figma.com/design/8h5WOdODTTF7ZfqgiSccHK/%EC%BB%B7%ED%8B%B4?node-id=0-1&t=d0iebBtSZ5T2RlOy-1',
+    site: 'https://cutine-webapp.web.app/'
+  },
 };
 
 function openModal(projectId) {
