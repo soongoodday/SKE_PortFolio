@@ -4641,3 +4641,9 @@ html.theme-leave .scene-hud__fill{
 
 
 
+.sub-slider__track,
+.other-works-viewport,
+.sub-images--scroll3{
+  overflow-x: auto;   /* 또는 scroll */
+  overflow-y: hidden;
+}

@@ -794,3 +794,60 @@ document.addEventListener("DOMContentLoaded", () => {
 //     location.href = nextTheme === "dark" ? DARK_URL : LIGHT_URL;
 //   });
 // })();
+
+
+
+
+/* =======================================================
+   ✅ FINAL Horizontal Wheel Driver (추가용, 맨 아래)
+   - 세로 휠을 가로 이동으로 변환
+   - 해당 영역 위에서는 페이지 세로 스크롤 완전 차단
+   - trackpad deltaX(가로 스와이프)도 자연스럽게 처리
+======================================================= */
+(() => {
+  const WHEEL_SELECTORS = [
+    ".other-works-viewport",
+    ".sub-slider__track",
+    ".sub-images--scroll3",
+    ".ai-bars" // 필요 없으면 제거 가능
+  ].join(",");
+
+  const getArea = (target) => {
+    if (!(target instanceof Element)) return null;
+    return target.closest(WHEEL_SELECTORS);
+  };
+
+  window.addEventListener(
+    "wheel",
+    (e) => {
+      // 모달 열려있으면 건드리지 않음
+      if (document.getElementById("owModal")?.classList.contains("is-open")) return;
+
+      const area = getArea(e.target);
+      if (!area) return;
+
+      const maxScrollLeft = area.scrollWidth - area.clientWidth;
+      if (maxScrollLeft <= 1) return; // 가로 스크롤 자체가 없는 경우
+
+      // ✅ 여기서부터는 "해당 영역 위" -> 페이지 세로 스크롤 완전 차단
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+      // shift+wheel은 브라우저 기본 가로스크롤 느낌을 존중(원하면 막아도 됨)
+      // if (e.shiftKey) return;
+
+      // 트랙패드: deltaX가 있으면 그걸 우선 반영
+      const dx = Math.abs(e.deltaX) > 0 ? e.deltaX : 0;
+
+      // 마우스 휠: deltaY를 가로로 변환
+      // (너가 기존에 쓰던 방향: 위로 휠(deltaY<0) -> 오른쪽으로 이동하려면 -deltaY)
+      const dyToX = -e.deltaY;
+
+      const SPEED = 1.25;
+
+      area.scrollLeft += (dx + dyToX) * SPEED;
+    },
+    { passive: false, capture: true }
+  );
+})();
