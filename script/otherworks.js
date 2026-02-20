@@ -14,11 +14,11 @@ let savedScrollY = 0;
 (() => {
   const OTHER_WORKS_SLIDES = [
     {
-      thumb: { src: "images/nouvedilie_thumb.png", alt: "누베딜리 상세페이지 썸네일" },
-      left: { src: "images/nouvedilie1.png", alt: "누베딜리 상세페이지1" },
-      rights: [],
-      title: "누베딜리 상세 페이지",
-      desc: "누베딜리 웹페이지의 제품 썸네일을 클릭하면 나오는 상세 페이지",
+      thumb: { src: "images/nouvedilie_thumb.png", alt: "누베딜리 상세 페이지 및 배너 썸네일" },
+      left: { src: "images/nouvedilie1.png", alt: "누베딜리 상세 페이지" },
+      rights: [ {src: "images/nouvedilie_banner.png", alt: "누베딜리 배너"} ],
+      title: "누베딜리 상세 페이지 및 배너",
+      desc: "누베딜리 웹페이지의 제품 썸네일을 클릭하면 나오는 상세 페이지 및 배너",
       topic: "일상에서 부담없이 캐주얼하게 착용 가능한 반지",
       age: "30대 ~ 40대 이상",
       caption: "",
@@ -26,13 +26,13 @@ let savedScrollY = 0;
       thumbFit: "contain"
     },
     {
-      thumb: { src: "images/nouvedilie_banner_thumb.png", alt: "누베딜리 웹 배너 썸네일" },
-      left: { src: "images/nouvedilie_banner.png", alt: "누베딜리 웹 배너" },
+      thumb: { src: "images/headphone_banner_thumb.png", alt: "입문용 헤드폰 배너" },
+      left: { src: "images/headphone_banner.png", alt: "입문용 헤드폰 배너" },
       rights: [],
-      title: "누베딜리 웹 배너",
-      desc: "누베딜리 웹 배너",
-      topic: "일상에서 부담없이 캐주얼하게 착용 가능한 반지",
-      age: "30대 ~ 40대 이상",
+      title: "입문용 헤드폰 배너",
+      desc: "입문용 헤드폰 배너",
+      topic: "입문용 헤드폰 배너",
+      age: "입문용 헤드폰 구매에 관심있는 모든 고객",
       caption: "",
       link: "#",
       thumbFit: "contain"

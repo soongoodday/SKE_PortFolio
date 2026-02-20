@@ -487,24 +487,24 @@ document.addEventListener('keydown', (e) => {
     {
       tag: "ARCHIVE",
       status: "100%",
-      title: "누베딜리 상세 페이지",
+      title: "누베딜리 상세 페이지 및 배너",
       meta: "Design • 2026",
-      desc: "가상의 반지 브랜드 누베딜리 상세 페이지",
+      desc: "가상의 반지 브랜드 누베딜리 상세 페이지 및 배너",
       topic: "가상의 반지 브랜딩/nouvedilie",
       age: "반지 구입 의향이 있는 30대 ~ 40대 이상 여성",
       figma: "https://www.figma.com/",
-      images: "images/detail_nouvedilie1.png"
+      images: ["images/detail_nouvedilie1.png", "images/nouvedilie_banner.png"]
     },
     {
       tag: "ARCHIVE",
       status: "100%",
-      title: "누베딜리 웹 배너",
+      title: "입문용 헤드폰 배너",
       meta: "Design • 2026",
-      desc: "가상의 반지 브랜드 누베딜리 웹 배너",
-      topic: "가상의 반지 브랜딩/nouvedilie",
-      age: "반지 구입 의향이 있는 30대 ~ 40대 이상 여성",
+      desc: "입문용 헤드폰 배너",
+      topic: "입문용 헤드폰/배너",
+      age: "입문용 헤드폰 구매에 관심있는 모든 고객",
       figma: "https://www.figma.com/",
-      images: "images/nouvedilie_banner.png"
+      images: "images/headphone_banner.png"
     },
     {
       tag: "ARCHIVE",
