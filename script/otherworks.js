@@ -26,9 +26,9 @@ let savedScrollY = 0;
       thumbFit: "contain"
     },
     {
-      thumb: { src: "images/crowny_thumb.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인" },
-      left: { src: "images/crowny1.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인" },
-      rights: [ {src: "images/crowny2.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인"} ],
+      thumb: { src: "images/Crowny_thumb.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인" },
+      left: { src: "images/Crowny1.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인" },
+      rights: [ {src: "images/Crowny2.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인"} ],
       title: "ClassCare 웹앱 시험 파트 UI 디자인",
       desc: "ClassCare 웹앱 시험 파트 UI 디자인",
       topic: "ClassCare 웹앱 시험 파트 UI 디자인",
