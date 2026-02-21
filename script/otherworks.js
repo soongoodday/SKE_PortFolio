@@ -26,6 +26,18 @@ let savedScrollY = 0;
       thumbFit: "contain"
     },
     {
+      thumb: { src: "images/crowny_thumb.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인" },
+      left: { src: "images/crowny1.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인" },
+      rights: [ {src: "images/crowny2.png", alt: "ClassCare 웹앱 시험 파트 UI 디자인"} ],
+      title: "ClassCare 웹앱 시험 파트 UI 디자인",
+      desc: "ClassCare 웹앱 시험 파트 UI 디자인",
+      topic: "ClassCare 웹앱 시험 파트 UI 디자인",
+      age: "ClassCare 웹앱 시험 파트 UI 디자인",
+      caption: "",
+      link: "#",
+      thumbFit: "contain"
+    },
+    {
       thumb: { src: "images/headphone_banner_thumb.png", alt: "입문용 헤드폰 배너" },
       left: { src: "images/headphone_banner.png", alt: "입문용 헤드폰 배너" },
       rights: [],
@@ -69,20 +81,6 @@ let savedScrollY = 0;
       desc: "Ideogram을 활용해 이미지를 생성하고 variation을 도출해 전체적인 색상을 반영했습니다. 빠르고 높은 취업률을 강점으로 내세운 콘셉트입니다.",
       topic: "학원 모집 홍보 포스터",
       age: "학원 수강에 관심이 있는 10대 ~ 30대 이상",
-      caption: "",
-      link: "#",
-      thumbFit: "contain"
-    },
-    {
-      thumb: { src: "images/art_thumb.png", alt: "미대입시닷컴 웹페이지 배너 썸네일" },
-      left: { src: "images/art_banner1.png", alt: "미대입시닷컴 웹페이지 배너1" },
-      rights: [{ src: "images/art_banner2.png", alt: "미대입시닷컴 웹페이지 배너2" },
-                { src: "images/art_banner3.png", alt: "미대입시닷컴 웹페이지 배너3" }
-      ],  
-      title: "미대입시닷컴 웹페이지 배너",
-      desc: "미대입시닷컴 웹 페이지별 광고 배너입니다. 그라데이션 포인트를 통일해서 작업했습니다.",
-      topic: "미대입시닷컴 웹페이지 배너",
-      age: "미대 입시생(10대 ~ 20대), 미술 입시 관련 선생님(20대 이상)",
       caption: "",
       link: "#",
       thumbFit: "contain"

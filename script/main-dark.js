@@ -498,6 +498,17 @@ document.addEventListener('keydown', (e) => {
     {
       tag: "ARCHIVE",
       status: "100%",
+      title: "ClassCare 웹앱 시험 파트 UI 디자인",
+      meta: "Design • 2026",
+      desc: "ClassCare 웹앱 시험 파트 UI 디자인",
+      topic: "ClassCare 웹앱 시험 파트 UI 디자인",
+      age: "ClassCare 웹앱 사용자",
+      figma: "https://www.figma.com/",
+      images: ["images/Crowny1.png", "images/Crowny2.png"]
+    },
+    {
+      tag: "ARCHIVE",
+      status: "100%",
       title: "입문용 헤드폰 배너",
       meta: "Design • 2026",
       desc: "입문용 헤드폰 배너",
@@ -538,17 +549,6 @@ document.addEventListener('keydown', (e) => {
       age: "학원 수강에 관심있는 고객",
       figma: "https://www.figma.com/",
       images: "images/green17_poster.png"
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "미대입시닷컴 웹페이지 배너",
-      meta: "Design • 2026",
-      desc: "미대입시닷컴 웹페이지 배너",
-      topic: "미대입시닷컴/배너",
-      age: "미대 입시생(10대 ~ 20대), 미술 입시 관련 선생님(20대 이상)",
-      figma: "https://www.figma.com/",
-      images: ["images/art_banner1.png", "images/art_banner2.png", "images/art_banner3.png"]
     },
     {
       tag: "ARCHIVE",
