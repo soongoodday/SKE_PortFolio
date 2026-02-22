@@ -333,7 +333,7 @@ const projectData = {
     title: '컷틴 커트 주기 관리 웹앱',
     category: 'SIDE QUEST • WEBAPP REDESIGN',
     date: '2026.02',
-    status: '60% Complete',
+    status: '70% Complete',
     description: '컷틴은 커트 주기 관리의 번거로움을 줄이기 위해 기획한 웹앱으로, 사용자가 주기를 설정하고 알림을 통해 커트 시기를 놓치지 않도록 돕는 데 초점을 맞췄습니다. 핵심 기능에 집중한 직관적인 인터페이스와 깔끔한 화면 구성을 통해 별도의 설명 없이도 바로 사용할 수 있는 사용자 경험을 목표로 설계했습니다.',
     role: '기획 & 디자인 & 코딩',
     tools: ['Figma', 'Photoshop', 'Illustrator', 'ChatGPT', 'Claude Code'],
