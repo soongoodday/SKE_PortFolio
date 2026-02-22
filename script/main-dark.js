@@ -340,7 +340,7 @@ const projectData = {
     tags: ['Hair', 'Cutting', 'Web App'],
     image: 'images/cutine_mobile_pixel.png',
     imageAlt: '컷틴 웹앱 미리보기',
-    figma: 'https://www.figma.com/design/8h5WOdODTTF7ZfqgiSccHK/%EC%BB%B7%ED%8B%B4?node-id=0-1&t=d0iebBtSZ5T2RlOy-1',
+    figma: 'https://www.figma.com/design/8h5WOdODTTF7ZfqgiSccHK/%EC%BB%B7%ED%8B%B4?node-id=105-386&t=F2bVulVDLbAS3rAR-1',
     site: 'https://cutine-webapp.web.app/'
   },
 };
