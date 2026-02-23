@@ -4647,3 +4647,13 @@ html.theme-leave .scene-hud__fill{
   overflow-x: auto;   /* 또는 scroll */
   overflow-y: hidden;
 }
+
+
+
+
+.qr-card {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
