@@ -260,7 +260,7 @@ const projectData = {
     imageAlt: '바다주 웹페이지 미리보기',
     figma: 'https://www.figma.com/design/3yMd1m4K0Cd24DPP3pg8RV/%EC%B6%9C%ED%8C%90%EC%82%AC-%EB%B0%94%EB%8B%A4%EC%A3%BC_%EC%84%B1%EA%B2%BD%EC%9D%80?node-id=396-14&t=wuLjPRJJbLsuwGw7-1',
     site: 'https://soongoodday.github.io/badaju/'
-    
+
   },
   ukymelar: {
     title: '유키멜라 웹페이지',
@@ -338,10 +338,11 @@ const projectData = {
     role: '기획 & 디자인 & 코딩',
     tools: ['Figma', 'Photoshop', 'Illustrator', 'ChatGPT', 'Claude Code'],
     tags: ['Hair', 'Cutting', 'Web App'],
+    image: 'images/cutine_mobile_pixel.png',
     images: [
-  { src: 'images/cutine_mobile_pixel.png', alt: '컷틴 웹앱 미리보기' },
-  { src: 'images/cutine_QR.png', alt: '컷틴 QR 코드' },
-],
+      'images/cutine_mobile_pixel.png',              // ✅ 1번(메인)
+      'images/cutine_QR.png'             // ✅ 2번(추가)
+    ],
     imageAlt: '컷틴 웹앱 미리보기',
     figma: 'https://www.figma.com/design/8h5WOdODTTF7ZfqgiSccHK/%EC%BB%B7%ED%8B%B4?node-id=105-386&t=F2bVulVDLbAS3rAR-1',
     site: 'https://cutine-webapp.web.app/'
@@ -356,7 +357,8 @@ function openModal(projectId) {
   // ✅ 이미지 세팅 (추가)
   const imgEl = modal.querySelector('#modalMainImg');
   if (imgEl) {
-    setImgSafe(imgEl, project.image || '', project.imageAlt || project.title || '');
+    const first = (project.images && project.images[0]) ? project.images[0] : project.image;
+setImgSafe(imgEl, first || '', project.imageAlt || project.title || '');
   }
 
   modal.querySelector('.modal-title').textContent = project.title;
@@ -384,6 +386,42 @@ function openModal(projectId) {
     <h3 style="font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1rem; color: var(--neon-purple);">REWARDS</h3>
     <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">${tagsHTML}</div>
   `;
+
+  // ✅ (추가) 컷틴처럼 images가 여러장일 때 썸네일 만들기
+const imgs = Array.isArray(project.images) && project.images.length
+  ? project.images
+  : (project.image ? [project.image] : []);
+
+const detailsEl = modal.querySelector('.modal-details');
+const imgEl2 = modal.querySelector('#modalMainImg');
+
+// 기존 갤러리 있으면 제거(다른 프로젝트 눌렀을 때 중복 방지)
+modal.querySelector('.modal-gallery')?.remove();
+
+if (detailsEl && imgEl2 && imgs.length > 1) {
+  const gallery = document.createElement('div');
+  gallery.className = 'modal-gallery';
+  gallery.style.cssText = 'display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;';
+
+  gallery.innerHTML = imgs.map((src, i) => `
+    <button type="button" data-modal-img="${i}"
+      style="border:1px solid rgba(0,240,255,.3);background:rgba(0,240,255,.08);border-radius:12px;padding:.35rem;cursor:pointer;">
+      <img src="${resolveAsset(src)}" alt="thumb ${i+1}"
+        style="width:92px;height:auto;display:block;border-radius:10px;">
+    </button>
+  `).join('');
+
+  detailsEl.appendChild(gallery);
+
+  // 썸네일 누르면 큰 이미지(#modalMainImg)가 바뀌게 하기
+  gallery.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-modal-img]');
+    if (!b) return;
+    const idx = Number(b.dataset.modalImg);
+    if (!imgs[idx]) return;
+    setImgSafe(imgEl2, imgs[idx], project.imageAlt || project.title || '');
+  });
+}
 
   // ✅ 모달 버튼 2개 찾기
   const figmaBtn = document.getElementById('modalFigma');
