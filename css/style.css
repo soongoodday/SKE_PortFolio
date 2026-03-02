@@ -4657,3 +4657,110 @@ html.theme-leave .scene-hud__fill{
   align-items: center;
   margin-left: 40px;
 }
+
+
+
+
+/* =========================
+   Dot Nav (No box / No pill)
+========================= */
+.dotnav{
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+
+  display: grid;
+  gap: 12px;
+
+  /* ✅ 네모칸/패널 요소 제거 */
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* ✅ 버튼(네모/알약) 느낌 제거 */
+.dotnav__btn{
+  all: unset;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* 도트 */
+.dotnav__dot{
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+
+  background: rgba(0,0,0,0.22);
+
+  transition: transform .14s ease, background .14s ease;
+}
+
+/* 라벨(항상 보이되 은은하게) */
+.dotnav__label{
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+
+  color: rgba(0,0,0,0.38);
+  transition: color .14s ease, transform .14s ease;
+}
+
+/* hover: 아주 살짝만 */
+.dotnav__btn:hover .dotnav__label{
+  color: rgba(0,0,0,0.60);
+  transform: translateX(-1px);
+}
+.dotnav__btn:hover .dotnav__dot{
+  transform: scale(1.18);
+}
+
+/* active: 확실하게 */
+.dotnav__btn.is-active .dotnav__label{
+  color: rgba(0,0,0,0.92);
+}
+.dotnav__btn.is-active .dotnav__dot{
+  background: rgba(0,0,0,0.82);
+  transform: scale(1.28);
+}
+
+/* 다크 페이지 */
+.is-dark .dotnav__label{ color: rgba(255,255,255,0.40); }
+.is-dark .dotnav__btn:hover .dotnav__label{ color: rgba(255,255,255,0.62); }
+.is-dark .dotnav__btn.is-active .dotnav__label{ color: rgba(255,255,255,0.92); }
+
+.is-dark .dotnav__dot{ background: rgba(255,255,255,0.26); }
+.is-dark .dotnav__btn.is-active .dotnav__dot{ background: rgba(255,255,255,0.82); }
+
+/* 모바일 숨김 */
+@media (max-width: 900px){
+  .dotnav{ display:none; }
+}
+
+/* 모션 줄이기 */
+@media (prefers-reduced-motion: reduce){
+  .dotnav__dot, .dotnav__label{ transition:none !important; }
+}
+
+.dotnav__btn{
+  outline: none !important;
+}
+
+.dotnav__btn:focus,
+.dotnav__btn:active{
+  outline: none !important;
+  box-shadow: none !important;
+}
