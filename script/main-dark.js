@@ -255,7 +255,7 @@ const projectData = {
     description: '기획부터 디자인, 퍼블리싱까지 전 과정에 참여한 프로젝트로, 사용자가 서비스 성격을 빠르게 이해할 수 있도록 컬러 variation 안에서 일관된 콘셉트를 유지했습니다. 타겟 연령대의 가독성을 고려해 아리따 돋움을 메인으로, Pretendard를 보조적으로 사용했으며, 20대부터 40대 이상까지 폭넓은 사용 환경을 고려한 정보 위계 중심의 화면 구조를 설계했습니다.',
     role: '디자인 & 퍼블리싱',
     tools: ['Figma', 'Photoshop', 'HTML5', 'CSS3', 'ChatGPT'],
-    tags: ['Publishing', 'Portfolio'],
+    tags: ['Responsive', 'Publishing', 'Portfolio'],
     image: 'images/badaju_mac_pixel.png',
     imageAlt: '바다주 웹페이지 미리보기',
     figma: 'https://www.figma.com/design/3yMd1m4K0Cd24DPP3pg8RV/%EC%B6%9C%ED%8C%90%EC%82%AC-%EB%B0%94%EB%8B%A4%EC%A3%BC_%EC%84%B1%EA%B2%BD%EC%9D%80?node-id=396-14&t=wuLjPRJJbLsuwGw7-1',
