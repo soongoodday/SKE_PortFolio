@@ -4254,3 +4254,100 @@ html.to-light .clean-hud__text{
 
 
 
+/* =========================
+   MINIMAP (Dark page only)
+========================= */
+html.is-dark-page .minimap{
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  /* 박스 없이 HUD 느낌만 */
+  padding: 0;
+  background: transparent;
+  pointer-events: auto;
+}
+
+html.is-dark-page .minimap__btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 0;
+  background: transparent;
+  padding: 4px 0;
+  cursor: pointer;
+
+  font-family: "Orbitron", system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: rgba(210, 230, 255, 0.55);
+  opacity: 0.9;
+  transition: transform .15s ease, opacity .15s ease, color .15s ease;
+}
+
+html.is-dark-page .minimap__btn:hover{
+  opacity: 1;
+  transform: translateX(-2px);
+  color: rgba(235, 248, 255, 0.8);
+}
+
+html.is-dark-page .minimap__dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+
+  /* ✅ 불빛 제거 */
+  background: rgba(220,230,255,0.25);
+
+  box-shadow: none;
+}
+
+html.is-dark-page .minimap__label{
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ACTIVE = 현재 스테이지 */
+html.is-dark-page .minimap__btn.is-active{
+  color: rgba(245, 252, 255, 0.95);
+  opacity: 1;
+}
+
+html.is-dark-page .minimap__dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+
+  /* ✅ 불빛 제거 */
+  background: rgba(220,230,255,0.25);
+
+  box-shadow: none;
+}
+
+html.is-dark-page .minimap__btn.is-active .minimap__dot{
+  background: rgba(240,245,255,0.95);
+  transform: scale(1.35);
+
+  /* ✅ 불빛 제거 */
+  box-shadow: none;
+}
+
+/* 포커스 네모(브라우저 outline) 제거 */
+html.is-dark-page .minimap__btn:focus,
+html.is-dark-page .minimap__btn:focus-visible{
+  outline: none;
+}
+
+/* 모바일에서는 숨김(원하면 조절) */
+@media (max-width: 1024px){
+  html.is-dark-page .minimap{ display: none; }
+}

@@ -2080,5 +2080,116 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  // 다크 페이지에서만
+  if (!document.documentElement.classList.contains("is-dark-page")) return;
 
+  const stages = [
+    { id: "hero",   label: "HOME" },
+    { id: "stage1", label: "STAGE 1" },
+    { id: "stage2", label: "STAGE 2" },
+    { id: "stage3", label: "STAGE 3" },
+    { id: "stage4", label: "STAGE 4" },
+    { id: "final",  label: "FINAL" },
+  ];
+
+  const targets = stages
+    .map(s => ({ ...s, el: document.getElementById(s.id) }))
+    .filter(s => s.el);
+
+  if (!targets.length) return;
+
+  // 중복 생성 방지
+  if (document.querySelector(".minimap")) return;
+
+  // ✅ 미니맵 생성
+  const nav = document.createElement("nav");
+  nav.className = "minimap";
+  nav.setAttribute("aria-label", "MiniMap Navigation");
+  document.body.appendChild(nav);
+
+  const btns = targets.map((s) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "minimap__btn";
+    btn.setAttribute("aria-label", s.label);
+
+    const dot = document.createElement("span");
+    dot.className = "minimap__dot";
+    dot.setAttribute("aria-hidden", "true");
+
+    const label = document.createElement("span");
+    label.className = "minimap__label";
+    label.textContent = s.label;
+
+    btn.appendChild(dot);
+    btn.appendChild(label);
+
+    btn.addEventListener("click", () => {
+      s.el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    nav.appendChild(btn);
+    return btn;
+  });
+
+  const setActive = (id) => {
+    btns.forEach((b, i) => {
+      const on = targets[i].id === id;
+      b.classList.toggle("is-active", on);
+      if (on) b.setAttribute("aria-current", "true");
+      else b.removeAttribute("aria-current");
+    });
+  };
+
+  // ✅ 가장 정확한 방식: "기준점이 들어있는 섹션"을 active로
+  const getFocusY = () => {
+    const header = document.querySelector(".header");
+    const headerH = header ? header.offsetHeight : 0;
+
+    // 헤더 아래 영역의 40% 지점을 기준점으로 (튐 방지)
+    return headerH + (window.innerHeight - headerH) * 0.4;
+  };
+
+  const updateActive = () => {
+    const focusY = getFocusY();
+
+    // 기준점이 섹션 안에 들어간 그 섹션을 선택
+    for (const s of targets) {
+      const r = s.el.getBoundingClientRect();
+      if (r.top <= focusY && r.bottom >= focusY) {
+        setActive(s.id);
+        return;
+      }
+    }
+
+    // 예외: 가장 가까운 섹션
+    let closest = targets[0];
+    let best = Infinity;
+    for (const s of targets) {
+      const r = s.el.getBoundingClientRect();
+      const center = r.top + r.height / 2;
+      const dist = Math.abs(center - focusY);
+      if (dist < best) {
+        best = dist;
+        closest = s;
+      }
+    }
+    setActive(closest.id);
+  };
+
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      updateActive();
+    });
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  updateActive();
+});
 
