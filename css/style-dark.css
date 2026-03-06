@@ -7589,16 +7589,16 @@ body.nav-open #navBurger{
 
   /* 햄버거 / 닫기 버튼은 최상단 */
   .nav-burger,
-  #navBurger{
-    position: fixed !important;
-    top: 24px !important;
-    left: 24px !important;
-    z-index: 100002 !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
+#navBurger{
+  position: fixed !important;
+  top: 32px !important;
+  left: 24px !important;
+  z-index: 100002 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 
   /* 메뉴 패널은 헤더보다 위 */
   .nav-panel{
