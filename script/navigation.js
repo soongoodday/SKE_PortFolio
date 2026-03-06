@@ -7,7 +7,15 @@ class Navigation {
     this.indicatorBar = document.querySelector('.nav-indicator-bar');
 
     // 섹션 id 목록
-    this.sections = ['home', 'about', 'skills', 'ai-skills', 'portfolio', 'page-bottom'];
+    this.sections = [
+      'home',
+      'about',
+      'skills',
+      'ai-skills',
+      'portfolio',
+      'other-works',
+      'page-bottom'
+    ];
 
 
     // 섹션 요소 캐시
@@ -67,7 +75,7 @@ class Navigation {
 
   /* ===== 부드러운 스크롤 (이것만 사용) ===== */
   smoothScrollTo(targetY, duration = 520) {
-    
+
     const startY = window.scrollY;
     const diff = targetY - startY;
     const start = performance.now();
@@ -82,41 +90,41 @@ class Navigation {
   }
 
   goToSection(e, targetId) {
-  if (e) e.preventDefault();
+    if (e) e.preventDefault();
 
-  // 1) (폰에서 중요) 메뉴가 열려있으면 먼저 닫기
-  if (this.navMenu?.classList.contains('active')) {
-    this.toggleMobileMenu();
-  }
-
-  // 2) 메뉴가 닫힌 다음에(다음 프레임) 위치 계산해서 이동
-  requestAnimationFrame(() => {
-    const target = document.getElementById(targetId);
-    if (!target) return;
-
-    const headerH = this.header ? this.header.offsetHeight : 0;
-    const y = window.scrollY + target.getBoundingClientRect().top - headerH;
-
-    this.smoothScrollTo(targetId === 'home' ? 0 : y, 520);
-  });
-}
-
-  handleNavClick(e) {
-  const link = e.currentTarget;
-
-  // 외부 링크는 그냥 열기 + 메뉴만 닫기
-  if (link.target === "_blank") {
+    // 1) (폰에서 중요) 메뉴가 열려있으면 먼저 닫기
     if (this.navMenu?.classList.contains('active')) {
       this.toggleMobileMenu();
     }
-    return;
+
+    // 2) 메뉴가 닫힌 다음에(다음 프레임) 위치 계산해서 이동
+    requestAnimationFrame(() => {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      const headerH = this.header ? this.header.offsetHeight : 0;
+      const y = window.scrollY + target.getBoundingClientRect().top - headerH;
+
+      this.smoothScrollTo(targetId === 'home' ? 0 : y, 520);
+    });
   }
 
-  // 내부 앵커는 Navigation이 스크롤을 관리
-  e.preventDefault();
-  const targetId = (link.getAttribute('href') || '').replace('#', '');
-  this.goToSection(e, targetId);
-}
+  handleNavClick(e) {
+    const link = e.currentTarget;
+
+    // 외부 링크는 그냥 열기 + 메뉴만 닫기
+    if (link.target === "_blank") {
+      if (this.navMenu?.classList.contains('active')) {
+        this.toggleMobileMenu();
+      }
+      return;
+    }
+
+    // 내부 앵커는 Navigation이 스크롤을 관리
+    e.preventDefault();
+    const targetId = (link.getAttribute('href') || '').replace('#', '');
+    this.goToSection(e, targetId);
+  }
 
 
   handleScroll() {

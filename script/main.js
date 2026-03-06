@@ -865,8 +865,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "about",       label: "소개" },
     { id: "skills",      label: "디자인 역량" },
     { id: "ai-skills",   label: "AI 활용 역량" },
-    { id: "portfolio",   label: "작업" },
-    { id: "other-works", label: "기타 작업물" },
+    { id: "portfolio",   label: "프로젝트" },
+    { id: "other-works", label: "아카이브" },
     { id: "page-bottom", label: "연락" },
   ];
 

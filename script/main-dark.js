@@ -358,7 +358,7 @@ function openModal(projectId) {
   const imgEl = modal.querySelector('#modalMainImg');
   if (imgEl) {
     const first = (project.images && project.images[0]) ? project.images[0] : project.image;
-setImgSafe(imgEl, first || '', project.imageAlt || project.title || '');
+    setImgSafe(imgEl, first || '', project.imageAlt || project.title || '');
   }
 
   modal.querySelector('.modal-title').textContent = project.title;
@@ -388,40 +388,40 @@ setImgSafe(imgEl, first || '', project.imageAlt || project.title || '');
   `;
 
   // ✅ (추가) 컷틴처럼 images가 여러장일 때 썸네일 만들기
-const imgs = Array.isArray(project.images) && project.images.length
-  ? project.images
-  : (project.image ? [project.image] : []);
+  const imgs = Array.isArray(project.images) && project.images.length
+    ? project.images
+    : (project.image ? [project.image] : []);
 
-const detailsEl = modal.querySelector('.modal-details');
-const imgEl2 = modal.querySelector('#modalMainImg');
+  const detailsEl = modal.querySelector('.modal-details');
+  const imgEl2 = modal.querySelector('#modalMainImg');
 
-// 기존 갤러리 있으면 제거(다른 프로젝트 눌렀을 때 중복 방지)
-modal.querySelector('.modal-gallery')?.remove();
+  // 기존 갤러리 있으면 제거(다른 프로젝트 눌렀을 때 중복 방지)
+  modal.querySelector('.modal-gallery')?.remove();
 
-if (detailsEl && imgEl2 && imgs.length > 1) {
-  const gallery = document.createElement('div');
-  gallery.className = 'modal-gallery';
-  gallery.style.cssText = 'display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;';
+  if (detailsEl && imgEl2 && imgs.length > 1) {
+    const gallery = document.createElement('div');
+    gallery.className = 'modal-gallery';
+    gallery.style.cssText = 'display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;';
 
-  gallery.innerHTML = imgs.map((src, i) => `
+    gallery.innerHTML = imgs.map((src, i) => `
     <button type="button" data-modal-img="${i}"
       style="border:1px solid rgba(0,240,255,.3);background:rgba(0,240,255,.08);border-radius:12px;padding:.35rem;cursor:pointer;">
-      <img src="${resolveAsset(src)}" alt="thumb ${i+1}"
+      <img src="${resolveAsset(src)}" alt="thumb ${i + 1}"
         style="width:92px;height:auto;display:block;border-radius:10px;">
     </button>
   `).join('');
 
-  detailsEl.appendChild(gallery);
+    detailsEl.appendChild(gallery);
 
-  // 썸네일 누르면 큰 이미지(#modalMainImg)가 바뀌게 하기
-  gallery.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-modal-img]');
-    if (!b) return;
-    const idx = Number(b.dataset.modalImg);
-    if (!imgs[idx]) return;
-    setImgSafe(imgEl2, imgs[idx], project.imageAlt || project.title || '');
-  });
-}
+    // 썸네일 누르면 큰 이미지(#modalMainImg)가 바뀌게 하기
+    gallery.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-modal-img]');
+      if (!b) return;
+      const idx = Number(b.dataset.modalImg);
+      if (!imgs[idx]) return;
+      setImgSafe(imgEl2, imgs[idx], project.imageAlt || project.title || '');
+    });
+  }
 
   // ✅ 모달 버튼 2개 찾기
   const figmaBtn = document.getElementById('modalFigma');
@@ -1537,6 +1537,73 @@ window.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('navBurger');
   const panel = document.getElementById('navPanel');
   const closeBtn = document.getElementById('navPanelClose');
+  // ✅ 1) X 버튼이 없으면 자동 생성 (DOM에 없어서 안 보이는 경우 방지)
+  let closeBtnEl = closeBtn;
+
+  if (!closeBtnEl) {
+    closeBtnEl = document.createElement('button');
+    closeBtnEl.id = 'navPanelClose';
+    closeBtnEl.type = 'button';
+    closeBtnEl.setAttribute('aria-label', 'Close panel');
+
+    // nav-panel-head가 있으면 그 안에, 없으면 panel 맨 앞에 넣기
+    const head = panel.querySelector('.nav-panel-head');
+    if (head) head.appendChild(closeBtnEl);
+    else panel.insertBefore(closeBtnEl, panel.firstChild);
+  }
+
+  // ✅ 2) 아이콘 파일 없이 "X"를 CSS로 그리기 (텍스트/이미지 경로 문제 제거)
+  closeBtnEl.classList.add('nav-panel-close');
+
+  // ✅ 3) X 버튼이 패널 위로 뜨게 인라인 스타일로 강제 (z-index/position 문제 방지)
+closeBtnEl.style.cssText += `
+  position:absolute;
+  left:24px;
+  top:9px;
+  width:44px;
+  height:44px;
+  z-index:99999;
+  background:rgba(0,0,0,.25);
+  border:1px solid rgba(0,240,255,.35);
+  border-radius:12px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+`;
+
+  // X(두 줄) 만들기: 이미 있으면 중복 생성 방지
+  if (!closeBtnEl.querySelector('.x1')) {
+    closeBtnEl.innerHTML = `
+      <span class="x1" aria-hidden="true"></span>
+      <span class="x2" aria-hidden="true"></span>
+    `;
+    const lineCommon = `
+      position:absolute;
+      width:18px;
+      height:2px;
+      background:var(--neon-blue, #00F0FF);
+      border-radius:2px;
+      box-shadow:0 0 10px rgba(0,240,255,.45);
+      left:50%;
+      top:50%;
+      transform-origin:center;
+    `;
+    closeBtnEl.querySelector('.x1').style.cssText = lineCommon + `transform:translate(-50%,-50%) rotate(45deg);`;
+    closeBtnEl.querySelector('.x2').style.cssText = lineCommon + `transform:translate(-50%,-50%) rotate(-45deg);`;
+  }
+
+  // ✅ 4) 클릭/터치로 닫기 바인딩 (기존 closeBtn?.addEventListener 대신 이것으로 확실히)
+  closeBtnEl.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closePanel();
+  });
+
+  closeBtnEl.addEventListener('touchend', (e) => {
+    if (e.cancelable) e.preventDefault();
+    e.stopPropagation();
+    closePanel();
+  }, { passive: false });
   const backdrop = document.getElementById('navPanelBackdrop');
 
   if (!burger || !panel || !backdrop) {
@@ -1613,6 +1680,7 @@ window.addEventListener('DOMContentLoaded', () => {
     burger.setAttribute('aria-expanded', 'true');
 
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('nav-open');   // ✅ 추가
 
     // 타이핑 시작
     startTyping('> OPENING MINIMAP...');
@@ -1628,6 +1696,7 @@ window.addEventListener('DOMContentLoaded', () => {
     burger.setAttribute('aria-expanded', 'false');
 
     document.body.style.overflow = '';
+    document.body.classList.remove('nav-open');   // ✅ 추가
     stopTyping();
   }
 
@@ -2085,12 +2154,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!document.documentElement.classList.contains("is-dark-page")) return;
 
   const stages = [
-    { id: "hero",   label: "HOME" },
-    { id: "stage1", label: "STAGE 1" },
-    { id: "stage2", label: "STAGE 2" },
-    { id: "stage3", label: "STAGE 3" },
-    { id: "stage4", label: "STAGE 4" },
-    { id: "final",  label: "FINAL" },
+    { id: "hero", label: "HOME" },
+    { id: "stage1", label: "PROFILE" },
+    { id: "stage2", label: "SKILL MATRIX" },
+    { id: "stage3", label: "MAIN QUEST" },
+    { id: "stage4", label: "MISSION LOG" },
+    { id: "final", label: "FINAL STAGE" },
   ];
 
   const targets = stages
@@ -2192,4 +2261,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", onScroll);
   updateActive();
 });
+
+
+
 
