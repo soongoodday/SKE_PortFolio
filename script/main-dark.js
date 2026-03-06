@@ -2051,6 +2051,12 @@ closeBtnEl.style.cssText += `
 
 (function initPreviewTooltip() {
   const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+  const tabletMq = window.matchMedia('(max-width: 1259px)');
+  const finePointerMq = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  function canShowPreview() {
+    return !reduce && !tabletMq.matches && finePointerMq.matches;
+  }
 
   // Create tooltip element
   const tip = document.createElement('div');
@@ -2061,8 +2067,8 @@ closeBtnEl.style.cssText += `
   const img = tip.querySelector('img');
   let activeEl = null;
   let raf = null;
-  let lastX = 0;
-  let lastY = 0;
+  let lastX = window.innerWidth * 0.5;
+  let lastY = window.innerHeight * 0.5;
 
   function clamp(n, min, max) {
     return Math.min(max, Math.max(min, n));
@@ -2083,32 +2089,54 @@ closeBtnEl.style.cssText += `
     if (tx > maxX) tx = x - w - gap;
     if (ty > maxY) ty = y - h - gap;
 
-    tx = clamp(tx, pad, maxX);
-    ty = clamp(ty, pad, maxY);
-
-    tip.style.left = tx + 'px';
-    tip.style.top = ty + 'px';
+    tip.style.left = clamp(tx, pad, maxX) + 'px';
+    tip.style.top = clamp(ty, pad, maxY) + 'px';
   }
 
   function show(el) {
+    if (!canShowPreview()) return;
+
     const src = el.getAttribute('data-preview');
     if (!src) return;
 
     activeEl = el;
-    // Use resolveAsset if available (GitHub Pages subpath safe)
-    const finalSrc = (typeof resolveAsset === 'function') ? resolveAsset(src) : src;
-    img.src = finalSrc;
 
+    const finalSrc = (typeof resolveAsset === 'function')
+      ? resolveAsset(src)
+      : src;
+
+    img.src = finalSrc;
     tip.classList.add('is-on');
+
     if (!reduce) place(lastX, lastY);
   }
 
   function hide() {
     activeEl = null;
     tip.classList.remove('is-on');
+
     setTimeout(() => {
       if (!activeEl) img.removeAttribute('src');
     }, 120);
+  }
+
+  function syncPreviewMode() {
+    if (canShowPreview()) {
+      tip.style.display = '';
+    } else {
+      tip.style.display = 'none';
+      hide();
+    }
+  }
+
+  syncPreviewMode();
+
+  if (tabletMq.addEventListener) {
+    tabletMq.addEventListener('change', syncPreviewMode);
+    finePointerMq.addEventListener('change', syncPreviewMode);
+  } else {
+    tabletMq.addListener(syncPreviewMode);
+    finePointerMq.addListener(syncPreviewMode);
   }
 
   // Event delegation
@@ -2137,7 +2165,8 @@ closeBtnEl.style.cssText += `
     (e) => {
       lastX = e.clientX;
       lastY = e.clientY;
-      if (!activeEl) return;
+
+      if (!activeEl || !canShowPreview()) return;
 
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => place(lastX, lastY));
