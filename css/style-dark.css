@@ -6173,7 +6173,6 @@ body.nav-open #navBurger{
 
   .fx,
   .bg-parallax,
-  #fxFollower,
   .hero-glitch,
   .hero-scanlines,
   .fx-noise,
@@ -6194,3 +6193,373 @@ body.nav-open #navBurger{
   }
 }
 
+
+
+@media (min-width: 1260px) and (hover: hover) and (pointer: fine){
+  #fxFollower{
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+  }
+}
+
+
+
+
+/* =========================================
+   FINAL STAGE - FINAL FINAL OVERRIDE
+   기존 FINAL 관련 CSS는 삭제하고 이것만 유지
+========================================= */
+
+.stage-final{
+  background: rgba(7,7,13,.65);
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-final,
+.stage-final .ending,
+.stage-final .ending-side,
+.stage-final .ending-links,
+.stage-final .ending-text,
+.stage-final .contact-card,
+.stage-final .ending-link-card{
+  min-width: 0;
+}
+
+/* 전체 레이아웃 */
+.stage-final .ending{
+  width: 100%;
+  max-width: var(--stage-max-width);
+  margin: 0 auto;
+  padding-left: var(--stage-padding-x);
+  padding-right: var(--stage-padding-x);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* 왼쪽 엔딩 카드 */
+.stage-final .ending-text{
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: clamp(28px, 3.5vw, 48px);
+  border-radius: 20px;
+  border: 1px solid rgba(42,42,53,.9);
+  background: linear-gradient(180deg, rgba(22,22,34,.92), rgba(17,17,26,.72));
+  overflow: hidden;
+}
+
+.stage-final .ending-text .card-tag{
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  width: auto;
+  max-width: max-content;
+  flex: 0 0 auto;
+
+  margin-bottom: 16px;
+  padding: 0;
+  background: transparent;
+
+  font-size: 11px;
+  letter-spacing: .14em;
+  font-weight: 700;
+  color: #ff2e4d;
+}
+
+.stage-final .ending-text h3{
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.stage-final .ending-text p{
+  margin: 0;
+  font-family: 'NeoDonggeunmo';
+  color: var(--lighter-gray);
+  font-size: clamp(.9rem, 1.05vw, 1.1rem);
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+.stage-final .ending-ach{
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.stage-final .ach{
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: rgba(0,240,255,.85);
+}
+
+.stage-final .ach-sub{
+  display: block;
+  margin-top: 8px;
+  font-family: 'NeoDonggeunmo';
+  font-size: 14px;
+  color: rgba(255,255,255,.70);
+}
+
+/* 오른쪽 컬럼 */
+.stage-final .ending-side{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* PHONE / EMAIL */
+.stage-final .contact-card{
+  position: relative;
+  min-height: 138px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 20px 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(42,42,53,.9);
+  background: linear-gradient(180deg, rgba(22,22,34,.92), rgba(17,17,26,.72));
+  text-decoration: none;
+
+  transition: transform .25s var(--easing), border-color .25s var(--easing), box-shadow .25s var(--easing);
+}
+
+.stage-final .contact-card:hover{
+  border-color: rgba(0,240,255,.55);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0,240,255,.12);
+}
+
+.stage-final .contact-card .card-icon{
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.stage-final .contact-card .card-label{
+  font-family: 'NeoDonggeunmo';
+  font-size: .72rem;
+  letter-spacing: .14em;
+  color: var(--light-gray);
+}
+
+.stage-final .contact-card .card-value{
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  color: var(--white);
+}
+
+/* DEV LOG / TIMELINE */
+.stage-final .ending-links{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.stage-final .ending-link-card{
+  min-width: 0;
+  min-height: 96px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  background: rgba(10,12,24,.88);
+  text-decoration: none;
+
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.stage-final .ending-link-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(0,240,255,0.42);
+  box-shadow: 0 0 18px rgba(0,240,255,0.10);
+}
+
+.stage-final .ending-link-card .card-label{
+  font-family: 'NeoDonggeunmo';
+  font-size: 11px;
+  letter-spacing: .14em;
+  color: var(--light-gray);
+  opacity: .82;
+}
+
+.stage-final .ending-link-card .card-value{
+  font-family: var(--font-body);
+  font-size: clamp(.95rem, 1vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--white);
+  word-break: keep-all;
+}
+
+/* =========================
+   1200 이하
+========================= */
+@media (max-width: 1200px){
+  .stage-final .ending{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .stage-final .ending-text{
+    height: auto;
+    min-height: auto;
+  }
+}
+
+/* =========================
+   768 이하
+========================= */
+@media (max-width: 768px){
+  .stage-final .ending{
+    gap: 18px;
+  }
+
+  .stage-final .ending-text{
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .stage-final .ending-text .card-tag{
+    margin-bottom: 12px;
+    font-size: 10px;
+  }
+
+  .stage-final .ending-text h3{
+    font-size: clamp(1.45rem, 6vw, 2rem);
+    margin-bottom: 12px;
+  }
+
+  .stage-final .ending-text p{
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .stage-final .ending-ach{
+    margin-top: 18px;
+    padding-top: 14px;
+  }
+
+  .stage-final .ach{
+    font-size: 10px;
+  }
+
+  .stage-final .ach-sub{
+    font-size: 12px;
+  }
+
+  .stage-final .contact-card{
+    min-height: 112px;
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .stage-final .contact-card .card-icon{
+    font-size: 1.25rem;
+  }
+
+  .stage-final .contact-card .card-label{
+    font-size: 10px;
+  }
+
+  .stage-final .contact-card .card-value{
+    font-size: 1rem;
+  }
+
+  .stage-final .ending-links{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .stage-final .ending-link-card{
+    min-height: 84px;
+    padding: 14px 14px;
+    border-radius: 16px;
+  }
+
+  .stage-final .ending-link-card .card-label{
+    font-size: 10px;
+  }
+
+  .stage-final .ending-link-card .card-value{
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   480 이하
+========================= */
+@media (max-width: 480px){
+  .stage-final .ending{
+    gap: 16px;
+  }
+
+  .stage-final .ending-text{
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .stage-final .ending-text h3{
+    font-size: 1.35rem;
+    line-height: 1.15;
+  }
+
+  .stage-final .ending-text p{
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .stage-final .contact-card{
+    min-height: 102px;
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
+
+  .stage-final .contact-card .card-value{
+    font-size: .95rem;
+  }
+
+  .stage-final .ending-links{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stage-final .ending-link-card{
+    min-height: 74px;
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  .stage-final .ending-link-card .card-value{
+    font-size: 13px;
+  }
+}
