@@ -5507,3 +5507,67 @@ footer:hover ~ .dotnav{ display:none; } /* 구조 따라 다를 수 있음 */
   font-weight:800;
   margin-top:2px;
 }
+
+
+
+
+/* ==========================
+   MOBILE HERO TEXT FIX
+   ========================== */
+@media (max-width:480px){
+
+.hero_title{
+  font-size: clamp(28px, 7vw, 36px);
+  line-height: 1.25;
+  word-break: keep-all;
+}
+
+.hero_desc{
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+}
+
+
+
+
+/* ==========================
+   399px HERO INTRO FINAL FIX
+========================== */
+@media (max-width: 399px){
+
+  .hero__inner{
+    padding: 0 20px;
+  }
+
+  .hero_text{
+    font-size: clamp(2rem, 8.2vw, 2.55rem);
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+    word-break: keep-all;
+    text-align: center;
+  }
+
+  .hero_name{
+    display: block;
+    text-align: center;
+  }
+
+  /* 핵심: width/max-width 제거 */
+  .hero_box_intro{
+    width: 100%;
+    max-width: none;
+    margin: 0 auto 14px;
+    padding: 0 12px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    word-break: keep-all;
+    text-align: center;
+  }
+
+  .hero_box_intro br{
+    display: block;
+  }
+}
