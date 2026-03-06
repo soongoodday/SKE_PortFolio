@@ -144,17 +144,6 @@
 
 
 
-/* 베이글팻 */
-@font-face {
-    font-family: 'BagelFat';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-display: swap;
-}
-
-
-
-
 /* 포트폴리오 1- 아리따 돋움 */
 @font-face {
     font-family: 'ArittaDodum';
@@ -614,11 +603,12 @@ body{
 }
 
 .hero_text{
-  font-family: 'BagelFat';
-  font-size: clamp(3.8rem, 8vw, 12rem);
+  font-family: 'LaundryGothic';
+  font-size: clamp(2.4rem, 5.6vw, 6.2rem);
   text-align: center;
-  line-height: 1.05;
-  padding: 0.3em 0 0.15em; /* ⬅️ 위 여백 늘림 */
+  line-height: 1.08;
+  padding: 0.38em 0 0.18em;
+  letter-spacing: -0.02em;
 }
 
 .hero_text span{
@@ -628,17 +618,19 @@ body{
 /* Web Designer */
 .hero_en{
   font-family: 'LaundryGothic';
-  font-size: clamp(2.2rem, 5vw, 5.2rem);
-  margin-bottom: 0.1em; /* 살짝만 띄우기 */
+  font-size: clamp(1.45rem, 3.3vw, 3.2rem);
+  margin-bottom: 0.12em;
   font-weight: 700;
+  line-height: 1.15;
 }
 
 /* 성경은 */
 .hero_kr{
   font-family: 'LaundryGothic';
-  font-size: clamp(2.2rem, 5vw, 5.2rem);
+  font-size: clamp(1.7rem, 3.8vw, 3.7rem);
   font-weight: 700;
-  margin-top: 0.15em;
+  margin-top: 0.02em;
+  line-height: 1.08;
 }
 
 .hero__content{
@@ -5240,4 +5232,278 @@ footer:hover ~ .dotnav{ display:none; } /* 구조 따라 다를 수 있음 */
     justify-content: flex-end;
     width: 100%;
   }
+}
+
+
+
+
+.hero-title,
+.hero h1,
+.visual_text h1,
+.main-hero-text h1 {
+
+  font-size: clamp(34px, 5.2vw, 62px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin-bottom: 16px;
+
+}
+
+/* 태블릿 */
+@media (max-width:1024px){
+
+.hero-title,
+.hero h1,
+.visual_text h1,
+.main-hero-text h1 {
+
+  font-size: clamp(32px, 5.5vw, 52px) !important;
+
+}
+
+}
+
+/* 모바일 */
+@media (max-width:768px){
+
+.hero-title,
+.hero h1,
+.visual_text h1,
+.main-hero-text h1 {
+
+  font-size: 32px !important;
+
+}
+
+}
+
+/* =========================
+   HERO SUBTITLE (부제목)
+========================= */
+
+.hero-desc,
+.hero p,
+.visual_text p {
+
+  font-size: clamp(20px, 1.8vw, 22px);
+  line-height: 1.7;
+  color: #4b587c;
+  margin-top: 12px;
+
+}
+
+.hero-desc br {
+  display: block;
+  margin-top: 6px;
+}
+
+.hero-title{
+  line-height: 1.15;
+}
+
+.scroll-btn{
+  transition: all 0.25s ease;
+}
+
+.scroll-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.hero_img{
+  margin-top: 10px;
+}
+
+
+
+
+/* ===================================
+   HERO FINAL PATCH
+   - 768px 이하 히어로 균형 보정
+   - 반드시 CSS 맨 아래에 추가
+=================================== */
+
+/* 태블릿 ~ 모바일 */
+@media (max-width: 768px){
+
+  body{
+    padding-top: 72px;
+  }
+
+  .hero{
+    padding-top: 0;
+  }
+
+  .hero__inner{
+    padding: 0 22px;
+  }
+
+  .hero__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero_wrap{
+    max-width: 100%;
+    gap: 0;
+  }
+
+  .hero_box{
+    width: 100%;
+  }
+
+  .hero_text{
+    font-size: clamp(2.1rem, 8vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    padding: 0.2em 0 0.1em;
+    margin-bottom: 14px;
+  }
+
+  .hero_en{
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
+    line-height: 1.15;
+    margin-bottom: 0.08em;
+  }
+
+  .hero_kr{
+    font-size: clamp(1.95rem, 7.2vw, 2.7rem);
+    line-height: 1.18;
+    margin-top: 0;
+  }
+
+  .hero_box_intro{
+    font-size: clamp(1rem, 3.8vw, 1.2rem);
+    line-height: 1.6;
+    margin: 0 0 18px;
+    padding: 0 4px;
+    word-break: keep-all;
+  }
+
+  .hero_img{
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  .hero_img img{
+    width: clamp(180px, 42vw, 250px);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero_box_scrollButton{
+    font-size: 1rem;
+    padding: 11px 22px;
+    min-height: 48px;
+    line-height: 1.2;
+  }
+}
+
+
+/* 작은 모바일 */
+@media (max-width: 480px){
+
+  .hero__inner{
+    padding: 0 18px;
+  }
+
+  .hero_text{
+    font-size: clamp(1.8rem, 8.2vw, 2.4rem);
+    line-height: 1.18;
+    margin-bottom: 12px;
+  }
+
+  .hero_en{
+    font-size: 1.75rem;
+  }
+
+  .hero_kr{
+    font-size: 1.8rem;
+  }
+
+  .hero_box_intro{
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .hero_img img{
+    width: clamp(165px, 48vw, 220px);
+  }
+
+  .hero_box_scrollButton{
+    font-size: 0.95rem;
+    padding: 10px 18px;
+  }
+}
+
+/* ==========================
+   HERO SUBTITLE FIX (768 이하)
+========================== */
+
+@media (max-width: 768px){
+
+  .hero_box_intro{
+    font-size: clamp(0.9rem, 3.4vw, 1rem);
+    line-height: 1.45;
+    color: #6b778c;
+    margin: 0 0 16px;
+    padding: 0 4px;
+    word-break: keep-all;
+  }
+
+}
+
+/* ==========================
+   HERO TITLE BALANCE (768↓)
+========================== */
+
+@media (max-width:768px){
+
+  .hero_text{
+    line-height:1.05 !important;
+    letter-spacing:-0.03em !important;
+    margin-bottom:12px !important;
+  }
+
+  .hero_text .hero_tags{
+    display:block;
+    font-size:2.4rem !important;
+    font-weight:700 !important;
+  }
+
+  .hero_text .hero_name{
+    display:block;
+    font-size:2.9rem !important;
+    font-weight:800 !important;
+    margin-top:2px;
+  }
+
+}
+
+/* ==========================
+   HERO TITLE RATIO (전체 반응형)
+   - UX 디자이너 성경은 조금 더 크게
+========================== */
+
+.hero_text{
+  line-height:1.05;
+  letter-spacing:-0.03em;
+}
+
+/* 상단 보조 문장 */
+.hero_text .hero_tags{
+  display:block;
+  font-size:clamp(2.4rem, 3.2vw, 3.2rem);
+  font-weight:700;
+}
+
+/* 메인 타이틀 */
+.hero_text .hero_name{
+  display:block;
+  font-size:clamp(2.9rem, 3.8vw, 3.8rem);
+  font-weight:800;
+  margin-top:2px;
 }
