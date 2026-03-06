@@ -5873,3 +5873,23 @@ body.nav-open #navBurger{
     display: none !important;
   }
 }
+
+
+
+
+/* =========================
+   HERO VIDEO OFF <=1259px
+========================= */
+@media (max-width: 1259px){
+  .hero-video{
+    display: none !important;
+  }
+
+  .hero-bg{
+    background: #05070b;
+  }
+}
+
+
+
+

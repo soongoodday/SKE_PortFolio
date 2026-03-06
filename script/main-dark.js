@@ -2265,3 +2265,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  const heroVideo = document.querySelector('.hero-video');
+  if (!heroVideo) return;
+
+  const mq = window.matchMedia('(max-width: 1259px)');
+
+  const handleHeroVideo = () => {
+    if (mq.matches) {
+      heroVideo.pause();
+      heroVideo.currentTime = 0;
+      heroVideo.removeAttribute('autoplay');
+    } else {
+      heroVideo.setAttribute('autoplay', '');
+      const playPromise = heroVideo.play();
+      if (playPromise) {
+        playPromise.catch(() => {});
+      }
+    }
+  };
+
+  handleHeroVideo();
+
+  if (mq.addEventListener) {
+    mq.addEventListener('change', handleHeroVideo);
+  } else {
+    mq.addListener(handleHeroVideo);
+  }
+});
+
+
+
+
