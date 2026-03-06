@@ -2298,3 +2298,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+/* ==========================
+   HERO BUTTON -> FINAL STAGE
+========================== */
+(() => {
+  const scrollBtn = document.querySelector('.scroll-down');
+  const finalStage = document.querySelector('#final');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!scrollBtn || !finalStage) return;
+
+  scrollBtn.setAttribute('role', 'button');
+  scrollBtn.setAttribute('tabindex', '0');
+  scrollBtn.setAttribute('aria-label', 'FINAL STAGE로 이동');
+
+  const goToFinal = () => {
+    finalStage.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  };
+
+  scrollBtn.addEventListener('click', goToFinal);
+
+  scrollBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      goToFinal();
+    }
+  });
+})();

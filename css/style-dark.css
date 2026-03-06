@@ -6563,3 +6563,516 @@ body.nav-open #navBurger{
     font-size: 13px;
   }
 }
+
+
+
+
+/* ==========================
+   DARK HERO BALANCE FIX
+   - 타이틀 축소
+   - 히어로 전체를 조금 위로
+   - 메인 카드 높이/여백 정리
+========================== */
+
+/* 기본 데스크톱 */
+.hero{
+  align-items: flex-start;
+  padding-top: calc(72px + 56px);
+  padding-bottom: 72px;
+}
+
+.hero-layout{
+  min-height: auto;
+  margin: 32px auto 0;
+  align-items: center;
+}
+
+.hero-container{
+  padding: 40px 28px;
+}
+
+.hero-title{
+  margin-bottom: 18px;
+}
+
+.hero-title .title-pixel{
+  font-size: clamp(1.55rem, 3.5vw, 3.25rem);
+  line-height: 1.12;
+}
+
+.hero-description{
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin: 0 auto 14px;
+}
+
+.hero-typing{
+  margin-top: 14px;
+}
+
+.hero-cta{
+  margin: 20px 0 6px;
+}
+
+/* 1400px 이하 */
+@media (max-width: 1400px){
+  .hero{
+    padding-top: calc(72px + 44px);
+  }
+
+  .hero-layout{
+    margin-top: 24px;
+    gap: 24px;
+  }
+
+  .hero-title .title-pixel{
+    font-size: clamp(1.45rem, 3.2vw, 2.9rem);
+  }
+}
+
+/* 1200px 이하: HUD 아래로 떨어지기 직전까지 안정화 */
+@media (max-width: 1200px){
+  .hero{
+    padding-top: calc(72px + 36px);
+    padding-bottom: 56px;
+  }
+
+  .hero-layout{
+    min-height: auto;
+    margin-top: 18px;
+  }
+
+  .hero-container{
+    padding: 34px 24px;
+  }
+
+  .hero-title .title-pixel{
+    font-size: clamp(1.35rem, 3vw, 2.5rem);
+  }
+
+  .hero-description{
+    font-size: 0.94rem;
+  }
+}
+
+/* 태블릿/모바일 */
+@media (max-width: 768px){
+  .hero{
+    padding-top: calc(62px + 24px);
+    padding-bottom: 40px;
+    align-items: flex-start;
+  }
+
+  .hero-layout{
+    margin-top: 8px;
+  }
+
+  .hero-container{
+    padding: 28px 18px;
+  }
+
+  .hero-title{
+    margin-bottom: 14px;
+  }
+
+  .hero-title .title-pixel{
+    font-size: clamp(1.15rem, 7vw, 2rem);
+    line-height: 1.18;
+  }
+
+  .hero-description{
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .hero-typing{
+    font-size: 11px;
+    margin-top: 12px;
+  }
+
+  .hero-cta{
+    margin-top: 16px;
+  }
+}
+
+
+
+
+/* =========================
+   HERO 오른쪽 캐릭터 제거
+========================= */
+
+.hero-joystick,
+.hero-arena{
+  display:none !important;
+}
+
+
+
+
+/* ==========================
+   DARK HERO FINAL FIX
+   - hero 높이 소폭 증가
+   - 카드 위치는 살짝 아래로
+   - 하단 공백 체감 줄이기
+========================== */
+
+/* 기본 데스크톱 */
+.hero{
+  min-height: 106svh;
+  display: flex;
+  align-items: flex-start;
+  padding-top: calc(72px + 72px);
+  padding-bottom: 32px;
+}
+
+.hero-layout{
+  min-height: auto;
+  margin: 44px auto 0;
+  align-items: center;
+}
+
+.hero-container{
+  padding: 40px 28px;
+}
+
+.hero-title{
+  margin-bottom: 18px;
+}
+
+.hero-title .title-pixel{
+  font-size: clamp(1.55rem, 3.5vw, 3.25rem);
+  line-height: 1.12;
+}
+
+.hero-description{
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin: 0 auto 14px;
+}
+
+.hero-typing{
+  margin-top: 14px;
+}
+
+.hero-cta{
+  margin: 20px 0 6px;
+}
+
+/* 1400px 이하 */
+@media (max-width: 1400px){
+  .hero{
+    min-height: 104svh;
+    padding-top: calc(72px + 60px);
+    padding-bottom: 28px;
+  }
+
+  .hero-layout{
+    margin-top: 34px;
+    gap: 24px;
+  }
+
+  .hero-title .title-pixel{
+    font-size: clamp(1.45rem, 3.2vw, 2.9rem);
+  }
+}
+
+/* 1200px 이하 */
+@media (max-width: 1200px){
+  .hero{
+    min-height: auto;
+    padding-top: calc(72px + 42px);
+    padding-bottom: 36px;
+  }
+
+  .hero-layout{
+    margin-top: 20px;
+    min-height: auto;
+  }
+
+  .hero-container{
+    padding: 34px 24px;
+  }
+
+  .hero-title .title-pixel{
+    font-size: clamp(1.35rem, 3vw, 2.5rem);
+  }
+
+  .hero-description{
+    font-size: 0.94rem;
+  }
+}
+
+/* 태블릿/모바일 */
+@media (max-width: 768px){
+  .hero{
+    min-height: auto;
+    padding-top: calc(62px + 24px);
+    padding-bottom: 28px;
+    align-items: flex-start;
+  }
+
+  .hero-layout{
+    margin-top: 10px;
+  }
+
+  .hero-container{
+    padding: 28px 18px;
+  }
+
+  .hero-title{
+    margin-bottom: 14px;
+  }
+
+  .hero-title .title-pixel{
+    font-size: clamp(1.15rem, 7vw, 2rem);
+    line-height: 1.18;
+  }
+
+  .hero-description{
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .hero-typing{
+    font-size: 11px;
+    margin-top: 12px;
+  }
+
+  .hero-cta{
+    margin-top: 16px;
+  }
+}
+
+
+
+
+.hero{
+  min-height: 104svh;
+  display:flex;
+  align-items:flex-start;
+  padding-top: calc(72px + 52px);
+  padding-bottom: 24px;
+}
+
+.hero-layout{
+  min-height: auto;
+  margin: 20px auto 0;
+  align-items: center;
+}
+
+
+
+
+/* ==========================
+   HERO GO END BUTTON
+   - FINAL STAGE 이동 버튼
+   - 위치 상향 조정 최종본
+========================== */
+.scroll-down{
+  position: absolute;
+  left: 50%;
+  bottom: 170px;
+  transform: translateX(-50%);
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 90px;
+  padding: 8px 10px;
+
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  opacity: 0.92;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    filter 0.25s ease;
+}
+
+.scroll-down:hover{
+  transform: translateX(-50%) translateY(-4px);
+  opacity: 1;
+  filter: drop-shadow(0 0 10px rgba(0,240,255,0.45));
+}
+
+.scroll-down:active{
+  transform: translateX(-50%) translateY(-1px) scale(0.98);
+}
+
+.scroll-down:focus-visible{
+  outline: none;
+  filter: drop-shadow(0 0 12px rgba(0,240,255,0.6));
+}
+
+.scroll-text{
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 1.8px;
+  text-align: center;
+  color: var(--neon-blue);
+  text-shadow:
+    0 0 6px rgba(0,240,255,0.75),
+    0 0 14px rgba(0,240,255,0.35);
+  white-space: nowrap;
+}
+
+.scroll-arrow{
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid var(--neon-blue);
+  border-bottom: 2px solid var(--neon-blue);
+  transform: rotate(45deg);
+  box-shadow: 0 0 8px rgba(0,240,255,0.55);
+  animation: goEndArrow 1.5s ease-in-out infinite;
+}
+
+@keyframes goEndArrow{
+  0%, 100%{
+    transform: rotate(45deg) translate(0, 0);
+    opacity: 0.45;
+  }
+  50%{
+    transform: rotate(45deg) translate(5px, 5px);
+    opacity: 1;
+  }
+}
+
+/* 데스크탑 중간 폭 */
+@media (max-width: 1400px){
+  .scroll-down{
+    bottom: 145px;
+  }
+}
+
+/* 태블릿 */
+@media (max-width: 1200px){
+  .scroll-down{
+    bottom: 110px;
+    gap: 9px;
+  }
+
+  .scroll-text{
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .scroll-arrow{
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 768px){
+  .scroll-down{
+    bottom: 72px;
+    gap: 8px;
+    min-width: 82px;
+    padding: 6px 8px;
+  }
+
+  .scroll-text{
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .scroll-arrow{
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* 작은 모바일 */
+@media (max-width: 480px){
+  .scroll-down{
+    bottom: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .scroll-down{
+    transition: none;
+  }
+
+  .scroll-arrow{
+    animation: none;
+  }
+}
+
+
+
+
+/* ==========================
+   HERO / NEXT SECTION GAP TUNING
+========================== */
+
+/* hero가 너무 길게 잡혀 있으면 하단 빈 공간이 커 보임 */
+.hero{
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 90px;
+  min-height: 100svh;
+}
+
+/* hero 내부 실제 콘텐츠 영역도 아래 여백을 조금 줄임 */
+.hero-layout{
+  padding-bottom: 40px;
+}
+
+/* stage 공통 상단 여백이 크면 다음 섹션이 멀어 보임 */
+.stage{
+  padding-top: 88px;
+}
+
+/* 첫 번째 stage는 hero 바로 다음이니까 더 촘촘하게 */
+#stage1{
+  padding-top: 72px;
+  margin-top: 0;
+}
+
+
+
+
+/* ==========================
+   GO END BUTTON POSITION FIX
+   - 768px 이하에서 hero와 stage1 사이 중앙쯤 배치
+========================== */
+
+@media (max-width: 768px){
+  .hero{
+    position: relative;
+    padding-bottom: 120px !important;
+  }
+
+  .scroll-down{
+    left: 50%;
+    bottom: 92px !important;
+    transform: translateX(-50%);
+    z-index: 30;
+  }
+
+  #stage1{
+    padding-top: 72px !important;
+  }
+}
+
+@media (max-width: 480px){
+  .hero{
+    padding-bottom: 104px !important;
+  }
+
+  .scroll-down{
+    bottom: 78px !important;
+  }
+
+  #stage1{
+    padding-top: 60px !important;
+  }
+}
