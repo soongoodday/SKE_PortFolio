@@ -6195,14 +6195,14 @@ body.nav-open #navBurger{
 
 
 
-@media (min-width: 1260px) and (hover: hover) and (pointer: fine){
+/* @media (min-width: 1260px) and (hover: hover) and (pointer: fine){
   #fxFollower{
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: none !important;
   }
-}
+} */
 
 
 
