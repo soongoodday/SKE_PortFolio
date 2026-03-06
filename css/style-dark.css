@@ -2291,16 +2291,10 @@ section{
 ========================= */
 
 /* 기본(PC): grid 기반 안전 중앙 */
-.main-nav .nav-container{
-  display:grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items:center;
-}
+
 
 /* 왼쪽 메뉴 */
-.main-nav .nav-menu{
-  justify-self:start;
-}
+
 
 /* 중앙 로고 */
 .main-nav .nav-logo{
@@ -2630,10 +2624,7 @@ section{
   border: 1px solid rgba(0,240,255,.35);
   box-shadow: 0 16px 60px rgba(0,0,0,.6);
 }
-.preview-tip.is-on{
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+
 .preview-tip img{
   width:100%;
   height:100%;
@@ -4321,16 +4312,7 @@ html.is-dark-page .minimap__btn.is-active{
   opacity: 1;
 }
 
-html.is-dark-page .minimap__dot{
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
 
-  /* ✅ 불빛 제거 */
-  background: rgba(220,230,255,0.25);
-
-  box-shadow: none;
-}
 
 html.is-dark-page .minimap__btn.is-active .minimap__dot{
   background: rgba(240,245,255,0.95);
@@ -5062,8 +5044,8 @@ body.nav-open #navBurger{
 
 
 #navPanel { position: fixed; } /* 이미 fixed면 OK */
-#navPanel { position: fixed; }
-#navPanel { position: fixed; } /* 중요: panel이 포지션을 가져야 absolute 기준이 됨 */
+
+ /* 중요: panel이 포지션을 가져야 absolute 기준이 됨 */
 
 
 
@@ -6732,32 +6714,17 @@ body.nav-open #navBurger{
   align-items: center;
 }
 
-.hero-container{
-  padding: 40px 28px;
-}
 
-.hero-title{
-  margin-bottom: 18px;
-}
 
-.hero-title .title-pixel{
-  font-size: clamp(1.55rem, 3.5vw, 3.25rem);
-  line-height: 1.12;
-}
 
-.hero-description{
-  font-size: 0.98rem;
-  line-height: 1.75;
-  margin: 0 auto 14px;
-}
 
-.hero-typing{
-  margin-top: 14px;
-}
 
-.hero-cta{
-  margin: 20px 0 6px;
-}
+
+
+
+
+
+
 
 /* 1400px 이하 */
 @media (max-width: 1400px){
@@ -7594,4 +7561,65 @@ body.nav-open #navBurger{
 
 .hero{
   min-height:100svh;
+}
+
+
+
+
+/* =========================================
+   FINAL FIX - HEADER / BURGER / NAV PANEL
+   순서:
+   1. 일반 상태: header 상단 고정
+   2. 메뉴 열림: nav panel이 header 위
+   3. burger(X)가 제일 위
+========================================= */
+@media (max-width: 1259px){
+
+  /* 헤더는 항상 상단 고정 */
+  .header,
+  .main-nav,
+  .nav,
+  .nav-container{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10000 !important;
+  }
+
+  /* 햄버거 / 닫기 버튼은 최상단 */
+  .nav-burger,
+  #navBurger{
+    position: fixed !important;
+    top: 24px !important;
+    left: 24px !important;
+    z-index: 100002 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* 메뉴 패널은 헤더보다 위 */
+  .nav-panel{
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    z-index: 100001 !important;
+  }
+
+  /* 백드롭이 있으면 패널 바로 아래 */
+  .nav-panel-backdrop{
+    z-index: 100000 !important;
+  }
+
+  /* 메뉴 열렸을 때도 햄버거/X 유지 */
+  body.nav-open #navBurger{
+    z-index: 100002 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
 }

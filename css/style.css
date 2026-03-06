@@ -1993,10 +1993,7 @@ html, body{
   background: rgba(0,0,0,0.25);
 }
 
-.ow-modal__thumb.is-active{
-  opacity: 1;
-  border-color: rgba(255,255,255,0.95);
-}
+
 
 /* =========================
    ✅ Portfolio sub-images: 3장씩 가로 스크롤 (간격 최소화 버전)
@@ -2551,11 +2548,7 @@ body.modal-open{
 }
 
 /* 모달 전체 */
-.ow-modal.is-open{
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-}
+
 
 /* 패널 = 항상 중앙 */
 .ow-modal.is-open .ow-modal__panel{
@@ -2631,9 +2624,7 @@ body.modal-open{
 /* ==========================================
    OW MODAL FINAL: 모달만 스크롤 / 배경 고정
 ========================================== */
-body.modal-open{
-  overflow: hidden;
-}
+
 
 /* 모달 패널이 스크롤 담당 */
 #owModal.is-open .ow-modal__panel{
@@ -4502,7 +4493,7 @@ html.theme-leave .scene-hud__fill{
 
   scrollbar-width: none;
 }
-.ai-skills-section .ai-bars::-webkit-scrollbar{ display:none; }
+
 
 .ai-skills-section .ai-bar-item{
   flex: 0 0 auto;
@@ -4527,11 +4518,7 @@ html.theme-leave .scene-hud__fill{
 }
 
 /* 바/퍼센트는 네 기존 로직 유지 */
-.ai-skills-section .ai-percentage{
-  top: 12px;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
+
 .ai-skills-section .ai-name{
   font-weight: 700;
   font-size: 0.95rem;
@@ -4768,17 +4755,9 @@ html.theme-leave .scene-hud__fill{
    - 반드시 CSS 맨 아래에 추가
 ========================================= */
 
-.footer{
-  padding: 96px 0 72px;
-  border-top: 1px solid #e2e2e2;
-}
 
-.footer .container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+
+
 
 .footer-message{
   font-family: 'InkLiquid';
