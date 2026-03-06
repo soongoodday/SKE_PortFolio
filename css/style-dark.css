@@ -7565,3 +7565,33 @@ body.nav-open #navBurger{
     line-height: 1.7;
   }
 }
+
+
+
+
+/* ==========================
+   TABLET SCROLL BUTTON FIX
+   갤럭시탭에서 GO END 버튼 위치 조정
+========================== */
+
+/* 태블릿 */
+@media (min-width:768px) and (max-width:1200px){
+
+  .scroll-down{
+    bottom:60px;
+  }
+
+}
+
+/* 태블릿 가로 */
+@media (min-width:768px) and (max-width:1200px) and (orientation: landscape){
+
+  .scroll-down{
+    bottom:80px;
+  }
+
+}
+
+.hero{
+  min-height:100svh;
+}
