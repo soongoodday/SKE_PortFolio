@@ -5893,3 +5893,19 @@ body.nav-open #navBurger{
 
 
 
+.grid-lines{
+  animation:none;
+}
+
+.hero-container{
+  animation:none;
+}
+
+.hero-scanlines{
+  animation:none;
+}
+
+.hero-joystick,
+.hero-arena{
+  animation:none;
+}
