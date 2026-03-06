@@ -5550,3 +5550,19 @@ footer:hover ~ .dotnav{ display:none; } /* 구조 따라 다를 수 있음 */
     display: block;
   }
 }
+
+
+
+
+/* =========================
+   MOBILE FOOTER PADDING FIX
+========================= */
+@media (max-width: 768px){
+
+  footer p{
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+}
