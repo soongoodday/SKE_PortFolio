@@ -14,6 +14,18 @@ let savedScrollY = 0;
 (() => {
   const OTHER_WORKS_SLIDES = [
     {
+      thumb: { src: "images/2026_mcs_thumb.png", alt: "한전MCS 이륜차 재해예방 캠페인 썸네일" },
+      left: { src: "images/2026_mcs2.png", alt: "한전MCS 이륜차 재해예방 캠페인 무사고 달력" },
+      rights: [ {src: "images/2026_mcs1.png", alt: "한전MCS 이륜차 재해예방 캠페인 현수막"} ],
+      title: "한전MCS 이륜차 재해예방 캠페인",
+      desc: "한전MCS 이륜차 재해예방 캠페인 관련 무사고 달력 및 현수막",
+      topic: "한전MCS 이륜차 재해예방 캠페인 관련 무사고 달력 및 현수막",
+      age: "한전MCS 이륜차 재해예방 캠페인 관련 직원 및 고객",
+      caption: "",
+      link: "#",
+      thumbFit: "contain"
+    },
+    {
       thumb: { src: "images/nouvedilie_thumb.png", alt: "누베딜리 상세 페이지 및 배너 썸네일" },
       left: { src: "images/nouvedilie1.png", alt: "누베딜리 상세 페이지" },
       rights: [ {src: "images/nouvedilie_banner.png", alt: "누베딜리 배너"} ],
@@ -48,18 +60,6 @@ let savedScrollY = 0;
       caption: "",
       link: "#",
       thumbFit: "contain"
-    },
-    {
-      thumb: { src: "images/university_brochure_thumb.png", alt: "중앙대학교 리플렛 썸네일" },
-      left: { src: "images/university_brochure1.png", alt: "중앙대학교 리플렛" },
-      rights: [{src: "images/university_brochure2.png", alt: "중앙대학교 리플렛" }],
-      title: "중앙대학교 리플렛",
-      desc: "중앙대학교 리플렛",
-      topic: "",
-      age: "",
-      caption: "",
-      link: "#",
-      thumbFit: "cover"
     },
     {
       thumb: { src: "images/carrot_thumb1.png", alt: "당근마켓 웹 배너 썸네일" },

@@ -541,6 +541,17 @@ document.addEventListener('keydown', (e) => {
     {
       tag: "ARCHIVE",
       status: "100%",
+      title: "한전MCS 이륜차 재해예방 캠페인",
+      meta: "Design • 2026",
+      desc: "한전MCS 이륜차 재해예방 캠페인 관련 무사고 달력 및 현수막",
+      topic: "한전MCS 이륜차 재해예방 캠페인/무사고 달력/현수막",
+      age: "한전MCS 이륜차 재해예방 캠페인 관련 직원 및 고객",
+      figma: "https://www.figma.com/",
+      images: ["images/2026_mcs2.png", "images/2026_mcs1.png"]
+    },
+    {
+      tag: "ARCHIVE",
+      status: "100%",
       title: "누베딜리 상세 페이지 및 배너",
       meta: "Design • 2026",
       desc: "가상의 반지 브랜드 누베딜리 상세 페이지 및 배너",
@@ -570,17 +581,6 @@ document.addEventListener('keydown', (e) => {
       age: "입문용 헤드폰 구매에 관심있는 모든 고객",
       figma: "https://www.figma.com/",
       images: "images/headphone_banner.png"
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "중앙대학교 리플렛",
-      meta: "Design • 2026",
-      desc: "중앙대학교 리플렛",
-      topic: "중앙대학교/리플렛",
-      age: "중앙대학교 관계자 및 학생",
-      figma: "https://www.figma.com/",
-      images: ["images/university_brochure1.png", "images/university_brochure2.png"]
     },
     {
       tag: "ARCHIVE",
