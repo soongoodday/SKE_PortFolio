@@ -6040,7 +6040,7 @@ content:none !important;
     gap: 10px;
     border-radius: 999px;
     padding: 16px 48px;
-    margin-top: 32px;  /* ✅ 위에서 떨어지게 */
+    margin-top: 16px;  /* ✅ 위에서 떨어지게 */
     cursor: pointer;
     font-weight: 400;
     color: #fff;
