@@ -1017,22 +1017,14 @@ mv.addEventListener('load', () => {
 
 
 mv.addEventListener('load', () => {
-    // ✅ 태블릿/모바일이면 고정 포즈로만
-    if (window.innerWidth <= 1220) {
+    // ✅ 터치 디바이스이거나 1400px 미만이면 고정
+    const isTouch = navigator.maxTouchPoints > 0 || 'ontouchstart' in window;
+    
+    if (isTouch || window.innerWidth < 1400) {
         mv.setAttribute('camera-orbit', '0deg 65deg 6m');
-        return; // rotate 함수 실행 안 함
+        return;
     }
 
     mv.setAttribute('camera-orbit', '0deg 65deg 6m');
-
-    function rotate() {
-        if (!isUserDragging && !isReturning) {
-            angleH += dir * 0.4;
-            if (angleH >= 90) dir = -1;
-            if (angleH <= -90) dir = 1;
-            mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
-        }
-        requestAnimationFrame(rotate);
-    }
-    rotate();
+    // ... rotate 함수
 });
