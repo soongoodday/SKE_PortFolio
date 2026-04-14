@@ -6318,3 +6318,18 @@ content:none !important;
     flex: 0 0 50%;
     margin-top: -50px;  /* 숫자 키울수록 더 위로 */
 }
+
+
+
+
+@media (max-width: 1024px) {
+    .hero_box_scrollButton {
+        margin-bottom: 32px;  /* 버튼 아래 여백 추가 */
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero_img {
+        margin-top: 20px;  /* 캐릭터 위 여백 */
+    }
+}
