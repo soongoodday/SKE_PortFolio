@@ -2128,7 +2128,7 @@
 
                     } else if (!isUserDragging) {
                         // ✅ 자동 왔다갔다 회전
-                        angleH += dir * 0.2;
+                        angleH += dir * 0.4;
                         if (angleH >= 90) dir = -1;
                         if (angleH <= -90) dir = 1;
                         mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
