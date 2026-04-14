@@ -6322,14 +6322,16 @@ content:none !important;
 
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1219px) {
     .hero_box_scrollButton {
-        margin-bottom: 32px;  /* 버튼 아래 여백 추가 */
+        margin-bottom: 40px;
     }
-}
 
-@media (max-width: 1024px) {
     .hero_img {
-        margin-top: 20px;  /* 캐릭터 위 여백 */
+        margin-top: 0;
+    }
+
+    .hero__content {
+        gap: 0;
     }
 }

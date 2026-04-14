@@ -1018,7 +1018,7 @@ mv.addEventListener('load', () => {
 
 mv.addEventListener('load', () => {
     // ✅ 태블릿/모바일이면 고정 포즈로만
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth <= 1220) {
         mv.setAttribute('camera-orbit', '0deg 65deg 6m');
         return; // rotate 함수 실행 안 함
     }
