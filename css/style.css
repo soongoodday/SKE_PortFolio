@@ -617,7 +617,7 @@ body{
   font-size: clamp(2.4rem, 5.6vw, 6.2rem);
   text-align: center;
   line-height: 1.08;
-  padding: 0.38em 0 0.18em;
+  padding: 0.38em 0 0.05em;
   letter-spacing: -0.02em;
 }
 
@@ -5948,4 +5948,373 @@ font-size:.75rem;
 .copy-toast::after{
 display:none !important;
 content:none !important;
+}
+
+
+
+
+.hero__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 80vh;
+}
+
+.hero_left {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.hero_text {
+    text-align: left;
+}
+
+.hero_box_intro {
+    font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+    line-height: 1.8;
+    -webkit-text-fill-color: #283F6E;
+    color: #283F6E;
+    margin: 0;
+}
+
+.hero_img {
+    flex: 0 0 52%;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    .hero__content {
+        flex-direction: column;
+        min-height: auto;
+        gap: 20px;
+    }
+    .hero_left {
+        flex: unset;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .hero_text {
+        text-align: center;
+    }
+    .hero_box_intro {
+        text-align: center;
+    }
+    .hero_img {
+        flex: unset;
+        width: 100%;
+    }
+}
+
+
+
+
+.hero__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 80vh;
+    padding: 0 20px;
+}
+
+.hero_left {
+    flex: 0 0 48%;  /* 기존 45% → 48% */
+}
+
+.hero_img {
+    flex: 0 0 50%;  /* 기존 52% → 50% */
+}
+
+
+
+
+.hero_box_scrollButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 999px;
+    padding: 16px 48px;
+    margin-top: 32px;  /* ✅ 위에서 떨어지게 */
+    cursor: pointer;
+    font-weight: 400;
+    color: #fff;
+    font-size: 1.4rem;
+    background: linear-gradient(180deg, #8b7eff, #5a4fff);  /* ✅ 위아래 그라데이션으로 입체감 */
+    border: none;
+
+    /* ✅ 3D 볼륨감 */
+    box-shadow:
+        0 6px 0 #3a2ecc,          /* 아래 그림자 → 두께감 */
+        0 10px 20px rgba(90, 79, 255, 0.35);  /* 바닥 그림자 → 부유감 */
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero_box_scrollButton:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 0 #3a2ecc,
+        0 14px 24px rgba(90, 79, 255, 0.4);
+}
+
+.hero_box_scrollButton:active {
+    transform: translateY(4px);  /* ✅ 누르면 꾹 눌리는 느낌 */
+    box-shadow:
+        0 2px 0 #3a2ecc,
+        0 4px 10px rgba(90, 79, 255, 0.3);
+}
+
+
+
+
+.hero_tags {
+    font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    -webkit-text-fill-color: #3b82f6;
+}
+
+.hero_name {
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    position: relative;
+    display: inline-block;
+    -webkit-text-fill-color: #3b82f6;
+}
+
+
+
+
+.hero_tags_row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.hero_tag {
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(59, 130, 246, 0.35);
+    color: #3b82f6;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+
+
+
+/* ===================================
+   HERO 2단 레이아웃 반응형
+=================================== */
+
+/* 태블릿 (1024px 이하) */
+@media (max-width: 1024px) {
+    .hero__content {
+        gap: 16px;
+        min-height: auto;
+        padding: 20px 0;
+    }
+
+    .hero_left {
+        flex: 0 0 50%;
+    }
+
+    .hero_img {
+        flex: 0 0 48%;
+    }
+
+    .hero_tags {
+        font-size: clamp(1.2rem, 2.2vw, 2rem);
+    }
+
+    .hero_name {
+        font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+    }
+
+    .hero_box_scrollButton {
+        font-size: 1.1rem;
+        padding: 14px 36px;
+        margin-top: 20px;
+    }
+}
+
+/* 모바일 (768px 이하) */
+@media (max-width: 768px) {
+    .hero__content {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .hero_left {
+        flex: unset;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        order: 1;
+        gap: 12px;
+    }
+
+    .hero_img {
+        flex: unset;
+        width: 100%;
+        order: 2;
+    }
+
+    .hero_text {
+        text-align: center;
+    }
+
+    .hero_tags {
+        font-size: clamp(1.1rem, 4.5vw, 1.6rem);
+    }
+
+    .hero_name {
+        font-size: clamp(2rem, 7vw, 3rem);
+    }
+
+    .hero_name::after {
+        width: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero_box_intro {
+        text-align: center;
+        font-size: clamp(0.85rem, 3.2vw, 1rem);
+    }
+
+    .hero_tags_row {
+        justify-content: center;
+        margin-top: 12px;
+    }
+
+    .hero_tag {
+        font-size: 0.82rem;
+        padding: 5px 14px;
+    }
+
+    .hero_box_scrollButton {
+        font-size: 1rem;
+        padding: 12px 32px;
+        margin-top: 16px;
+    }
+}
+
+/* 소형 모바일 (480px 이하) */
+@media (max-width: 480px) {
+    .hero_tags {
+        font-size: 1rem;
+    }
+
+    .hero_name {
+        font-size: clamp(1.8rem, 7.5vw, 2.4rem);
+    }
+
+    .hero_tags_row {
+        gap: 6px;
+    }
+
+    .hero_tag {
+        font-size: 0.78rem;
+        padding: 4px 12px;
+    }
+
+    .hero_box_scrollButton {
+        font-size: 0.95rem;
+        padding: 11px 28px;
+    }
+}
+
+/* ===================================
+   HERO 769~830px 구간 보정
+=================================== */
+@media (min-width: 769px) and (max-width: 830px) {
+    .hero__content {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .hero_left {
+        flex: unset;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .hero_img {
+        flex: unset;
+        width: 100%;
+    }
+
+    .hero_text {
+        text-align: center;
+    }
+
+    .hero_tags {
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    }
+
+    .hero_name {
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+    }
+
+    .hero_name::after {
+        width: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero_box_intro {
+        text-align: center;
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+    }
+
+    .hero_tags_row {
+        justify-content: center;
+        margin-top: 12px;
+    }
+
+    .hero_box_scrollButton {
+        font-size: 1rem;
+        padding: 12px 32px;
+        margin-top: 16px;
+    }
+}
+
+
+
+
+.hero__content {
+    align-items: center;  /* 이미 있지만 확인 */
+    min-height: 85vh;     /* 80vh → 85vh로 늘리기 */
+}
+
+.hero_img model-viewer {
+    margin-top: -40px;
+}
+
+
+
+
+.hero_img {
+    flex: 0 0 50%;
+    margin-top: -50px;  /* 숫자 키울수록 더 위로 */
 }

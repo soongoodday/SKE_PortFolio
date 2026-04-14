@@ -7,6 +7,8 @@
     <meta name="description" content="UI UX 디자이너 성경은 - 포트폴리오" />
     <title>디자이너 성경은 - 포트폴리오</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
 </head>
 
 <body>
@@ -94,36 +96,35 @@
         <!-- 히어로 섹션 -->
         <section class="hero" id="home">
             <div class="container hero__inner">
-                <!-- 1) 큰 제목 -->
-                <h1 class="hero_text">
-                    <span class="hero_line hero_tags">
-                        웹 경험을 설계하는<br>
-                    </span>
-
-                    <span class="hero_line hero_name">
-                        디자이너 성경은
-                    </span>
-                </h1>
-
-                <div class="hero_box">
-                    <p class="hero_box_intro">
-                        <b>편집디자인 경험</b>을 기반으로<br>
-                        <b>웹과 사용자 경험</b>을 설계하는 <b>디자이너 성경은</b>입니다.
-                    </p>
-
-                    <!-- 2) 아래 두 칸 (그림 / 소개) -->
-                    <div class="hero__content">
-                        <div class="hero_img">
-                            <img src="images/hero_miffy2.gif" alt="캐릭터" />
+                <div class="hero__content">
+                    <!-- 왼쪽: 텍스트 -->
+                    <div class="hero_left">
+                        <h1 class="hero_text">
+                            <span class="hero_line hero_tags">편집에서 UX까지,</span>
+                            <span class="hero_line hero_name">디자이너 성경은</span>
+                        </h1>
+                        <p class="hero_box_intro">
+                            편집디자인 5년 경력을 바탕으로<br>
+                            사용자 경험을 설계하는 디자이너입니다.
+                        </p>
+                        <div class="hero_tags_row">
+                            <span class="hero_tag">UI/UX 디자인</span>
+                            <span class="hero_tag">콘텐츠 디자인</span>
+                            <span class="hero_tag">편집 디자인</span>
+                            <span class="hero_tag">AI 활용</span>
                         </div>
+                        <div class="hero_box_line"></div>
+                        <button class="hero_box_scrollButton" type="button">
+                            맨 아래로 <b>스크롤하기</b>
+                        </button>
+                    </div>
 
-                        <div class="hero_wrap">
-                            <div class="hero_box_line"></div>
-
-                            <button class="hero_box_scrollButton" type="button">
-                                맨 아래로 <b>스크롤하기</b>
-                            </button>
-                        </div>
+                    <!-- 오른쪽: 캐릭터 -->
+                    <div class="hero_img">
+                        <model-viewer id="bunny" src="images/hero_miffy.glb" camera-orbit="0deg 75deg 6m"
+                            shadow-intensity="1.5" environment-image="neutral" exposure="1.0"
+                            style="width: 100%; height: 680px; background: transparent; --progress-bar-height: 0px;">
+                        </model-viewer>
                     </div>
                 </div>
             </div>
@@ -412,13 +413,13 @@
                             </div>
                             <span class="ai-name">KlingAI</span>
                         </div>
-                        <div class="ai-bar-item" data-ai="Replit">
+                        <div class="ai-bar-item" data-ai="Meshy">
                             <div class="ai-bar-container">
-                                <div class="ai-bar" data-percentage="48" style="background-color: #f26407">
+                                <div class="ai-bar" data-percentage="48" style="background-color: #C8FF00">
                                     <span class="ai-percentage">48%</span>
                                 </div>
                             </div>
-                            <span class="ai-name">Replit</span>
+                            <span class="ai-name">Meshy</span>
                         </div>
                     </div>
 
@@ -449,8 +450,8 @@
                             <span class="ai-usage">짧은 고퀄리티 영상 생성</span>
                         </div>
                         <div class="ai-desc-item">
-                            <span class="ai-tool">Replit</span>
-                            <span class="ai-usage">웹앱 제작 활용</span>
+                            <span class="ai-tool">Meshy</span>
+                            <span class="ai-usage">3D 오브젝트 생성</span>
                         </div>
                     </div>
                 </div>
@@ -459,7 +460,7 @@
                     활용해 이미지 생성과 영문 프롬포트 작성 및
                     <span class="font-bold">ChatGPT & Ideogram & Claude</span>를 활용해 디자인 시안 발전 및 프로젝트, 웹 포트폴리오
                     코딩을 진행했습니다. 또한,
-                    <span class="font-bold">Claude Code & Replit</span>을
+                    <span class="font-bold">Claude Code</span>를
                     활용해 간단한 웹앱을 제작하는 등 AI를 활용한 작업물의
                     퀄리티 향상과 작업 효율성 증대에 기여했습니다.
                 </p>
@@ -2033,6 +2034,111 @@
                 true,
             );
         })();
+    </script>
+
+    <script>
+        window.addEventListener('load', () => {
+            const mv = document.getElementById('bunny');
+            if (!mv) return;
+
+            let angleH = 0;
+            let angleV = 75;
+            let dir = 1;
+            let isUserDragging = false;
+            let lastX = 0;
+            let lastY = 0;
+            let isReturning = false;
+            let interactTimer = null;
+
+            function startReturn() {
+                interactTimer = setTimeout(() => {
+                    isReturning = true;
+                }, 2000); // 2초 후 복귀 시작
+            }
+
+            // 마우스 드래그
+            mv.addEventListener('mousedown', (e) => {
+                isUserDragging = true;
+                isReturning = false;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                clearTimeout(interactTimer);
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isUserDragging) return;
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+                angleH += dx * 0.4;
+                angleV += dy * 0.4;
+                angleV = Math.min(160, Math.max(20, angleV));
+                mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
+                lastX = e.clientX;
+                lastY = e.clientY;
+            });
+
+            window.addEventListener('mouseup', () => {
+                if (!isUserDragging) return;
+                isUserDragging = false;
+                startReturn();
+            });
+
+            // 터치
+            mv.addEventListener('touchstart', (e) => {
+                isUserDragging = true;
+                isReturning = false;
+                lastX = e.touches[0].clientX;
+                lastY = e.touches[0].clientY;
+                clearTimeout(interactTimer);
+            }, { passive: true });
+
+            window.addEventListener('touchmove', (e) => {
+                if (!isUserDragging) return;
+                const dx = e.touches[0].clientX - lastX;
+                const dy = e.touches[0].clientY - lastY;
+                angleH += dx * 0.4;
+                angleV += dy * 0.4;
+                angleV = Math.min(160, Math.max(20, angleV));
+                mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
+                lastX = e.touches[0].clientX;
+                lastY = e.touches[0].clientY;
+            });
+
+            window.addEventListener('touchend', () => {
+                isUserDragging = false;
+                startReturn();
+            });
+
+            mv.addEventListener('load', () => {
+                mv.setAttribute('camera-orbit', '0deg 75deg 6m');
+
+                function rotate() {
+                    if (isReturning) {
+                        // ✅ 원래 각도로 부드럽게 복귀
+                        angleH += (0 - angleH) * 0.05;
+                        angleV += (75 - angleV) * 0.05;
+
+                        // 거의 다 돌아오면 복귀 완료
+                        if (Math.abs(angleH) < 0.5 && Math.abs(angleV - 75) < 0.5) {
+                            angleH = 0;
+                            angleV = 75;
+                            isReturning = false;
+                        }
+                        mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
+
+                    } else if (!isUserDragging) {
+                        // ✅ 자동 왔다갔다 회전
+                        angleH += dir * 0.2;
+                        if (angleH >= 90) dir = -1;
+                        if (angleH <= -90) dir = 1;
+                        mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
+                    }
+
+                    requestAnimationFrame(rotate);
+                }
+                rotate();
+            });
+        });
     </script>
 </body>
 
