@@ -5284,8 +5284,6 @@ footer:hover ~ .dotnav{ display:none; } /* 구조 따라 다를 수 있음 */
   font-size: clamp(20px, 1.8vw, 22px);
   line-height: 1.7;
   color: #4b587c;
-  margin-top: 12px;
-
 }
 
 .hero-desc br {
@@ -5966,7 +5964,7 @@ content:none !important;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 10px;
 }
 
 .hero_text {
@@ -6098,7 +6096,7 @@ content:none !important;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 .hero_tag {
@@ -6303,8 +6301,9 @@ content:none !important;
 
 
 .hero__content {
-    align-items: center;  /* 이미 있지만 확인 */
-    min-height: 85vh;     /* 80vh → 85vh로 늘리기 */
+    align-items: flex-start;  /* center → flex-start */
+    min-height: 85vh;
+    padding-top: clamp(100px, 13vh, 160px);
 }
 
 .hero_img model-viewer {
@@ -6316,7 +6315,7 @@ content:none !important;
 
 .hero_img {
     flex: 0 0 50%;
-    margin-top: -50px;  /* 숫자 키울수록 더 위로 */
+    margin-top: -80px;  /* 숫자 키울수록 더 위로 */
 }
 
 
@@ -6334,4 +6333,171 @@ content:none !important;
     .hero__content {
         gap: 0;
     }
+}
+
+
+
+
+.hero_eyebrow {
+    display: block;
+    font-family: 'LaundryGothic', sans-serif;
+    font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: #3b82f6;
+    -webkit-text-fill-color: #3b82f6;
+    margin-bottom: 16px;
+    opacity: 0.85;
+}
+
+
+
+
+.hero_box_scrollButton {
+    background: #f4f6fb !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-clip: unset !important;
+    background-origin: unset !important;
+    box-shadow: none !important;
+
+    color: #283f6e !important;
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+    padding: 16px 48px !important;
+    border-radius: 999px !important;
+    letter-spacing: 0.02em !important;
+
+    /* 도트 테두리 핵심 */
+    border: 3px dotted #283f6e !important;
+    outline: none !important;
+
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease !important;
+}
+
+.hero_box_scrollButton:hover {
+    background: #283f6e !important;
+    color: #fff !important;
+    transform: translateY(-2px) !important;
+    border-color: #283f6e !important;
+}
+
+.hero_box_scrollButton:hover b {
+    color: #a8c4f0 !important;
+}
+
+.hero_box_scrollButton:active {
+    transform: translateY(1px) !important;
+}
+
+.hero_box_scrollButton b {
+    color: #3b82f6 !important;
+    font-weight: 800 !important;
+}
+
+
+
+
+.hero_tag {
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease !important;
+    cursor: default;
+}
+
+.hero_tag:hover {
+    background: rgba(59, 130, 246, 0.12) !important;
+    border-color: rgba(59, 130, 246, 0.6) !important;
+    transform: translateY(-2px) !important;
+}
+
+
+
+
+.hero_tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.hero_tools_label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: rgba(40, 63, 110, 0.4);
+    flex-shrink: 0;
+}
+
+.hero_tools_icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero_tools_icons img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    opacity: 0.65;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hero_tools_icons img:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.hero_updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(40, 63, 110, 0.4);
+    letter-spacing: 0.04em;
+}
+
+.hero_updated_dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(40, 63, 110, 0.3);
+    flex-shrink: 0;
+}
+
+
+
+
+.hero_box_scrollButton {
+    background: #283f6e !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 4px 4px 0px rgba(40, 63, 110, 0.3) !important;
+    padding: 14px 50px !important;
+    font-size: 1.2rem !important;
+    border-radius: 999px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-clip: unset !important;
+    margin-bottom: 10px;
+}
+
+.hero_box_scrollButton:hover {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 6px 6px 0px rgba(40, 63, 110, 0.3) !important;
+}
+
+.hero_box_scrollButton:active {
+    transform: translate(2px, 2px) !important;
+    box-shadow: none !important;
+}
+
+.hero_box_scrollButton b {
+    color: #a8c4f0 !important;
+    font-weight: 800 !important;
 }
