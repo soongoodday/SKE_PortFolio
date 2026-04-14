@@ -2041,6 +2041,9 @@
             const mv = document.getElementById('bunny');
             if (!mv) return;
 
+            // ✅ 터치 디바이스 감지 (갤럭시탭, 아이패드 등)
+            const isTouch = navigator.maxTouchPoints > 0 || 'ontouchstart' in window;
+
             let angleH = 0;
             let angleV = 75;
             let dir = 1;
@@ -2051,9 +2054,7 @@
             let interactTimer = null;
 
             function startReturn() {
-                interactTimer = setTimeout(() => {
-                    isReturning = true;
-                }, 2000); // 2초 후 복귀 시작
+                interactTimer = setTimeout(() => { isReturning = true; }, 2000);
             }
 
             // 마우스 드래그
@@ -2083,7 +2084,7 @@
                 startReturn();
             });
 
-            // 터치
+            // 터치 드래그
             mv.addEventListener('touchstart', (e) => {
                 isUserDragging = true;
                 isReturning = false;
@@ -2112,28 +2113,25 @@
             mv.addEventListener('load', () => {
                 mv.setAttribute('camera-orbit', '0deg 75deg 6m');
 
+                // ✅ 터치 디바이스면 고정, 회전 없음
+                if (isTouch) return;
+
                 function rotate() {
                     if (isReturning) {
-                        // ✅ 원래 각도로 부드럽게 복귀
                         angleH += (0 - angleH) * 0.05;
                         angleV += (75 - angleV) * 0.05;
-
-                        // 거의 다 돌아오면 복귀 완료
                         if (Math.abs(angleH) < 0.5 && Math.abs(angleV - 75) < 0.5) {
                             angleH = 0;
                             angleV = 75;
                             isReturning = false;
                         }
                         mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
-
                     } else if (!isUserDragging) {
-                        // ✅ 자동 왔다갔다 회전
                         angleH += dir * 0.4;
                         if (angleH >= 90) dir = -1;
                         if (angleH <= -90) dir = 1;
                         mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
                     }
-
                     requestAnimationFrame(rotate);
                 }
                 rotate();
