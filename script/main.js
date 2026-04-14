@@ -995,7 +995,7 @@ mv.addEventListener('load', () => {
     // ✅ 태블릿/모바일이면 auto-rotate로 대체
     if (window.innerWidth <= 1024) {
         mv.setAttribute('auto-rotate', '');
-        mv.setAttribute('rotation-per-second', '20deg');
+        mv.setAttribute('rotation-per-second', '40deg');
         return; // rotate 함수 실행 안 함
     }
 
