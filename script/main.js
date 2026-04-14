@@ -987,3 +987,28 @@ window.addEventListener("resize", onScroll);
 updateActiveByScroll();
   setActive(targets[0].id);
 });
+
+
+
+
+mv.addEventListener('load', () => {
+    // ✅ 태블릿/모바일이면 auto-rotate로 대체
+    if (window.innerWidth <= 1024) {
+        mv.setAttribute('auto-rotate', '');
+        mv.setAttribute('rotation-per-second', '20deg');
+        return; // rotate 함수 실행 안 함
+    }
+
+    mv.setAttribute('camera-orbit', '0deg 65deg 6m');
+
+    function rotate() {
+        if (!isUserDragging) {
+            angleH += dir * 0.4;
+            if (angleH >= 90) dir = -1;
+            if (angleH <= -90) dir = 1;
+            mv.setAttribute('camera-orbit', `${angleH}deg ${angleV}deg 6m`);
+        }
+        requestAnimationFrame(rotate);
+    }
+    rotate();
+});
