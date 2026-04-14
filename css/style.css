@@ -653,6 +653,12 @@ body{
   width: 100%;
 }
 
+.hero_img {animation: hero_img 1s forwards;opacity: 0; animation-delay: 1s}
+@keyframes hero_img {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 .hero_img img{
   width: clamp(280px, 38vw, 560px); /* ⭐ 모바일~웹 자동 */
   max-width: 100%;
@@ -2323,6 +2329,12 @@ html, body{
   100% {margin-right: 0px; opacity: 1;}
 }
 
+.hero_tags_row {animation: hero_tags_row 1s forwards;opacity: 0; animation-delay: 0.7s}
+@keyframes hero_tags_row {
+  0% {margin-left: 100px;opacity: 0;}
+  100% {margin-left: 0px; opacity: 1;}
+}
+
 .hero_text {animation: hero_text 1s forwards;opacity: 0; animation-delay: 0.7s}
 @keyframes hero_text {
   0% {margin-left: 100px;opacity: 0;}
@@ -2335,12 +2347,23 @@ html, body{
   100% {margin-left: 0px; opacity: 1;}
 }
 
-.hero_wrap {animation: hero_wrap 1s forwards;opacity: 0; animation-delay: 1s}
-@keyframes hero_wrap {
-  0% {margin-top: 50px;opacity: 0;}
-  100% {margin-top: 0px; opacity: 1;}
+.hero_button {animation: hero_button 1s forwards;opacity: 0; animation-delay: 1s}
+@keyframes hero_button {
+  0% {margin-left: 100px;opacity: 0;}
+  100% {margin-left: 0px; opacity: 1;}
 }
 
+.hero_tools {animation: hero_tools 1s forwards;opacity: 0; animation-delay: 1s}
+@keyframes hero_tools {
+  0% {margin-left: 100px;opacity: 0;}
+  100% {margin-left: 0px; opacity: 1;}
+}
+
+.hero_updated {animation: hero_updated 1s forwards;opacity: 0; animation-delay: 1s}
+@keyframes hero_updated {
+  0% {margin-left: 100px;opacity: 0;}
+  100% {margin-left: 0px; opacity: 1;}
+}
 
 
 
@@ -4680,6 +4703,12 @@ html.theme-leave .scene-hud__fill{
   -webkit-backdrop-filter: none;
 }
 
+.dotnav {animation: dotnav 1s forwards;opacity: 0; animation-delay: 1s}
+@keyframes dotnav {
+  0% {margin-right: 100px;opacity: 0;}
+  100% {margin-right: 0px; opacity: 1;}
+}
+
 /* ✅ 버튼(네모/알약) 느낌 제거 */
 .dotnav__btn{
   all: unset;
@@ -6501,3 +6530,7 @@ content:none !important;
     color: #a8c4f0 !important;
     font-weight: 800 !important;
 }
+
+
+
+
