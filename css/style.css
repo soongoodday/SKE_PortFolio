@@ -6709,3 +6709,26 @@ content:none !important;
     padding: 20px 18px;
   }
 }
+
+
+
+
+
+/* 스크롤 래퍼: overflow만 담당 */
+.ai-flow-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 16px 4px 20px; /* 상하 padding은 여기서 */
+}
+.ai-flow-scroll::-webkit-scrollbar { display: none; }
+
+/* 기존 .ai-flow에서 overflow 관련 속성 제거 */
+.ai-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 48px;
+  margin-bottom: 40px;
+  /* overflow-x, padding-bottom, scrollbar 관련 전부 삭제 */
+}
