@@ -8198,3 +8198,51 @@ font-size:.75rem;
     font-size: 0.78rem;
   }
 }
+
+
+
+
+
+/* =======================================================
+   MISSION LOG — 카테고리 탭 필터 (다크 버전)
+======================================================= */
+
+.ow-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.ow-tab {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--dark-border);
+  background: transparent;
+  color: var(--light-gray);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.ow-tab:hover {
+  border-color: var(--neon-purple);
+  color: var(--white);
+}
+
+.ow-tab.is-active {
+  background: var(--neon-purple);
+  border-color: var(--neon-purple);
+  color: var(--white);
+  box-shadow: 0 0 12px rgba(157, 0, 255, 0.4);
+}
+
+@media (max-width: 600px) {
+  .ow-tab {
+    font-size: 0.62rem;
+    padding: 5px 12px;
+  }
+}

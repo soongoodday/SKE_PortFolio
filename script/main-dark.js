@@ -233,7 +233,7 @@ const modalClose = modal?.querySelector('.modal-close');
 const workItems = document.querySelectorAll('[data-project]');
 
 const projectData = {
-    daangn: {
+  daangn: {
     title: '당근 서비스',
     category: 'MAIN QUEST • CASE STUDY',
     date: '2026.02 (1주 프로젝트)',
@@ -539,236 +539,236 @@ document.addEventListener('keydown', (e) => {
   // ✅ 여기만 네 작업물 데이터로 채우면 끝!
   const OTHER_WORKS = [
     {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "한전MCS 이륜차 재해예방 캠페인",
-      meta: "Design • 2026",
-      desc: "한전MCS 이륜차 재해예방 캠페인 관련 무사고 달력 및 현수막",
-      topic: "한전MCS 이륜차 재해예방 캠페인/무사고 달력/현수막",
-      age: "한전MCS 이륜차 재해예방 캠페인 관련 직원 및 고객",
-      figma: "https://www.figma.com/",
-      images: ["images/2026_mcs2.png", "images/2026_mcs1.png"]
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "누베딜리 상세 페이지 및 배너",
-      meta: "Design • 2026",
-      desc: "가상의 반지 브랜드 누베딜리 상세 페이지 및 배너",
-      topic: "가상의 반지 브랜딩/nouvedilie",
-      age: "반지 구입 의향이 있는 30대 ~ 40대 이상 여성",
-      figma: "https://www.figma.com/",
-      images: ["images/detail_nouvedilie1.png", "images/nouvedilie_banner.png"]
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "UI DESIGN", status: "100%",
       title: "ClassCare 웹앱 시험 파트 UI 디자인",
       meta: "Design • 2026",
       desc: "ClassCare 웹앱 시험 파트 UI 디자인",
       topic: "ClassCare 웹앱 시험 파트 UI 디자인",
       age: "ClassCare 웹앱 사용자",
       figma: "https://www.figma.com/",
-      images: ["images/Crowny1.png", "images/Crowny2.png"]
+      images: ["images/Crowny1.png", "images/Crowny2.png"],
+      category: "UI 디자인"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "ARCHIVE", status: "100%",
+      title: "한전MCS 이륜차 재해예방 캠페인",
+      meta: "Design • 2026",
+      desc: "한전MCS 이륜차 재해예방 캠페인 관련 무사고 달력 및 현수막",
+      topic: "한전MCS 이륜차 재해예방 캠페인/무사고 달력/현수막",
+      age: "한전MCS 이륜차 재해예방 캠페인 관련 직원 및 고객",
+      figma: "https://www.figma.com/",
+      images: ["images/2026_mcs2.png", "images/2026_mcs1.png"],
+      category: "편집·홍보물"
+    },
+    {
+      tag: "BANNER", status: "100%",
+      title: "누베딜리 상세 페이지 및 배너",
+      meta: "Design • 2026",
+      desc: "가상의 반지 브랜드 누베딜리 상세 페이지 및 배너",
+      topic: "가상의 반지 브랜딩/nouvedilie",
+      age: "반지 구입 의향이 있는 30대 ~ 40대 이상 여성",
+      figma: "https://www.figma.com/",
+      images: ["images/detail_nouvedilie1.png", "images/nouvedilie_banner.png"],
+      category: "배너"
+    },
+    {
+      tag: "BANNER", status: "100%",
       title: "입문용 헤드폰 배너",
       meta: "Design • 2026",
       desc: "입문용 헤드폰 배너",
       topic: "입문용 헤드폰/배너",
       age: "입문용 헤드폰 구매에 관심있는 모든 고객",
       figma: "https://www.figma.com/",
-      images: "images/headphone_banner.png"
+      images: "images/headphone_banner.png",
+      category: "배너"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "BANNER", status: "100%",
       title: "당근마켓 웹 배너",
       meta: "Design • 2026",
       desc: "당근마켓 웹 배너",
       topic: "당근마켓/배너",
       age: "당근마켓 사용자",
       figma: "https://www.figma.com/",
-      images: ["images/carrot_banner1.png", "images/carrot_banner2.png"]
+      images: ["images/carrot_banner1.png", "images/carrot_banner2.png"],
+      category: "배너"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "학원 모집 홍보 포스터",
-      meta: "Design • 2026",
-      desc: "학원 모집 홍보 포스터",
-      topic: "학원/홍보 포스터",
-      age: "학원 수강에 관심있는 고객",
-      figma: "https://www.figma.com/",
-      images: "images/green17_poster.png"
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "BANNER", status: "100%",
       title: "카트 게임 배너",
       meta: "Design • 2026",
       desc: "카트 게임 배너",
       topic: "카트 게임/배너",
       age: "카트 게임 이용자",
       figma: "https://www.figma.com/",
-      images: ["images/game_banner.png", "images/KartRider_banner.png"]
+      images: ["images/game_banner.png", "images/KartRider_banner.png"],
+      category: "배너"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "한전MCS 플로깅 판넬 및 계획안",
-      meta: "Design • 2025",
-      desc: "한전MCS 플로깅 판넬 및 계획안",
-      topic: "한전MCS/플로깅/판넬/계획안",
-      age: "한전MCS 관계자",
+      tag: "POSTER", status: "100%",
+      title: "학원 모집 홍보 포스터",
+      meta: "Design • 2026",
+      desc: "학원 모집 홍보 포스터",
+      topic: "학원/홍보 포스터",
+      age: "학원 수강에 관심있는 고객",
       figma: "https://www.figma.com/",
-      images: ["images/mcs1.jpg", "images/mcs2.jpg", "images/mcs3.jpg"]
+      images: "images/green17_poster.png",
+      category: "포스터"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "AMC2024",
-      meta: "Design • 2024",
-      desc: "AMC2024",
-      topic: "AMC2024/X배너/프로그램북/현수막/네임택",
-      age: "AMC2024 관계자 및 참가자",
-      figma: "https://www.figma.com/",
-      images: ["images/AMC1.png", "images/AMC2.png", "images/AMC3.png", "images/AMC4.png", "images/AMC5.png", "images/AMC6.png", "images/AMC7.png"]
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "티오피월드 행정사사무소 명함",
-      meta: "Design • 2025",
-      desc: "티오피월드 행정사사무소 명함",
-      topic: "티오피월드/행정사사무소/명함",
-      age: "티오피월드 행정사",
-      figma: "https://www.figma.com/",
-      images: ["images/top.jpg"]
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "한전MCS 청렴수 물병 라벨지",
-      meta: "Design • 2025",
-      desc: "한전MCS 청렴수 물병 라벨지",
-      topic: "한전MCS/청렴수/라벨지",
-      age: "한전MCS 관계자 및 고객사",
-      figma: "https://www.figma.com/",
-      images: ["images/mcs_water.png", "images/mcs_water2.png"]
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "POSTER", status: "100%",
       title: "대한민국 공익광고제 포스터",
       meta: "Design • 2025",
       desc: "대한민국 공익광고제 포스터",
       topic: "공익광고제/포스터",
       age: "대한민국 공익광고 관계자",
       figma: "https://www.figma.com/",
-      images: ["images/nanum_poster.png"]
+      images: ["images/nanum_poster.png"],
+      category: "포스터"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "POSTER", status: "100%",
       title: "경기도 금연공감문화제 포스터",
       meta: "Design • 2025",
       desc: "경기도 금연공감문화제 포스터",
       topic: "경기도/금연공감문화제/포스터",
       age: "경기도 금연공감문화제 관계자",
       figma: "https://www.figma.com/",
-      images: ["images/medal_poster.png"]
+      images: ["images/medal_poster.png"],
+      category: "포스터"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "POSTER", status: "100%",
       title: "중대재해 예방 포스터",
       meta: "Design • 2023",
       desc: "중대재해 예방 포스터",
       topic: "중대재해 예방/포스터",
       age: "중대재해 예방 관련 관계자 및 일반 대중",
       figma: "https://www.figma.com/",
-      images: ["images/mcs_poster.png"]
+      images: ["images/mcs_poster.png"],
+      category: "포스터"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "웨딩스튜디오 인스타그램 디자인",
-      meta: "Design • 2025",
-      desc: "웨딩스튜디오 인스타그램 디자인",
-      topic: "웨딩스튜디오/인스타그램",
-      age: "웨딩스튜디오 관계자 및 고객",
-      figma: "https://www.figma.com/",
-      images: ["images/insta_ukymelar_mockup.png", "images/insta_ukymelar.png"]
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "iSuite 홍보물",
-      meta: "Design • 2025",
-      desc: "iSuite 홍보물",
-      topic: "iSuite/홍보물",
-      age: "iSuite 기술에 관심있는 기업",
-      figma: "https://www.figma.com/",
-      images: ["images/iSuite1.png", "images/iSuite2.png"]
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
-      title: "iVH 기업 명함",
-      meta: "Design • 2025",
-      desc: "iVH 기업 명함",
-      topic: "기업/명함",
-      age: "iVH 관계자 및 고객",
-      figma: "https://www.figma.com/",
-      images: ["images/ivh.png"]
-    },
-    {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "POSTER", status: "100%",
       title: "보령머드축제 포스터",
       meta: "Design • 2024",
       desc: "보령머드축제 포스터",
       topic: "보령머드축제/포스터",
       age: "보령머드축제 관계자 및 관심있는 국민",
       figma: "https://www.figma.com/",
-      images: ["images/mud_poster.png"]
+      images: ["images/mud_poster.png"],
+      category: "포스터"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "EDITORIAL", status: "100%",
+      title: "한전MCS 플로깅 판넬 및 계획안",
+      meta: "Design • 2025",
+      desc: "한전MCS 플로깅 판넬 및 계획안",
+      topic: "한전MCS/플로깅/판넬/계획안",
+      age: "한전MCS 관계자",
+      figma: "https://www.figma.com/",
+      images: ["images/mcs1.jpg", "images/mcs2.jpg", "images/mcs3.jpg"],
+      category: "편집·홍보물"
+    },
+    {
+      tag: "EDITORIAL", status: "100%",
+      title: "AMC2024",
+      meta: "Design • 2024",
+      desc: "AMC2024",
+      topic: "AMC2024/X배너/프로그램북/현수막/네임택",
+      age: "AMC2024 관계자 및 참가자",
+      figma: "https://www.figma.com/",
+      images: ["images/AMC1.png", "images/AMC2.png", "images/AMC3.png", "images/AMC4.png", "images/AMC5.png", "images/AMC6.png", "images/AMC7.png"],
+      category: "편집·홍보물"
+    },
+    {
+      tag: "EDITORIAL", status: "100%",
+      title: "티오피월드 행정사사무소 명함",
+      meta: "Design • 2025",
+      desc: "티오피월드 행정사사무소 명함",
+      topic: "티오피월드/행정사사무소/명함",
+      age: "티오피월드 행정사",
+      figma: "https://www.figma.com/",
+      images: ["images/top.jpg"],
+      category: "편집·홍보물"
+    },
+    {
+      tag: "EDITORIAL", status: "100%",
+      title: "한전MCS 청렴수 물병 라벨지",
+      meta: "Design • 2025",
+      desc: "한전MCS 청렴수 물병 라벨지",
+      topic: "한전MCS/청렴수/라벨지",
+      age: "한전MCS 관계자 및 고객사",
+      figma: "https://www.figma.com/",
+      images: ["images/mcs_water.png", "images/mcs_water2.png"],
+      category: "편집·홍보물"
+    },
+    {
+      tag: "EDITORIAL", status: "100%",
+      title: "웨딩스튜디오 인스타그램 디자인",
+      meta: "Design • 2025",
+      desc: "웨딩스튜디오 인스타그램 디자인",
+      topic: "웨딩스튜디오/인스타그램",
+      age: "웨딩스튜디오 관계자 및 고객",
+      figma: "https://www.figma.com/",
+      images: ["images/insta_ukymelar_mockup.png", "images/insta_ukymelar.png"],
+      category: "편집·홍보물"
+    },
+    {
+      tag: "EDITORIAL", status: "100%",
+      title: "iSuite 홍보물",
+      meta: "Design • 2025",
+      desc: "iSuite 홍보물",
+      topic: "iSuite/홍보물",
+      age: "iSuite 기술에 관심있는 기업",
+      figma: "https://www.figma.com/",
+      images: ["images/iSuite1.png", "images/iSuite2.png"],
+      category: "편집·홍보물"
+    },
+    {
+      tag: "EDITORIAL", status: "100%",
+      title: "iVH 기업 명함",
+      meta: "Design • 2025",
+      desc: "iVH 기업 명함",
+      topic: "기업/명함",
+      age: "iVH 관계자 및 고객",
+      figma: "https://www.figma.com/",
+      images: ["images/ivh.png"],
+      category: "편집·홍보물"
+    },
+    {
+      tag: "EDITORIAL", status: "100%",
       title: "2023 한국가이던스 팜플렛",
       meta: "Design • 2023",
       desc: "2023 한국가이던스 팜플렛",
       topic: "기업/팜플렛",
       age: "한국가이던스 관계자 및 학교 상담 선생님",
       figma: "https://www.figma.com/",
-      images: ["images/2023_guidance.png", "images/2023_guidance2.png"]
+      images: ["images/2023_guidance.png", "images/2023_guidance2.png"],
+      category: "편집·홍보물"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "EDITORIAL", status: "100%",
       title: "SSGI 결과표 & 통계표",
       meta: "Design • 2023",
       desc: "SSGI 결과표 & 통계표",
       topic: "기업/결과표/통계표",
       age: "한국가이던스 관계자 및 학교 상담 선생님",
       figma: "https://www.figma.com/",
-      images: ["images/guidance_ssgi1.png", "images/guidance_ssgi2.png"]
+      images: ["images/guidance_ssgi1.png", "images/guidance_ssgi2.png"],
+      category: "편집·홍보물"
     },
     {
-      tag: "ARCHIVE",
-      status: "100%",
+      tag: "EDITORIAL", status: "100%",
       title: "SSDA 결과표 & 통계표",
       meta: "Design • 2023",
       desc: "SSDA 결과표 & 통계표",
       topic: "기업/결과표/통계표",
       age: "한국가이던스 관계자 및 학교 상담 선생님",
       figma: "https://www.figma.com/",
-      images: ["images/guidance_ssda1.png", "images/guidance_ssda2.png"]
-    }
+      images: ["images/guidance_ssda1.png", "images/guidance_ssda2.png"],
+      category: "편집·홍보물"
+    },
   ];
 
   const grid = document.getElementById("otherWorksGrid");
@@ -856,21 +856,24 @@ document.addEventListener('keydown', (e) => {
 
 
 
-  function renderCards() {
-    grid.innerHTML = OTHER_WORKS.map((w, i) => {
-      const pv = normalizeImages(w)[0] || ''; // ✅ 첫 이미지 = preview로 사용
+  function renderCards(cat = "전체") {
+    const filtered = cat === "전체"
+      ? OTHER_WORKS
+      : OTHER_WORKS.filter(w => w.category === cat);
+
+    grid.innerHTML = filtered.map((w, _) => {
+      const realIdx = OTHER_WORKS.indexOf(w); // 모달용 원본 인덱스
+      const pv = normalizeImages(w)[0] || '';
       return `
       <li class="ow-item">
         <article class="ow-card">
-          <button class="ow-card-btn" type="button" data-ow="${i}" data-preview="${pv}">
+          <button class="ow-card-btn" type="button" data-ow="${realIdx}" data-preview="${pv}">
             <div class="ow-top">
               <span class="ow-tag">${w.tag}</span>
               <span class="ow-status">${w.status}</span>
             </div>
-
             <h3 class="ow-title">${w.title}</h3>
             <p class="ow-desc">${w.desc}</p>
-
             <footer class="ow-footer">
               <span class="ow-meta">${w.meta}</span>
               <span class="ow-open">OPEN →</span>
@@ -881,6 +884,20 @@ document.addEventListener('keydown', (e) => {
     `;
     }).join("");
   }
+
+  // 탭 필터 이벤트 (renderCards 바로 아래에 추가)
+  const tabs = document.querySelectorAll(".ow-tab");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => {
+        t.classList.remove("is-active");
+        t.setAttribute("aria-selected", "false");
+      });
+      tab.classList.add("is-active");
+      tab.setAttribute("aria-selected", "true");
+      renderCards(tab.dataset.cat);
+    });
+  });
 
   function openOwModal(index) {
     current = index;
@@ -1569,7 +1586,7 @@ window.addEventListener('DOMContentLoaded', () => {
   closeBtnEl.classList.add('nav-panel-close');
 
   // ✅ 3) X 버튼이 패널 위로 뜨게 인라인 스타일로 강제 (z-index/position 문제 방지)
-closeBtnEl.style.cssText += `
+  closeBtnEl.style.cssText += `
   position:absolute;
   left:24px;
   top:9px;
@@ -2323,7 +2340,7 @@ document.addEventListener('DOMContentLoaded', () => {
       heroVideo.setAttribute('autoplay', '');
       const playPromise = heroVideo.play();
       if (playPromise) {
-        playPromise.catch(() => {});
+        playPromise.catch(() => { });
       }
     }
   };
