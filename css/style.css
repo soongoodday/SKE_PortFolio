@@ -6732,3 +6732,62 @@ content:none !important;
   margin-bottom: 40px;
   /* overflow-x, padding-bottom, scrollbar 관련 전부 삭제 */
 }
+
+
+
+
+
+/* =======================================================
+   아카이브 탭 필터
+======================================================= */
+
+.ow-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.ow-tab {
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(40, 63, 110, 0.18);
+  background: transparent;
+  color: #555;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.ow-tab:hover {
+  border-color: rgba(40, 63, 110, 0.4);
+  color: #283f6e;
+}
+
+.ow-tab.is-active {
+  background: #283f6e;
+  border-color: #283f6e;
+  color: #fff;
+}
+
+/* 카드 뱃지 */
+.ow-cat-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ff5a4a;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  .ow-tabs {
+    gap: 6px;
+  }
+  .ow-tab {
+    font-size: 0.82rem;
+    padding: 6px 14px;
+  }
+}
