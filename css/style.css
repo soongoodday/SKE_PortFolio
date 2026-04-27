@@ -6960,3 +6960,141 @@ content:none !important;
 .skills-wall__back .back-desc {
   font-size: 0.82rem !important; /* 0.72rem → 0.82rem */
 }
+
+
+
+
+/* about-box 테두리 정리 */
+.about-box {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* 상단 핵심 정보 */
+.about-top {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid rgba(40, 63, 110, 0.1);
+}
+.about-name {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  color: #283f6e;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  font-family: 'LaundryGothic', sans-serif;
+}
+.about-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.about-contact a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(40, 63, 110, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.about-contact a:hover {
+  color: #3b82f6;
+}
+.about-contact-divider {
+  color: rgba(40, 63, 110, 0.25);
+}
+
+/* 하단 카드 그리드 */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 12px rgba(40, 63, 110, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.about-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(40, 63, 110, 0.1);
+}
+
+.about-card__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(106, 92, 255, 0.7);
+  text-transform: uppercase;
+}
+.about-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.about-card__body p {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #283f6e;
+  line-height: 1.4;
+  margin: 0;
+}
+.about-card__body span {
+  font-size: 0.75rem;
+  color: rgba(40, 63, 110, 0.45);
+  margin-bottom: 6px;
+  display: block;
+}
+.about-card__body b {
+  color: #6a5cff;
+}
+.about-card__total {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(106, 92, 255, 0.6);
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(40, 63, 110, 0.08);
+}
+
+/* 경력 카드는 2칸 차지 */
+.about-card:first-child {
+  grid-column: span 2;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-card:first-child {
+    grid-column: span 1;
+  }
+}
+
+.about-card__body p {
+  font-size: 1rem !important;        /* 0.88rem → 1rem */
+}
+.about-card__body span {
+  font-size: 0.85rem !important;     /* 0.75rem → 0.85rem */
+}
+.about-card__label {
+  font-size: 0.78rem !important;     /* 0.68rem → 0.78rem */
+}
+.about-card__total {
+  font-size: 0.82rem !important;     /* 0.72rem → 0.82rem */
+}
+.about-contact a {
+  font-size: 1.05rem !important;     /* 0.95rem → 1.05rem */
+}
