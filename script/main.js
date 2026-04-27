@@ -991,3 +991,68 @@ updateActiveByScroll();
 
 
 
+window.addEventListener('DOMContentLoaded', () => {
+  const line1 = document.querySelector('.hero_tags');
+  const line2 = document.querySelector('.hero_name');
+  if (!line1 || !line2) return;
+
+  const text1 = line1.textContent.trim();
+  const text2 = line2.textContent.trim();
+
+  line1.style.cssText += 'opacity:1 !important; margin-left:0 !important; position:relative;';
+  line2.style.cssText += 'opacity:1 !important; margin-left:0 !important; position:relative;';
+
+  // 투명 텍스트로 공간 확보
+  line1.innerHTML = `<span class="placeholder" style="visibility:hidden; user-select:none;">${text1}</span>`;
+  line2.innerHTML = `<span class="placeholder" style="visibility:hidden; user-select:none;">${text2}</span>`;
+
+  const typeText = (el, text, callback) => {
+    const layer = document.createElement('span');
+    layer.style.cssText = 'position:absolute; left:0; top:0; white-space:nowrap;';
+    el.appendChild(layer);
+
+    let i = 0;
+    const timer = setInterval(() => {
+      const span = document.createElement('span');
+      span.textContent = text[i];
+      span.style.cssText = 'display:inline; opacity:0; transition:opacity 0.5s ease, transform 0.5s ease; transform:translateY(6px);';
+      layer.appendChild(span);
+      requestAnimationFrame(() => {
+        span.style.opacity = '1';
+        span.style.transform = 'translateY(0)';
+      });
+      i++;
+      if (i >= text.length) {
+        clearInterval(timer);
+        if (callback) callback();
+      }
+    }, 60);
+  };
+
+  setTimeout(() => {
+    typeText(line1, text1, () => {
+      setTimeout(() => typeText(line2, text2), 200);
+    });
+  }, 600);
+});
+
+
+
+
+/* 섹션 fade-up 등장 */
+const fadeEls = document.querySelectorAll(
+  '.section-header, .about-box, .skill-card, .ai-flow-step, .portfolio-item, .other-works-grid3'
+);
+
+fadeEls.forEach(el => el.classList.add('fade-up'));
+
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+fadeEls.forEach(el => fadeObserver.observe(el));
