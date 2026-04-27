@@ -12,11 +12,6 @@
 </head>
 
 <body>
-    <a href="index-dark.html">
-        <button id="themeToggleBtn" type="button" aria-pressed="false">
-            <span class="dot" aria-hidden="true"></span><span class="label"></span>
-        </button>
-    </a>
 
     <button class="mobile-menu-btn mobile-float-btn" id="mobileMenuBtn">
         <span></span><span></span><span></span>
@@ -63,30 +58,11 @@
                         <a href="#page-bottom" class="nav-link">연락</a>
                     </li>
 
-                    <!-- ✅ 990px↓에서 메뉴 안에 토글 보여주기 -->
-                    <li class="nav-item nav-item--mode-toggle">
-                        <div class="theme-toggle" aria-label="테마 전환">
-                            <button class="theme-switch" type="button" role="switch" aria-checked="false"
-                                aria-label="라이트 / 다크 테마 전환">
-                                <span class="theme-icon theme-icon--sun" aria-hidden="true">☀</span>
-                                <span class="theme-icon theme-icon--moon" aria-hidden="true">☾</span>
-                                <span class="theme-thumb" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                    </li>
                     <span class="nav-indicator-bar" aria-hidden="true"></span>
                 </ul>
 
                 <!-- 오른쪽 버튼 -->
                 <div class="nav-actions">
-                    <div class="theme-toggle" id="themeToggleWrap" aria-label="테마 전환">
-                        <button class="theme-switch" type="button" role="switch" aria-checked="false"
-                            aria-label="라이트 / 다크 테마 전환">
-                            <span class="theme-icon theme-icon--sun" aria-hidden="true">☀</span>
-                            <span class="theme-icon theme-icon--moon" aria-hidden="true">☾</span>
-                            <span class="theme-thumb" aria-hidden="true"></span>
-                        </button>
-                    </div>
                 </div>
             </div>
         </nav>
@@ -2008,65 +1984,6 @@
                 },
                 0,
             );
-    </script>
-
-    <script>
-        (function () {
-            // 1) wipe + hud 1회 생성
-            const wipe = document.createElement("div");
-            wipe.className = "scene-wipe";
-            document.body.appendChild(wipe);
-
-            const hud = document.createElement("div");
-            hud.className = "scene-hud";
-            hud.innerHTML = `
-      <div class="scene-hud__panel" role="status" aria-live="polite">
-        <div class="scene-hud__title">STAGE LOADING...</div>
-        <div class="scene-hud__sub">테마 전환 중</div>
-        <div class="scene-hud__bar"><div class="scene-hud__fill"></div></div>
-      </div>
-    `;
-            document.body.appendChild(hud);
-
-            // 2) 테마 스위치 클릭(중복 id 상관없이)
-            document.addEventListener(
-                "click",
-                (e) => {
-                    const btn = e.target.closest(".theme-switch");
-                    if (!btn) return;
-
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const path = location.pathname.toLowerCase();
-                    const isDark =
-                        path.includes("index-dark.html") ||
-                        path.includes("dark");
-                    const target = isDark
-                        ? "index.html"
-                        : "index-dark.html";
-
-                    if (
-                        document.documentElement.classList.contains(
-                            "theme-leave",
-                        )
-                    )
-                        return;
-
-                    // HUD 문구도 살짝 바꿀 수 있음
-                    hud.querySelector(".scene-hud__sub").textContent =
-                        isDark ? "LIGHT MODE로 전환" : "DARK MODE로 전환";
-
-                    document.documentElement.classList.add("theme-leave");
-
-                    // CSS 애니메이션(420ms) 끝난 뒤 이동
-                    setTimeout(() => {
-                        location.href = target;
-                    }, 420);
-                },
-                true,
-            );
-        })();
     </script>
 
     <script>
