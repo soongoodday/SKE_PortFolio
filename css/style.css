@@ -6538,8 +6538,12 @@ content:none !important;
    AI 활용 역량 — 타임라인 플로우 버전
 ======================================================= */
 
+/* =====================================
+   AI FLOW — 기본 (데스크탑: 가로 4열)
+===================================== */
 .ai-flow {
   display: flex;
+  flex-direction: row;
   align-items: stretch;
   gap: 0;
   margin-top: 48px;
@@ -6551,17 +6555,16 @@ content:none !important;
 }
 .ai-flow::-webkit-scrollbar { display: none; }
 
-/* 단계 카드 */
+/* 카드 */
 .ai-flow-step {
   flex: 1 1 0;
   min-width: 200px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
   background: #fff;
   border: 1.5px solid rgba(40, 63, 110, 0.09);
   border-radius: 16px;
-  padding: 28px 22px 24px;
+  overflow: hidden;
   position: relative;
   transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
@@ -6569,6 +6572,95 @@ content:none !important;
   box-shadow: 0 8px 28px rgba(40, 63, 110, 0.09);
   transform: translateY(-3px);
   border-color: rgba(40, 63, 110, 0.2);
+}
+
+/* 썸네일 */
+.ai-flow-thumb {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: #f0f2f6;
+  flex-shrink: 0;
+}
+.ai-flow-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.ai-flow-step:hover .ai-flow-thumb img {
+  transform: scale(1.04);
+}
+
+/* 텍스트 영역 */
+.ai-flow-content-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 22px 24px;
+  min-width: 0;
+}
+
+/* 번호 마커 */
+.ai-flow-marker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.ai-flow-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ff5a4a;
+  font-family: 'LaundryGothic', sans-serif;
+}
+
+/* 본문 */
+.ai-flow-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* 단계 제목 */
+.ai-flow-phase {
+  font-size: 1.0rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+/* 설명 */
+.ai-flow-desc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #666;
+  word-break: keep-all;
+  margin: 0 0 12px 0;
+  flex: 1;
+}
+
+/* 툴 태그 */
+.ai-flow-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.ai-flow-tag {
+  display: inline-block;
+  background-color: var(--fc, #333);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 /* 화살표 커넥터 */
@@ -6602,111 +6694,59 @@ content:none !important;
   transform: translateY(-50%) rotate(45deg);
 }
 
-/* 번호 마커 */
-.ai-flow-marker {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.ai-flow-num {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #ff5a4a;
-  font-family: 'LaundryGothic', sans-serif;
-}
-
-/* 단계 제목 */
-.ai-flow-phase {
-  font-size: 1.0rem;
-  font-weight: 800;
-  color: #1a2a4a;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-
-/* 설명 */
-.ai-flow-desc {
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: #666;
-  word-break: keep-all;
-  margin: 0;
-  flex: 1;
-}
-
-/* 툴 태그 */
-.ai-flow-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 6px;
-}
-.ai-flow-tag {
-  display: inline-block;
-  background-color: var(--fc, #333);
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 3px 11px;
-  border-radius: 999px;
-  white-space: nowrap;
-  letter-spacing: 0.01em;
-}
-
-/* ===============================
-   반응형
-================================ */
+/* =====================================
+   반응형 — 1024px 이하: 세로 + 썸네일 왼쪽
+===================================== */
 @media (max-width: 1024px) {
   .ai-flow {
     flex-direction: column;
     overflow-x: visible;
   }
   .ai-flow-step {
-    min-width: unset;
     flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 22px 20px;
+    min-width: unset;
   }
-  .ai-flow-marker {
-    flex-direction: column;
-    align-items: center;
+  .ai-flow-thumb {
+    width: 200px;
+    height: auto;
+    min-height: 180px;
     flex-shrink: 0;
-    padding-top: 2px;
+    border-radius: 0;
   }
-  /* 세로 화살표로 전환 */
+  .ai-flow-content-wrap {
+    padding: 20px;
+  }
   .ai-flow-arrow {
     width: auto;
-    height: 28px;
-    align-items: center;
-    justify-content: center;
+    height: 32px;
     align-self: center;
   }
   .ai-flow-arrow::before {
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    right: auto;
-    width: 1.5px;
-    height: 100%;
+    top: 0; bottom: 0; left: 50%; right: auto;
+    width: 1.5px; height: 100%;
     transform: none;
   }
   .ai-flow-arrow::after {
-    top: auto;
-    bottom: 4px;
-    right: auto;
-    left: 50%;
+    top: auto; bottom: 4px;
+    right: auto; left: 50%;
     transform: translateX(-50%) rotate(135deg);
   }
 }
 
+/* =====================================
+   반응형 — 600px 이하: 세로 + 썸네일 상단
+===================================== */
 @media (max-width: 600px) {
   .ai-flow-step {
     flex-direction: column;
-    gap: 12px;
-    padding: 20px 18px;
+  }
+  .ai-flow-thumb {
+    width: 100%;
+    height: 200px;
+    min-height: unset;
+  }
+  .ai-flow-content-wrap {
+    padding: 16px 18px 20px;
   }
 }
 
@@ -7099,3 +7139,49 @@ content:none !important;
 .about-contact a {
   font-size: 1.05rem !important;     /* 0.95rem → 1.05rem */
 }
+
+
+
+
+@media (max-width: 1024px) {
+  .ai-flow {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0;
+  }
+  .ai-flow-step {
+    flex-direction: column;
+    min-width: 180px;
+  }
+  .ai-flow-thumb {
+    width: 100%;
+    height: 160px;
+    min-height: unset;
+  }
+  .ai-flow-content-wrap {
+    padding: 14px 16px 18px;
+  }
+  .ai-flow-arrow {
+    width: 24px;
+    height: auto;
+    align-self: center;
+    flex-shrink: 0;
+  }
+  .ai-flow-arrow::before {
+    top: 50%; left: 0; right: 0;
+    width: 100%; height: 1.5px;
+    transform: translateY(-50%);
+  }
+  .ai-flow-arrow::after {
+    top: 50%; right: 4px;
+    left: auto; bottom: auto;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+
+
+
+
+
+
