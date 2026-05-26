@@ -71,7 +71,13 @@ class Navigation {
   toggleMobileMenu() {
     this.mobileMenuBtn?.classList.toggle('active');
     this.navMenu?.classList.toggle('active');
-  }
+    
+    // 메뉴 열릴 때 배경 강제 적용
+    if (this.navMenu?.classList.contains('active')) {
+        this.navMenu.style.background = '#ffffff';
+        this.navMenu.style.zIndex = '99999';
+    }
+}
 
   /* ===== 부드러운 스크롤 (이것만 사용) ===== */
   smoothScrollTo(targetY, duration = 520) {
@@ -177,6 +183,10 @@ class Navigation {
     this.indicatorBar.style.transform = `translateX(${left}px)`;
     this.indicatorBar.style.width = `${width}px`;
     this.indicatorBar.style.opacity = '1';
+
+    // 히어로 영역이면 흰색, 벗어나면 네이비
+    const heroHeight = document.getElementById('home')?.offsetHeight || window.innerHeight;
+    this.indicatorBar.style.background = window.scrollY < heroHeight * 0.8 ? '#ffffff' : '#283f6e';
   }
 }
 
