@@ -8080,4 +8080,6 @@ html {
 
 
 
-
+.dotnav {
+    display: none !important;
+}

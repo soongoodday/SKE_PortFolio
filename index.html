@@ -2161,17 +2161,17 @@
         const header = document.querySelector('.header');
         const indicatorBar = document.querySelector('.nav-indicator-bar');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const dotnav = document.querySelector('.dotnav');
 
         window.addEventListener('scroll', () => {
             const isScrolled = window.scrollY > window.innerHeight * 0.8;
             header.classList.toggle('header--scrolled', isScrolled);
-            if (indicatorBar) {
-                indicatorBar.style.background = isScrolled ? '#283f6e' : '#ffffff';
-            }
-            if (mobileMenuBtn) {
-                mobileMenuBtn.classList.toggle('is-hero', !isScrolled);
-            }
+            if (indicatorBar) indicatorBar.style.background = isScrolled ? '#283f6e' : '#ffffff';
+            if (mobileMenuBtn) mobileMenuBtn.classList.toggle('is-hero', !isScrolled);
+            if (dotnav) dotnav.classList.toggle('is-dark', !isScrolled);
         });
+
+        dotnav?.classList.add('is-dark');
 
         // 초기 실행
         mobileMenuBtn?.classList.add('is-hero');
