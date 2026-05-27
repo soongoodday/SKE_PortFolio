@@ -1709,6 +1709,13 @@
         </div>
     </footer>
 
+    <!-- 슬라이더 이미지 라이트박스 -->
+    <div class="sub-lightbox" id="subLightbox" aria-hidden="true">
+        <div class="sub-lightbox__backdrop" id="subLightboxBackdrop"></div>
+        <button class="sub-lightbox__close" id="subLightboxClose" aria-label="닫기">✕</button>
+        <img class="sub-lightbox__img" id="subLightboxImg" src="" alt="" />
+    </div>
+
     <script src="script/navigation.js"></script>
     <script src="script/animations.js"></script>
     <script src="script/main.js"></script>
@@ -2174,6 +2181,42 @@
 
         // 초기 실행
         mobileMenuBtn?.classList.add('is-hero');
+
+
+
+
+
+        // 슬라이더 이미지 클릭 → 라이트박스
+        (function () {
+            const lb = document.getElementById('subLightbox');
+            const lbImg = document.getElementById('subLightboxImg');
+            const lbClose = document.getElementById('subLightboxClose');
+            const lbBackdrop = document.getElementById('subLightboxBackdrop');
+
+            document.querySelectorAll('.sub-slider__track img').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', () => {
+                    lbImg.src = img.src;
+                    lbImg.alt = img.alt;
+                    lb.classList.add('is-open');
+                    document.body.classList.add('modal-open');
+                });
+            });
+
+            [lbClose, lbBackdrop].forEach(el => {
+                el.addEventListener('click', () => {
+                    lb.classList.remove('is-open');
+                    document.body.classList.remove('modal-open');
+                });
+            });
+
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') {
+                    lb.classList.remove('is-open');
+                    document.body.classList.remove('modal-open');
+                }
+            });
+        })();
     </script>
 </body>
 
