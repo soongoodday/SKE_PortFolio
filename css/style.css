@@ -8209,3 +8209,30 @@ html {
   display: grid;
   place-items: center;
 }
+.sub-lightbox__nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: color 0.2s ease;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.sub-lightbox__nav:hover { color: rgba(255, 255, 255, 0.85); }
+.sub-lightbox__nav:focus { outline: none !important; box-shadow: none !important; }
+.sub-lightbox__nav:active { outline: none !important; box-shadow: none !important; }
+.sub-lightbox__nav--prev { left: 16px; }
+.sub-lightbox__nav--next { right: 16px; }

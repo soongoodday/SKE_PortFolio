@@ -1713,7 +1713,9 @@
     <div class="sub-lightbox" id="subLightbox" aria-hidden="true">
         <div class="sub-lightbox__backdrop" id="subLightboxBackdrop"></div>
         <button class="sub-lightbox__close" id="subLightboxClose" aria-label="닫기">✕</button>
+        <button class="sub-lightbox__nav sub-lightbox__nav--prev" id="subLightboxPrev">&#8249;</button>
         <img class="sub-lightbox__img" id="subLightboxImg" src="" alt="" />
+        <button class="sub-lightbox__nav sub-lightbox__nav--next" id="subLightboxNext">&#8250;</button>
     </div>
 
     <script src="script/navigation.js"></script>
@@ -2186,35 +2188,71 @@
 
 
 
-        // 슬라이더 이미지 클릭 → 라이트박스
+        // 슬라이더 이미지 클릭 → 라이트박스 (좌우 슬라이드 + 스와이프)
         (function () {
             const lb = document.getElementById('subLightbox');
             const lbImg = document.getElementById('subLightboxImg');
             const lbClose = document.getElementById('subLightboxClose');
-            const lbBackdrop = document.getElementById('subLightboxBackdrop');
+            const lbBack = document.getElementById('subLightboxBackdrop');
+            const lbPrev = document.getElementById('subLightboxPrev');
+            const lbNext = document.getElementById('subLightboxNext');
 
-            document.querySelectorAll('.sub-slider__track img').forEach(img => {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', () => {
-                    lbImg.src = img.src;
-                    lbImg.alt = img.alt;
-                    lb.classList.add('is-open');
-                    document.body.classList.add('modal-open');
+            let imgs = [];
+            let cur = 0;
+
+            function open(list, idx) {
+                imgs = list;
+                cur = idx;
+                lbImg.src = imgs[cur].src;
+                lb.classList.add('is-open');
+                document.body.classList.add('modal-open');
+                updateNav();
+            }
+
+            function close() {
+                lb.classList.remove('is-open');
+                document.body.classList.remove('modal-open');
+            }
+
+            function go(dir) {
+                cur = (cur + dir + imgs.length) % imgs.length;
+                lbImg.src = imgs[cur].src;
+                updateNav();
+            }
+
+            function updateNav() {
+                lbPrev.style.display = imgs.length <= 1 ? 'none' : 'grid';
+                lbNext.style.display = imgs.length <= 1 ? 'none' : 'grid';
+            }
+
+            // 각 슬라이더별 이미지 묶기
+            document.querySelectorAll('.sub-slider__track').forEach(track => {
+                const trackImgs = Array.from(track.querySelectorAll('img'));
+                trackImgs.forEach((img, idx) => {
+                    img.style.cursor = 'pointer';
+                    img.addEventListener('click', () => open(trackImgs, idx));
                 });
             });
 
-            [lbClose, lbBackdrop].forEach(el => {
-                el.addEventListener('click', () => {
-                    lb.classList.remove('is-open');
-                    document.body.classList.remove('modal-open');
-                });
-            });
+            lbClose.addEventListener('click', close);
+            lbBack.addEventListener('click', close);
+            lbPrev.addEventListener('click', () => go(-1));
+            lbNext.addEventListener('click', () => go(1));
 
+            // 키보드
             document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') {
-                    lb.classList.remove('is-open');
-                    document.body.classList.remove('modal-open');
-                }
+                if (!lb.classList.contains('is-open')) return;
+                if (e.key === 'Escape') close();
+                if (e.key === 'ArrowLeft') go(-1);
+                if (e.key === 'ArrowRight') go(1);
+            });
+
+            // 터치 스와이프 (모달 전체 영역)
+            let tx = 0;
+            lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+            lb.addEventListener('touchend', e => {
+                const diff = tx - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) go(diff > 0 ? 1 : -1);
             });
         })();
     </script>
