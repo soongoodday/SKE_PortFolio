@@ -6713,37 +6713,48 @@ content:none !important;
 ===================================== */
 @media (max-width: 1024px) {
   .ai-flow {
-    flex-direction: column;
-    overflow-x: visible;
+    flex-direction: column !important;
+    overflow-x: visible !important;
   }
   .ai-flow-step {
-    flex-direction: row;
-    min-width: unset;
+    flex-direction: row !important;
+    min-width: unset !important;
+    overflow: visible !important;
   }
   .ai-flow-thumb {
-    width: 200px;
-    height: auto;
-    min-height: 180px;
-    flex-shrink: 0;
-    border-radius: 0;
+    width: 200px !important;
+    min-width: 200px !important;
+    height: auto !important;
+    min-height: 180px !important;
+    flex-shrink: 0 !important;
+    border-radius: 16px 0 0 16px !important;
+    overflow: hidden !important;
   }
   .ai-flow-content-wrap {
-    padding: 20px;
+    padding: 20px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
   }
   .ai-flow-arrow {
-    width: auto;
-    height: 32px;
-    align-self: center;
+    width: 100% !important;
+    height: 28px !important;
+    align-self: stretch !important;
   }
   .ai-flow-arrow::before {
-    top: 0; bottom: 0; left: 50%; right: auto;
-    width: 1.5px; height: 100%;
-    transform: none;
+    top: 50% !important;
+    bottom: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 1.5px !important;
+    transform: translateY(-50%) !important;
   }
   .ai-flow-arrow::after {
-    top: auto; bottom: 4px;
-    right: auto; left: 50%;
-    transform: translateX(-50%) rotate(135deg);
+    top: 50% !important;
+    bottom: auto !important;
+    right: 4px !important;
+    left: auto !important;
+    transform: translateY(-50%) rotate(45deg) !important;
   }
 }
 
@@ -6752,15 +6763,17 @@ content:none !important;
 ===================================== */
 @media (max-width: 600px) {
   .ai-flow-step {
-    flex-direction: column;
+    flex-direction: column !important;
   }
   .ai-flow-thumb {
-    width: 100%;
-    height: 200px;
-    min-height: unset;
+    width: 100% !important;
+    min-width: unset !important;
+    height: 200px !important;
+    min-height: unset !important;
+    border-radius: 16px 16px 0 0 !important;
   }
   .ai-flow-content-wrap {
-    padding: 16px 18px 20px;
+    padding: 16px 18px 20px !important;
   }
 }
 
@@ -6777,15 +6790,6 @@ content:none !important;
 }
 .ai-flow-scroll::-webkit-scrollbar { display: none; }
 
-/* 기존 .ai-flow에서 overflow 관련 속성 제거 */
-.ai-flow {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  margin-top: 48px;
-  margin-bottom: 40px;
-  /* overflow-x, padding-bottom, scrollbar 관련 전부 삭제 */
-}
 
 
 
@@ -8082,4 +8086,81 @@ html {
 
 .dotnav {
     display: none !important;
+}
+
+
+
+
+
+/* ===== sub-image-mobile 너비 고정 ===== */
+.sub-slider__track .sub-image-mobile,
+.sub-slider__track .sub-image-web {
+  flex: 0 0 calc((100% - 12px) / 3.3);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sub-slider__track .sub-image-mobile img,
+.sub-slider__track .sub-image-web img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 1024px) {
+  .sub-slider__track .sub-image-mobile,
+  .sub-slider__track .sub-image-web {
+    flex: 0 0 86% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .sub-slider__track .sub-image-mobile,
+  .sub-slider__track .sub-image-web {
+    flex: 0 0 88% !important;
+  }
+}
+
+/* ===== 1024px 이하 preview-web 데스크탑과 동일하게 ===== */
+@media (max-width: 1024px) {
+  .preview-web {
+    width: min(38rem, 100%) !important;
+    aspect-ratio: 1 / 1 !important;
+    max-height: unset !important;
+  }
+
+  .preview-web img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: unset !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sub-slider__track .sub-image-mobile,
+  .sub-slider__track .sub-image-web {
+    flex: 0 0 calc((100% - 12px) / 3.3) !important;
+  }
+}
+
+/* ===== 슬라이더 카드 간격 추가 ===== */
+.sub-slider__track {
+  gap: 50px !important;
+}
+
+.sub-slider__track .sub-image-mobile,
+.sub-slider__track .sub-image-web {
+  flex: 0 0 calc((100% - 48px) / 3.3) !important;
+}
+
+/* ===== 위띵크 슬라이더 간격 줄이기 ===== */
+.sub-slider--wethink {
+  gap: 8px !important;
+}
+
+.sub-slider--wethink .sub-image-mobile,
+.sub-slider--wethink .sub-image-web {
+  flex: 0 0 calc((100% - 24px) / 3.3) !important;
 }
