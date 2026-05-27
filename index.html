@@ -2205,13 +2205,17 @@
                 cur = idx;
                 lbImg.src = imgs[cur].src;
                 lb.classList.add('is-open');
-                document.body.classList.add('modal-open');
+                document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
                 updateNav();
             }
 
             function close() {
                 lb.classList.remove('is-open');
-                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
             }
 
             function go(dir) {
@@ -2236,8 +2240,8 @@
 
             lbClose.addEventListener('click', close);
             lbBack.addEventListener('click', close);
-            lbPrev.addEventListener('click', () => go(-1));
-            lbNext.addEventListener('click', () => go(1));
+            lbPrev.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); go(-1); });
+            lbNext.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); go(1); });
 
             // 키보드
             document.addEventListener('keydown', e => {
