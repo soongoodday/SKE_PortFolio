@@ -8236,3 +8236,17 @@ html {
     line-height: 1.6 !important;
   }
 }
+
+
+
+
+
+/* ===== 히어로 영역 nav hover 흰색 ===== */
+.header:not(.header--scrolled) .nav-link:hover,
+.header:not(.header--scrolled) .nav-link.active {
+  color: #ffffff !important;
+}
+
+.header:not(.header--scrolled) .nav-link::after {
+  background: #ffffff !important;
+}
