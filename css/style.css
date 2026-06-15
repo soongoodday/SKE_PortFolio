@@ -1226,31 +1226,37 @@ body{
 }
 
 .btn-figma{
-  background-color: var(--color-purple);
-  color: var(--color-white);
-  padding: 12px 34px;
+  background-color: transparent;
+  color: var(--color-purple);
+  border: 2px solid var(--color-purple);
+  padding: 10px 28px;
   border-radius: var(--radius-full);
   font-weight: var(--font-bold);
-  transition: opacity .2s ease;
+  transition: background-color .2s ease, color .2s ease;
   font-size: 1.2rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  gap: 7px;
 }
-.btn-figma:hover{ opacity: .92; }
+.btn-figma:hover{
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}
 
 .btn-site{
   color: var(--color-white);
   padding: 12px 34px;
   border-radius: var(--radius-full);
   font-weight: var(--font-bold);
-  transition: opacity .2s ease;
+  transition: opacity .2s ease, transform .2s ease;
   font-size: 1.2rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  gap: 7px;
 }
-.btn-site:hover{ opacity: .92; }
+.btn-site:hover{ opacity: .92; transform: translateY(-1px); }
 
 .portfolio-preview{
   display: flex;
