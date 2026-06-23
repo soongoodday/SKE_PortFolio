@@ -67,22 +67,13 @@
         <section class="hero" id="home">
             <div class="hero-bg-mesh"></div>
 
-            <!-- 👇 영상 추가 -->
-            <div class="hero-video-wrap">
-
                 <!-- 처음 1회 -->
-                <video class="hero-video-bg is-active" id="introVideo" autoplay muted playsinline preload="auto">
+                <video class="hero-video-bg is-active" id="introVideo" autoplay muted loop playsinline preload="auto">
 
                     <source src="video/design_2.mp4" type="video/mp4">
                 </video>
-
-                <!-- 루프 영상 -->
-                <video class="hero-video-bg" id="loopVideo" muted playsinline preload="auto" loop>
-
-                    <source src="video/design.mp4" type="video/mp4">
-                </video>
-
             </div>
+            
             <!-- 👇 오버레이 추가 -->
             <div class="hero-video-overlay"></div>
 
@@ -2271,39 +2262,6 @@
                 if (Math.abs(diff) > 40) go(diff > 0 ? 1 : -1);
             });
         })();
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const intro = document.getElementById("introVideo");
-            const loop = document.getElementById("loopVideo");
-
-            if (!intro || !loop) return;
-
-            // 미리 로드
-            loop.load();
-
-            intro.addEventListener("ended", async () => {
-
-                try {
-                    // 뒤에서 먼저 재생 시작
-                    await loop.play();
-
-                    // 부드럽게 전환
-                    loop.classList.add("is-active");
-
-                    setTimeout(() => {
-                        intro.classList.remove("is-active");
-                        intro.pause();
-                    }, 80);
-
-                } catch (e) {
-                    console.log(e);
-                }
-
-            });
-
-        });
     </script>
 </body>
 
