@@ -8271,3 +8271,57 @@ html {
   /* 기존 속성들 유지하고 아래 추가 */
   margin-bottom: 32px;   /* intro ↔ stats 간격 크게 */
 }
+
+
+
+
+
+/* ===================================
+   Portfolio 더보기
+=================================== */
+.portfolio-item--more {
+  display: none !important;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.portfolio-item--more.is-visible {
+  display: block !important;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.portfolio-more-wrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.portfolio-more-btn {
+  padding: 1.2rem 3rem;
+  font-size: 1.5rem;
+  font-weight: var(--font-bold);
+  color: #3b82f6;
+  border: 2px solid #3b82f6;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.portfolio-more-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.portfolio-more-btn.is-open {
+  color: #aaa;
+  border-color: #ddd;
+}
+
+.portfolio-more-btn.is-open:hover {
+  background: #f3f4f6;
+  color: #888;
+}

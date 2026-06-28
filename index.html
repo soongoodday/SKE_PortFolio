@@ -67,13 +67,13 @@
         <section class="hero" id="home">
             <div class="hero-bg-mesh"></div>
 
-                <!-- 처음 1회 -->
-                <video class="hero-video-bg is-active" id="introVideo" autoplay muted loop playsinline preload="auto">
+            <!-- 처음 1회 -->
+            <video class="hero-video-bg is-active" id="introVideo" autoplay muted loop playsinline preload="auto">
 
-                    <source src="video/design.mp4" type="video/mp4">
-                </video>
+                <source src="video/design.mp4" type="video/mp4">
+            </video>
             </div>
-            
+
             <!-- 👇 오버레이 추가 -->
             <div class="hero-video-overlay"></div>
 
@@ -1135,9 +1135,15 @@
                             </div>
                         </div>
                     </article>
+                    <!-- 더보기 버튼 -->
+                    <div class="portfolio-more-wrap" id="portfolioMoreWrap">
+                        <button class="portfolio-more-btn" id="portfolioMoreBtn" onclick="toggleMorePortfolio()">
+                            + 프로젝트 더 보기 (4)
+                        </button>
+                    </div>
 
                     <!-- Portfolio 6 -->
-                    <article class="portfolio-item">
+                    <article class="portfolio-item portfolio-item--more">
                         <div class="portfolio-header">
                             <div class="portfolio-number is-live">
                                 Portfolio 6 - 당근 서비스 UX 분석 & 리디자인
@@ -1246,7 +1252,7 @@
                     </article>
 
                     <!-- Portfolio 7 -->
-                    <article class="portfolio-item">
+                    <article class="portfolio-item portfolio-item--more">
                         <div class="portfolio-header">
                             <div class="portfolio-number">Portfolio 7</div>
                         </div>
@@ -1355,7 +1361,7 @@
 
 
                     <!-- Portfolio 8 -->
-                    <article class="portfolio-item">
+                    <article class="portfolio-item portfolio-item--more">
                         <div class="portfolio-header">
                             <div class="portfolio-number">Portfolio 8</div>
                         </div>
@@ -1465,7 +1471,7 @@
 
                     <!-- 더 많은 포트폴리오 아이템들이 여기에 추가됩니다 -->
                     <!-- Portfolio 9 -->
-                    <article class="portfolio-item">
+                    <article class="portfolio-item portfolio-item--more">
                         <div class="portfolio-header">
                             <div class="portfolio-number">Portfolio 9</div>
                         </div>
@@ -1857,7 +1863,7 @@
         });
     </script>
 
-    <script>
+    <!-- <script>
         gsap.timeline({
             scrollTrigger: {
                 trigger: ".hero",
@@ -2019,7 +2025,7 @@
                 },
                 0,
             );
-    </script>
+    </script> -->
 
     <script>
         window.addEventListener('load', () => {
@@ -2262,6 +2268,36 @@
                 if (Math.abs(diff) > 40) go(diff > 0 ? 1 : -1);
             });
         })();
+    </script>
+    <script>
+        function toggleMorePortfolio() {
+            const items = document.querySelectorAll('.portfolio-item--more');
+            const btn = document.getElementById('portfolioMoreBtn');
+            const wrap = document.getElementById('portfolioMoreWrap');
+            const isOpen = btn.classList.contains('is-open');
+
+            if (!isOpen) {
+                btn.textContent = '− 접기';
+                btn.classList.add('is-open');
+
+                items.forEach((item, i) => {
+                    setTimeout(() => {
+                        item.classList.add('is-visible');
+                    }, i * 150);
+                });
+
+            } else {
+                items.forEach(item => item.classList.remove('is-visible'));
+                btn.textContent = '+ 프로젝트 더 보기 (4)';
+                btn.classList.remove('is-open');
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    });
+                });
+            }
+        }
     </script>
 </body>
 
